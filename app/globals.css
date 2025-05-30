@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #00E6FF;
+  --accent: #ea580c;
+  --background: #ffffff;
+  --text: #1e40af;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e3a8a;
+    --text: #ffffff;
+  }
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(30,64,175,0.08) 0%, rgba(234,88,12,0.08) 100%);
+}
+
+.nav-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+  @apply bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md
+         transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0
+         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500
+         hover:shadow-lg hover:shadow-orange-600/30;
+}
+
+.btn-outline {
+  @apply border-2 border-orange-600 text-orange-600 hover:text-white hover:bg-orange-600
+         font-semibold px-6 py-3 rounded-md transition-all duration-300
+         transform hover:-translate-y-1 active:translate-y-0
+         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
+}
+
+.link-hover {
+  @apply relative transition-colors duration-300;
+}
+
+.link-hover::after {
+  @apply content-[''] absolute w-0 h-0.5 bg-orange-600 left-0 -bottom-1
+         transition-all duration-300;
+}
+
+.link-hover:hover::after {
+  @apply w-full;
+}
+
+.shadow-glow {
+  @apply transition-shadow duration-300;
+  box-shadow: 0 0 20px rgba(234,88,12,0.3);
+}
+
+.shadow-glow:hover {
+  box-shadow: 0 0 30px rgba(234,88,12,0.5);
+}
+
+[class*="motion-safe:"] {
+  @media (prefers-reduced-motion: no-preference) {
+    &:nth-child(1) { transition-delay: 0s; }
+    &:nth-child(2) { transition-delay: 0.1s; }
+    &:nth-child(3) { transition-delay: 0.2s; }
+    &:nth-child(4) { transition-delay: 0.3s; }
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  .hero-section {
+    @apply py-16;
+  }
+  
+  .section-padding {
+    @apply py-12;
+  }
+  
+  .btn-primary,
+  .btn-outline {
+    @apply w-full mb-2;
+  }
+}
