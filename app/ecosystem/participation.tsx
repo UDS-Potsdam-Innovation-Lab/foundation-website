@@ -33,7 +33,7 @@ export default function Participation() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-[#001B3F]">
+    <section className="py-20 card-blue-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Financial Support & Participation"

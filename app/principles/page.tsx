@@ -45,7 +45,7 @@ export default function Principles() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="p-8 rounded-xl bg-white dark:bg-[#002B5C] hover:shadow-glow transition-shadow duration-300"
+                className="p-8 rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
               >
                 <h2 className="text-2xl font-bold mb-4 gradient-text">{principle.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300">{principle.description}</p>

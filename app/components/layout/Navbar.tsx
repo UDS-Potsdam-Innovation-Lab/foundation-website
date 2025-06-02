@@ -101,8 +101,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'nav-blur bg-white/90 dark:bg-[#001B3F]/90 shadow-lg' : 'nav-blur bg-white/80 dark:bg-[#001B3F]/80'
+      className={`fixed w-full z-50 transition-all duration-300 nav-footer-gradient ${
+        scrolled ? 'nav-blur shadow-lg' : 'nav-blur'
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -136,7 +136,7 @@ const Navbar = () => {
                     <>
                       <Link 
                         href={item.href}
-                        className={`text-gray-700 dark:text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                        className={`text-body hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                           pathname.startsWith(item.href) ? 'text-accent border-b-2 border-accent' : ''
                         }`}
                         role="menuitem"
@@ -147,13 +147,13 @@ const Navbar = () => {
                         className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in"
                         role="menu"
                       >
-                        <div className="rounded-xl bg-white/95 dark:bg-[#002B5C]/95 shadow-lg ring-1 ring-black/5 backdrop-blur-sm overflow-hidden">
+                        <div className="rounded-xl nav-footer-gradient shadow-lg ring-1 ring-black/5 backdrop-blur-sm overflow-hidden">
                           {item.dropdownItems.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className={`block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#001B3F] transition-colors ${
-                                isActive(subItem.href) ? 'text-accent bg-gray-50 dark:bg-[#001B3F]' : ''
+                              className={`block px-4 py-3 text-sm text-body hover:bg-[#1e293b] transition-colors ${
+                                isActive(subItem.href) ? 'text-accent bg-[#1e293b]' : ''
                               }`}
                               role="menuitem"
                               onClick={(e) => handleAnchorClick(e, subItem.href)}
@@ -167,7 +167,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-gray-700 dark:text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      className={`text-body hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                         isActive(item.href) ? 'text-accent border-b-2 border-accent' : ''
                       }`}
                       role="menuitem"
@@ -218,7 +218,7 @@ const Navbar = () => {
                     <>
                       <Link
                         href={item.href}
-                        className={`block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 border-l-4 ${
+                        className={`block px-3 py-2 text-base font-medium text-body border-l-4 ${
                           pathname.startsWith(item.href) ? 'border-accent' : 'border-transparent'
                         }`}
                         onClick={() => setIsOpen(false)}
@@ -230,7 +230,7 @@ const Navbar = () => {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className={`block px-3 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
+                            className={`block px-3 py-2 text-base text-body hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
                               isActive(subItem.href) ? 'text-accent bg-gray-50 dark:bg-[#002B5C]' : ''
                             }`}
                             onClick={(e) => {
@@ -247,7 +247,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`block px-3 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
+                      className={`block px-3 py-2 text-base text-body hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
                         isActive(item.href) ? 'text-accent bg-gray-50 dark:bg-[#002B5C]' : ''
                       }`}
                       onClick={() => setIsOpen(false)}

@@ -48,7 +48,7 @@ export default function GetInvolved() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="overflow-hidden rounded-xl bg-white dark:bg-[#002B5C] hover:shadow-glow transition-shadow duration-300"
+                className="overflow-hidden rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
               >
                 <div className="relative h-48">
                   <img
@@ -59,7 +59,7 @@ export default function GetInvolved() {
                 </div>
                 <div className="p-8">
                   <h2 className="text-2xl font-bold mb-4 gradient-text">{way.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{way.description}</p>
+                  <p className="text-body mb-4">{way.description}</p>
                   <button className="btn-primary px-6 py-2 rounded-full text-sm font-medium">
                     Learn More
                   </button>
@@ -72,10 +72,10 @@ export default function GetInvolved() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-center p-8 rounded-xl bg-white dark:bg-[#002B5C]"
+            className="text-center p-8 rounded-xl card-blue-gradient text-white"
           >
             <h2 className="text-2xl font-bold mb-4 gradient-text">Tax Benefits</h2>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-body">
               Your support is tax-deductible. As a registered non-profit organization, we provide all necessary documentation for tax purposes.
             </p>
           </motion.div>

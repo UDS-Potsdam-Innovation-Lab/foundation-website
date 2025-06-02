@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900">
+    <footer className="nav-footer-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -38,7 +38,7 @@ const Footer = () => {
               alt="German University of Digital Science Foundation"
               className="h-10 w-auto mb-4"
             />
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-body">
               Shaping the future of digital education and innovation.
             </p>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                   <li key={linkIndex}>
                     <a
                       href={link.href}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary"
+                      className="text-sm text-body hover:text-primary"
                     >
                       {link.name}
                     </a>
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
-          <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-center text-body">
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
         </div>

@@ -25,7 +25,7 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="bg-white dark:bg-[#002B5C] p-8 rounded-xl">
+              <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Address</h2>
                 <p className="text-gray-600 dark:text-gray-300">
                   German UDS Foundation<br />
@@ -35,7 +35,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-[#002B5C] p-8 rounded-xl">
+              <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Contact Details</h2>
                 <div className="space-y-4">
                   <p className="text-gray-600 dark:text-gray-300">
@@ -51,7 +51,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-[#002B5C] p-8 rounded-xl">
+              <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Donation Details</h2>
                 <div className="space-y-2">
                   <p className="text-gray-600 dark:text-gray-300">

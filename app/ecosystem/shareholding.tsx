@@ -58,13 +58,13 @@ export default function Shareholding() {
           {shares.map((share, index) => (
             <div
               key={index}
-              className="bg-gray-50 dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+              className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
             >
               <div className={`w-16 h-16 mb-4 rounded-full bg-gradient-to-br ${share.color} flex items-center justify-center text-white text-xl font-bold`}>
                 {share.percentage}%
               </div>
               <h3 className="text-xl font-bold mb-2 gradient-text">{share.holder}</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-body">
                 Representing {share.percentage}% of total shareholding
               </p>
             </div>

@@ -33,7 +33,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl font-bold mb-6 gradient-text">About Us</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-body max-w-3xl mx-auto">
               Promoting digital transformation and equal opportunity through lifelong digital skills
             </p>
           </motion.div>
@@ -61,14 +61,14 @@ export default function About() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.2 }}
-                  className="flex items-start space-x-4 bg-white dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+                  className="flex items-start space-x-4 card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-xl">
                     {index + 1}
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 gradient-text">{statement.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{statement.description}</p>
+                    <p className="text-body">{statement.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -77,7 +77,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-white dark:bg-[#001B3F]">
+      <section className="py-20 card-blue-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -110,10 +110,10 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
-                  className="p-6 rounded-xl bg-gray-50 dark:bg-[#002B5C] hover:shadow-glow transition-shadow duration-300"
+                  className="p-6 rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
                 >
                   <h3 className="text-xl font-semibold mb-3 gradient-text">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                  <p className="text-body">{item.description}</p>
                 </motion.div>
               ))}
             </div>

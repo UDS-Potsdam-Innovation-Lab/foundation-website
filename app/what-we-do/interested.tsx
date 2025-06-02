@@ -43,7 +43,7 @@ export default function Interested() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="bg-gray-50 dark:bg-[#002B5C] p-8 rounded-xl hover:shadow-glow transition-all duration-300"
+              className="card-blue-gradient p-8 rounded-xl text-white hover:shadow-glow transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <span className="text-3xl mr-3" role="img" aria-label={section.title}>
@@ -55,7 +55,7 @@ export default function Interested() {
               <div className="space-y-4">
                 {section.items.map((item, itemIndex) => (
                   <div key={itemIndex} className="space-y-1">
-                    <p className="text-gray-600 dark:text-gray-300 font-semibold">
+                    <p className="text-body font-semibold">
                       {item.label}:
                     </p>
                     {item.isEmail ? (
@@ -67,12 +67,12 @@ export default function Interested() {
                       </a>
                     ) : item.isMultiline ? (
                       item.value.split('\n').map((line, lineIndex) => (
-                        <p key={lineIndex} className="text-gray-600 dark:text-gray-300">
+                        <p key={lineIndex} className="text-body">
                           {line}
                         </p>
                       ))
                     ) : (
-                      <p className="text-gray-600 dark:text-gray-300">{item.value}</p>
+                      <p className="text-body">{item.value}</p>
                     )}
                   </div>
                 ))}

@@ -5,7 +5,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 
 export default function FoundationWants() {
   return (
-    <section className="py-20 bg-white dark:bg-[#001B3F]">
+    <section className="py-20 card-blue-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="What the Foundation Wants"
@@ -32,7 +32,7 @@ export default function FoundationWants() {
           transition={{ duration: 0.8 }}
           className="mt-12 text-center"
         >
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-body max-w-3xl mx-auto">
             We are committed to creating an inclusive digital education ecosystem that empowers individuals and institutions to thrive in the digital age.
           </p>
         </motion.div>

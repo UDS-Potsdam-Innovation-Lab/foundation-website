@@ -57,7 +57,7 @@ export default function SupportUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+              className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
             >
               <div className="flex items-center mb-4">
                 <span className="text-3xl mr-3" role="img" aria-label={method.title}>
@@ -65,8 +65,8 @@ export default function SupportUs() {
                 </span>
                 <h3 className="text-xl font-bold gradient-text">{method.title}</h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{method.description}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{method.details}</p>
+              <p className="text-body mb-4">{method.description}</p>
+              <p className="text-body text-sm">{method.details}</p>
             </motion.div>
           ))}
         </div>
@@ -75,29 +75,29 @@ export default function SupportUs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white dark:bg-[#002B5C] p-8 rounded-xl"
+          className="card-blue-gradient p-8 rounded-xl text-white"
         >
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mb-6">
               <span className="text-3xl" role="img" aria-label="Tax Benefits">✔️</span>
             </div>
             <h3 className="text-2xl font-bold mb-4 gradient-text">Tax Benefits</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-body mb-8">
               As a registered non-profit organization, all donations to the German UDS Foundation are tax-deductible. 
               We provide comprehensive documentation for tax purposes, ensuring your contribution is properly recognized.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              <div className="p-4 bg-gray-50 dark:bg-[#001B3F] rounded-lg">
+              <div className="p-4 card-blue-gradient text-white rounded-lg">
                 <h4 className="font-semibold mb-2 text-gray-700 dark:text-gray-300">IBAN</h4>
-                <p className="text-gray-600 dark:text-gray-400">DE92 1009 0900 1744 3596 00</p>
+                <p className="text-body">DE92 1009 0900 1744 3596 00</p>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-[#001B3F] rounded-lg">
+              <div className="p-4 card-blue-gradient text-white rounded-lg">
                 <h4 className="font-semibold mb-2 text-gray-700 dark:text-gray-300">BIC</h4>
-                <p className="text-gray-600 dark:text-gray-400">GENODEF1P01</p>
+                <p className="text-body">GENODEF1P01</p>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-[#001B3F] rounded-lg">
+              <div className="p-4 card-blue-gradient text-white rounded-lg">
                 <h4 className="font-semibold mb-2 text-gray-700 dark:text-gray-300">Bank</h4>
-                <p className="text-gray-600 dark:text-gray-400">PSD Bank Berlin-Brandenburg eG</p>
+                <p className="text-body">PSD Bank Berlin-Brandenburg eG</p>
               </div>
             </div>
           </div>

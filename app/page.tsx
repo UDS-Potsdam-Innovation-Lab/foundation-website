@@ -6,37 +6,36 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center hero-section hero-gradient relative overflow-hidden">
         <ParticlesBackground />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-highlight">
               Creating the digital future with social responsibility
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-xl md:text-2xl text-body mb-8">
               Join us in shaping a globally inclusive and technologically advanced education system
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/about"
-                className="btn-primary px-8 py-3 rounded-full text-sm font-medium"
+                className="btn-primary"
               >
                 Learn More
               </a>
               <a
                 href="/get-involved"
-                className="btn-primary px-8 py-3 rounded-full text-sm font-medium"
+                className="btn-primary"
               >
                 Support Us
               </a>
               <a
                 href="/contact"
-                className="btn-outline px-8 py-3 rounded-full text-sm font-medium"
+                className="btn-outline"
               >
                 Contact
               </a>
@@ -46,7 +45,7 @@ export default function Home() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 bg-white dark:bg-[#001B3F]">
+      <section className="py-20 card-blue-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +54,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-bold mb-4 gradient-text">Our Vision</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-blue-100">
               Digital science as an integral part of research and society
             </p>
           </motion.div>
@@ -84,10 +83,10 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="p-6 rounded-xl bg-gray-50 dark:bg-[#002B5C] hover:shadow-glow transition-shadow duration-300"
+                className="p-6 rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
               >
                 <h3 className="text-xl font-semibold mb-3 gradient-text">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                <p className="text-blue-100">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -95,11 +94,11 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50 dark:bg-[#002B5C]">
+      <section className="py-20 card-blue-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-4 gradient-text">Ready to Shape the Future?</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-xl text-blue-100 mb-8">
               Join us in our mission to transform digital education
             </p>
             <a

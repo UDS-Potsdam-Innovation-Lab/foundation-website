@@ -55,7 +55,7 @@ export default function GermanUDSOverview() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-white dark:bg-[#002B5C] rounded-xl p-6 border border-gray-100 dark:border-gray-800 hover:shadow-glow transition-all duration-300"
+                className="card-blue-gradient rounded-xl p-6 text-white border border-gray-100 dark:border-gray-800 hover:shadow-glow transition-all duration-300"
               >
                 <div className="text-4xl mb-4" role="img" aria-label={entity.title}>
                   {entity.icon}

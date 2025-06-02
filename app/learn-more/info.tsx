@@ -57,7 +57,7 @@ export default function Info() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gray-50 dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+              className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
@@ -67,8 +67,8 @@ export default function Info() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 gradient-text">{fact.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2">{fact.description}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{fact.details}</p>
+                  <p className="text-body mb-2">{fact.description}</p>
+                  <p className="text-body text-sm">{fact.details}</p>
                 </div>
               </div>
             </motion.div>

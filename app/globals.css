@@ -7,8 +7,11 @@
   --primary-dark: #1e3a8a;
   --secondary: #00E6FF;
   --accent: #ea580c;
-  --background: #ffffff;
-  --text: #1e40af;
+  --background: #0f172a;
+  --text-body: #fff;
+  --text-heading: #e0f2fe;
+  --text-highlight: #a5f3fc;
+  --text-secondary: #94a3b8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,11 +22,16 @@
 }
 
 body {
-  color: var(--text);
+  color: var(--text-body);
   background: var(--background);
   font-family: 'Inter', sans-serif;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
+  line-height: 1.7;
+}
+
+.text-body {
+  color: var(--text-body);
 }
 
 .gradient-text {
@@ -109,4 +117,20 @@ body {
   .btn-outline {
     @apply w-full mb-2;
   }
+}
+
+/* Bluish gradient for Navbar and Footer */
+.nav-footer-gradient {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+}
+
+/* Modern, high-tech blueish gradient for full page background */
+.page-blue-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #3b82f6 80%, #06b6d4 100%);
+  background-attachment: fixed;
+}
+
+/* Blueish gradient for cards and sections */
+.card-blue-gradient {
+  background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
 }

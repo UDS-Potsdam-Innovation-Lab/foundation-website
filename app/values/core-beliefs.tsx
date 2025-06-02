@@ -77,8 +77,7 @@ export default function CoreBeliefs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="bg-white dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow 
-                         transform transition-all duration-300"
+                className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transform transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
                   <span className="text-3xl mr-3" role="img" aria-label={belief.title}>
@@ -86,8 +85,8 @@ export default function CoreBeliefs() {
                   </span>
                   <h3 className="text-xl font-bold gradient-text">{belief.title}</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{belief.description}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{belief.details}</p>
+                <p className="text-body mb-4">{belief.description}</p>
+                <p className="text-body text-sm">{belief.details}</p>
               </motion.div>
             ))}
           </div>

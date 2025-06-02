@@ -46,7 +46,7 @@ export default function Purpose() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="group relative overflow-hidden rounded-xl bg-white dark:bg-[#002B5C] hover:shadow-glow transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl card-blue-gradient text-white hover:shadow-glow transition-all duration-300"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${purpose.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                 <div className="relative p-8">
