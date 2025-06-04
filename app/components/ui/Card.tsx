@@ -19,7 +19,7 @@ const Card = ({ title, children, icon, className = '', delay = 0 }: CardProps) =
     >
       {icon && <div className="text-accent mb-4">{icon}</div>}
       <h3 className="text-xl font-bold mb-4 gradient-text">{title}</h3>
-      <div className="text-gray-600 dark:text-gray-300">{children}</div>
+      <div className="text-body">{children}</div>
     </motion.div>
   );
 };

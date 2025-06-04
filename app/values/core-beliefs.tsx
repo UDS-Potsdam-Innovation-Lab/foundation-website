@@ -62,7 +62,7 @@ export default function CoreBeliefs() {
 
   return (
     <main className="pt-24">
-      <section className="py-20 bg-gradient-to-br from-blue-50/50 to-orange-50/50 dark:from-[#001B3F] dark:to-[#002B5C]">
+      <section className="py-20 card-blue-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle 
             title="Core Beliefs"

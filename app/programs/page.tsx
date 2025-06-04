@@ -48,7 +48,7 @@ export default function Programs() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="overflow-hidden rounded-xl bg-white dark:bg-[#002B5C] hover:shadow-glow transition-shadow duration-300"
+                className="overflow-hidden rounded-xl card-blue-gradient text-body hover:shadow-glow transition-shadow duration-300"
               >
                 <div className="relative h-48">
                   <img
@@ -59,7 +59,7 @@ export default function Programs() {
                 </div>
                 <div className="p-8">
                   <h2 className="text-2xl font-bold mb-4 gradient-text">{program.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-300">{program.description}</p>
+                  <p className="text-body">{program.description}</p>
                 </div>
               </motion.div>
             ))}

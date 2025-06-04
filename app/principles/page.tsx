@@ -32,7 +32,7 @@ export default function Principles() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl font-bold mb-6 gradient-text">Guiding Principles</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               Our foundation is built on core principles that guide our mission to transform
               digital education and research
             </p>
@@ -48,7 +48,7 @@ export default function Principles() {
                 className="p-8 rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
               >
                 <h2 className="text-2xl font-bold mb-4 gradient-text">{principle.title}</h2>
-                <p className="text-gray-600 dark:text-gray-300">{principle.description}</p>
+                <p className="text-body">{principle.description}</p>
               </motion.div>
             ))}
           </div>

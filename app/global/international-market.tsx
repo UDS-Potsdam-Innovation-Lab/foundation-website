@@ -64,9 +64,9 @@ export default function InternationalMarket() {
                 }}
                 className={`absolute ${stat.position} transform -translate-x-1/2 -translate-y-1/2`}
               >
-                <div className="bg-white/90 dark:bg-[#002B5C]/90 p-4 rounded-xl shadow-lg backdrop-blur-sm">
+                <div className="card-blue-gradient p-4 rounded-xl shadow-lg backdrop-blur-sm">
                   <h3 className="text-lg font-bold gradient-text mb-1">{stat.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{stat.description}</p>
+                  <p className="text-sm text-body">{stat.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -80,7 +80,7 @@ export default function InternationalMarket() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-[#002B5C] p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+              className="card-blue-gradient p-6 rounded-xl text-body hover:shadow-glow transition-all duration-300"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
@@ -88,7 +88,7 @@ export default function InternationalMarket() {
                 </div>
                 <h3 className="ml-4 text-xl font-bold gradient-text">{stat.title}</h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-300">{stat.description}</p>
+              <p className="text-body">{stat.description}</p>
             </motion.div>
           ))}
         </div>
