@@ -49,12 +49,11 @@ export default function GuidingPrinciples() {
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
-                className="bg-white dark:bg-[#002B5C] p-6 rounded-xl shadow-lg hover:shadow-glow 
-                         transform transition-all duration-300"
+                className="card-blue-gradient p-6 rounded-xl shadow-lg hover:shadow-glow transform transition-all duration-300"
               >
                 <div className="text-4xl mb-4">{principle.icon}</div>
                 <h3 className="text-xl font-bold mb-3 gradient-text">{principle.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{principle.description}</p>
+                <p className="text-body">{principle.description}</p>
               </motion.div>
             ))}
           </div>

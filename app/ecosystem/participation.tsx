@@ -40,55 +40,48 @@ export default function Participation() {
           subtitle="Join us in shaping the future of digital education through various investment options"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-xl overflow-hidden shadow-lg"
-          >
-            <Image
-              src="/shares.png"
-              alt="Investment and Participation Opportunities"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
+        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-12">
+          <Image
+            src="/shares.png"
+            alt="Investment and Participation Opportunities"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
 
-          <div className="space-y-6">
-            {financialOptions.map((option, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="group bg-gray-50 dark:bg-[#002B5C] rounded-xl p-6 hover:shadow-glow transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
-                    {option.number}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 gradient-text">{option.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-2">{option.description}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{option.details}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-
+        <div className="space-y-6">
+          {financialOptions.map((option, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex justify-center mt-8"
+              key={index}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="group card-blue-gradient rounded-xl p-6 hover:shadow-glow transition-all duration-300"
             >
-              <Button href="/contact" variant="primary">
-                Contact Us to Learn More
-              </Button>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
+                  {option.number}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 gradient-text">{option.title}</h3>
+                  <p className="text-body mb-2">{option.description}</p>
+                  <p className="text-sm text-body">{option.details}</p>
+                </div>
+              </div>
             </motion.div>
-          </div>
+          ))}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="flex justify-center mt-8"
+          >
+            <Button href="/contact" variant="primary">
+              Contact Us to Learn More
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -13,7 +13,7 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl font-bold mb-6 gradient-text">Contact Us</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               Get in touch with us to learn more about our mission and how you can contribute
             </p>
           </motion.div>
@@ -27,7 +27,7 @@ export default function Contact() {
             >
               <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Address</h2>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-body">
                   German UDS Foundation<br />
                   Marlene-Dietrich-Allee 14<br />
                   14482 Potsdam<br />
@@ -38,13 +38,13 @@ export default function Contact() {
               <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Contact Details</h2>
                 <div className="space-y-4">
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-body">
                     <strong>Email:</strong><br />
                     <a href="mailto:office@foundation.german-uds.de" className="text-accent hover:text-secondary">
                       office@foundation.german-uds.de
                     </a>
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-body">
                     <strong>Phone:</strong><br />
                     +49 331 968 920 – 20
                   </p>
@@ -54,11 +54,11 @@ export default function Contact() {
               <div className="card-blue-gradient p-8 rounded-xl text-white">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">Donation Details</h2>
                 <div className="space-y-2">
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-body">
                     <strong>IBAN:</strong><br />
                     DE92 1009 0900 1744 3596 00
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-body">
                     <strong>BIC:</strong><br />
                     GENODEF1P01
                   </p>
@@ -82,7 +82,7 @@ export default function Contact() {
                   title="German UDS Foundation Location"
                 ></iframe>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+              <p className="text-sm text-body text-center">
                 Map data ©2025 Google
               </p>
             </motion.div>

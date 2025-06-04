@@ -61,14 +61,14 @@ export default function GermanUDSOverview() {
                   {entity.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4 gradient-text">{entity.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-body mb-6">
                   {entity.description}
                 </p>
                 <ul className="space-y-2">
                   {entity.details.map((detail, detailIndex) => (
                     <li
                       key={detailIndex}
-                      className="flex items-center text-gray-600 dark:text-gray-300"
+                      className="flex items-center text-body"
                     >
                       <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>
                       {detail}

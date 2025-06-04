@@ -56,7 +56,7 @@ export default function Purpose() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-3 gradient-text">{purpose.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4">{purpose.description}</p>
+                      <p className="text-body mb-4">{purpose.description}</p>
                       <a
                         href={purpose.link}
                         target={purpose.link.startsWith('http') ? '_blank' : '_self'}
