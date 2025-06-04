@@ -15,7 +15,7 @@ export default function FoundationWants() {
         <div className="w-full max-w-4xl mx-auto">
           <div className="relative aspect-[16/9] w-full">
             <Image
-              src="/foundation_wants.png"
+              src="/foundation-website/foundation_wants.png"
               alt="Foundation Goals Illustration"
               fill
               className="object-contain"

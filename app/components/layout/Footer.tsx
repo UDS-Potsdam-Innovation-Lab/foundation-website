@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img
-              src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
+              src="/foundation-website/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
               alt="German University of Digital Science Foundation"
               className="h-10 w-auto mb-4"
             />

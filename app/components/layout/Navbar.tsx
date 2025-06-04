@@ -111,7 +111,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex-shrink-0" aria-label="Home">
             <Image
-              src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
+              src="/foundation-website/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
               alt="German University of Digital Science Foundation"
               width={180}
               height={40}
@@ -119,7 +119,7 @@ const Navbar = () => {
               priority
             />
             <Image
-              src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
+              src="/foundation-website/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
               alt="German University of Digital Science Foundation"
               width={180}
               height={40}

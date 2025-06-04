@@ -46,7 +46,7 @@ export default function About() {
               className="relative h-[500px] rounded-xl overflow-hidden"
             >
               <Image
-                src="/why_foundation.png"
+                src="/foundation-website/why_foundation.png"
                 alt="Why the Foundation Exists"
                 fill
                 className="object-contain"
