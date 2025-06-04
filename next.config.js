@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/foundation-website',
+  assetPrefix: '/foundation-website/',
+  trailingSlash: true,
   async headers() {
     return [
       {
