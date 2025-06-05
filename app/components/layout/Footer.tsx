@@ -1,3 +1,5 @@
+import Link from 'next/link';
+// This is the ONLY Footer component to be used. Do not use app/components/Footer.tsx.
 const Footer = () => {
   const footerLinks = [
     {
@@ -38,7 +40,7 @@ const Footer = () => {
               alt="German University of Digital Science Foundation"
               className="h-10 w-auto mb-4"
             />
-            <p className="text-sm text-body">
+            <p className="text-sm text-white">
               Shaping the future of digital education and innovation.
             </p>
           </div>
@@ -49,12 +51,15 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-body hover:text-primary"
-                    >
-                      {link.name}
-                    </a>
+                    {link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
+                      <a href={link.href} className="text-sm text-body hover:text-primary">
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-sm text-body hover:text-primary">
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

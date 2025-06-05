@@ -4,6 +4,9 @@ const nextConfig = {
   basePath: '/foundation-website',
   assetPrefix: '/foundation-website/',
   trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {
