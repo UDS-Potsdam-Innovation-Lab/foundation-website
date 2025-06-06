@@ -52,11 +52,11 @@ const Footer = () => {
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     {link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
-                      <a href={link.href} className="text-sm text-body hover:text-primary">
+                      <a href={link.href} className="text-sm text-body hover:text-accent">
                         {link.name}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-sm text-body hover:text-primary">
+                      <Link href={link.href} className="text-sm text-body hover:text-accent">
                         {link.name}
                       </Link>
                     )}

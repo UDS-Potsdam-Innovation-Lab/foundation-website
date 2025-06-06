@@ -36,7 +36,7 @@ export default function GetInvolved() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl font-bold mb-6 gradient-text">Get Involved</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               Join us in our mission to transform digital education and create lasting impact
             </p>
           </motion.div>
