@@ -40,6 +40,7 @@ jobs:
         run: pnpm run build
         env:
           GITHUB_PAGES: true
+          CUSTOM_DOMAIN: true
           NEXT_PUBLIC_SITE_URL: https://foundation.german-uds.de
 
       - name: Upload artifact
