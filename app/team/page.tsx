@@ -8,28 +8,28 @@ export default function Team() {
       name: 'Prof. Dr. Mike Friedrichsen',
       title: 'Chairman',
       email: 'mike.friedrichsen@german-uds.de',
-      image: '/foundation-website/mike_f.jpg',
+      image: '/mike_f.jpg',
       bio: 'Mike Friedrichsen was a professor of Business Informatics and Digital Media at Stuttgart Media University for 25 years and is a founding trustee of the German UDS Foundation. Starting in 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university\'s operating company, German UDS gGmbH.'
     },
     {
       name: 'Prof. Dr. Christoph Meinel',
       title: 'Representative',
       email: 'christoph.meinel@german-uds.de',
-      image: '/foundation-website/ch_m.jpg',
+      image: '/ch_m.jpg',
       bio: 'Christoph Meinel was Managing Director and CEO of the Hasso Plattner Institute for Digital Engineering (HPI) at the University of Potsdam from 2004 to 2023. He is Professor Emeritus (C4) of Computer Science at the University of Potsdam and held the Chair of Internet Technologies and Systems at HPI. In 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university\'s operating company, German UDS gGmbH.'
     },
     {
       name: 'Syster Friedrichsen',
       title: 'Deputy Chairwoman',
       email: 'syster.friedrichsen@foundation.german-uds.de',
-      image: '/foundation-website/syster_f.jpg',
+      image: '/syster_f.jpg',
       bio: 'Syster Friedrichsen is Managing Partner of ditcom GmbH. Previously, she held various managing director positions in companies within the communications industry. She studied Communication Science and Geography at Johannes Gutenberg University Mainz and Freie Universität Berlin, earning a Magistra Artium degree.'
     },
     {
       name: 'Wulf Wersig',
       title: 'Deputy Chairman',
       email: 'wulf.wersig@foundation.german-uds.de',
-      image: '/foundation-website/wulf_w.jpg',
+      image: '/wulf_w.jpg',
       bio: 'Wulf Wersig was Headmaster and Managing Director of the Regional Vocational Education and Training Center for Business in the state capital Kiel until 2016—an institution awarded the German School Prize in 2014. After studying Economics and Business Education in Kiel and Berlin, he witnessed the digital transformation from its early days and actively implemented it in his professional environment. From 2017 to 2023, he served as Managing Director of the operating company German UDS gGmbH.'
     }
   ];

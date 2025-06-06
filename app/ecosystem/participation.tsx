@@ -42,7 +42,7 @@ export default function Participation() {
 
         <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-12">
           <Image
-            src="/foundation-website/shares.png"
+            src="/shares.png"
             alt="Investment and Participation Opportunities"
             fill
             className="object-contain"
