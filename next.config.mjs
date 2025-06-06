@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  assetPrefix: '.',
+  assetPrefix: '/foundation-website',
   basePath: '',
   trailingSlash: true,
   images: {

@@ -38,7 +38,7 @@ export default function Shareholding() {
             className="relative aspect-[16/9] w-full"
           >
             <Image
-              src="/foundation-website/shareholding_structures.png"
+              src="/shareholding_structures.png"
               alt="Shareholding Structure"
               fill
               className="object-contain"

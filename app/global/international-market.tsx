@@ -43,7 +43,7 @@ export default function InternationalMarket() {
           <div className="absolute inset-0 rounded-xl overflow-hidden">
             <div className="relative w-full h-full">
               <Image
-                src="/foundation-website/international_market.png"
+                src="/international_market.png"
                 alt="Global Market Presence"
                 fill
                 className="object-contain"
