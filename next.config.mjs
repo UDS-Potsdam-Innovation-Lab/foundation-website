@@ -1,12 +1,8 @@
-const isGithubPages = process.env.GITHUB_PAGES === 'true';
-const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true';
-const repo = 'foundation-website';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  assetPrefix: isGithubPages && !isCustomDomain ? `/${repo}/` : '',
-  basePath: isGithubPages && !isCustomDomain ? `/${repo}` : '',
+  assetPrefix: '.',
+  basePath: '',
   trailingSlash: true,
   images: {
     unoptimized: true,
