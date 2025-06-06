@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/foundation-website/favicon.png" type="image/png" />
+      </head>
       <body className={`${inter.className} page-blue-gradient`}>
         <Navbar />
         {children}

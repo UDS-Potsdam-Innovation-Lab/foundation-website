@@ -1,8 +1,11 @@
+const isGithubPages = process.env.GITHUB_PAGES === 'true';
+const repo = 'foundation-website'; 
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/foundation-website',
-  assetPrefix: '/foundation-website/',
+  assetPrefix: isGithubPages ? `/${repo}/` : '',
+  basePath: isGithubPages ? `/${repo}` : '',
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -22,4 +25,4 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+export default nextConfig;
