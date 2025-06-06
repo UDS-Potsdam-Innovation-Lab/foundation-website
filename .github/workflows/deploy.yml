@@ -36,10 +36,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build and export static site
-        run: |
-          pnpm run build
-          pnpm run export
+      - name: Build static site
+        run: pnpm run build
         env:
           GITHUB_PAGES: true
           NEXT_PUBLIC_SITE_URL: https://foundation.german-uds.de
