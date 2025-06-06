@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   output: 'export',
-  assetPrefix: '/foundation-website',
+  assetPrefix: '',
   basePath: '',
   trailingSlash: true,
   images: {
@@ -21,5 +21,3 @@ const nextConfig = {
     ];
   }
 };
-
-export default nextConfig;
