@@ -67,10 +67,15 @@ const Footer = () => {
           ))}
         </div>
         
-        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-center text-body">
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm text-body hover:text-accent">Privacy Policy</Link>
+            <span className="text-body">|</span>
+            <Link href="/imprint" className="text-sm text-body hover:text-accent">Imprint</Link>
+          </div>
         </div>
       </div>
     </footer>
