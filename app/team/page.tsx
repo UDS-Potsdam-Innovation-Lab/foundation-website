@@ -110,7 +110,7 @@ export default function Team() {
                           onClick={() => handleFlip(index, true)}
                           aria-label={`Show video intro for ${member.name}`}
                         >
-                          Video Intro
+                          Quick Intro
                         </button>
                       )}
                     </div>
