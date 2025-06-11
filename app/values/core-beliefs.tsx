@@ -77,10 +77,10 @@ export default function CoreBeliefs() {
           </div>
           */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Mike Video Card */}
-            <div className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center">
-              <h3 className="text-xl font-bold gradient-text mb-4">Prof. Dr. Mike Friedrichsen</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+            {/* First row: Mike and Syster */}
+            <div className="card-blue-gradient p-8 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center w-full md:max-w-2xl xl:max-w-3xl">
+              <h3 className="text-2xl font-bold gradient-text mb-6">Prof. Dr. Mike Friedrichsen</h3>
               <div className="relative w-full mb-4 rounded-lg overflow-hidden shadow-lg" style={{ paddingTop: '56.25%' }}>
                 <iframe
                   src="https://player.vimeo.com/video/1092448503?badge=0&autopause=0&player_id=0&app_id=58479"
@@ -92,9 +92,8 @@ export default function CoreBeliefs() {
                 ></iframe>
               </div>
             </div>
-            {/* Syster Video Card */}
-            <div className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center">
-              <h3 className="text-xl font-bold gradient-text mb-4">Syster Friedrichsen</h3>
+            <div className="card-blue-gradient p-8 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center w-full md:max-w-2xl xl:max-w-3xl">
+              <h3 className="text-2xl font-bold gradient-text mb-6">Syster Friedrichsen</h3>
               <div className="relative w-full mb-4 rounded-lg overflow-hidden shadow-lg" style={{ paddingTop: '56.25%' }}>
                 <iframe
                   src="https://player.vimeo.com/video/1092448821?badge=0&autopause=0&player_id=0&app_id=58479/embed"
@@ -106,9 +105,9 @@ export default function CoreBeliefs() {
                 ></iframe>
               </div>
             </div>
-            {/* Wulf Video Card */}
-            <div className="card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center">
-              <h3 className="text-xl font-bold gradient-text mb-4">Wulf Wersig</h3>
+            {/* Second row: Wulf centered */}
+            <div className="card-blue-gradient p-8 rounded-xl text-white hover:shadow-glow transform transition-all duration-300 flex flex-col items-center w-full md:col-span-2 md:max-w-2xl xl:max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold gradient-text mb-6">Wulf Wersig</h3>
               <div className="relative w-full mb-4 rounded-lg overflow-hidden shadow-lg" style={{ paddingTop: '56.25%' }}>
                 <iframe
                   src="https://player.vimeo.com/video/1092449114?badge=0&autopause=0&player_id=0&app_id=58479"
