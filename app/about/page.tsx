@@ -30,26 +30,28 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-16 hover:hue-rotate-15 transition duration-700"
           >
             <h1 className="text-4xl font-bold mb-6 gradient-text">About Us</h1>
-            <p className="text-body max-w-3xl mx-auto">
-              Promoting digital transformation and equal opportunity through lifelong digital skills
+            <p className="text-body max-w-3xl mx-auto mt-6 text-orange-200">
+              <strong>The German UDS Foundation GmbH</strong> supports the German University of Digital Science by
+              funding innovative education and research in digital science. Our mission is to promote digital
+              transformation, integrate digital skills into society, and shape an inclusive, future-ready digital world.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative h-[500px] rounded-xl overflow-hidden"
+              className="relative w-full h-[500px] rounded-xl overflow-hidden"
             >
               <Image
-                src="/why_foundation.png"
-                alt="Why the Foundation Exists"
+                src="/Picture1.jpg"
+                alt="Team Member Photo"
                 fill
-                className="object-contain"
+                className="object-cover"
                 priority
               />
             </motion.div>
@@ -58,8 +60,8 @@ export default function About() {
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
                   className="flex items-start space-x-4 card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
                 >
@@ -86,6 +88,9 @@ export default function About() {
             className="text-center"
           >
             <h2 className="text-3xl font-bold mb-12 gradient-text">Why the Foundation Exists</h2>
+            <p className="text-body max-w-3xl mx-auto mb-12 text-orange-400">
+              Promoting digital transformation and equal opportunity through lifelong digital skills
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
