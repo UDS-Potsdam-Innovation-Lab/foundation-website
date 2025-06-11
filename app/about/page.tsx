@@ -40,35 +40,35 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-[500px] rounded-xl overflow-hidden"
+              className="relative w-full h-full min-h-[650px] rounded-xl overflow-hidden"
             >
               <Image
-                src="/Picture1.jpg"
+                src="/why_foundation.png"
                 alt="Team Member Photo"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </motion.div>
 
-            <div className="space-y-8">
+            <div className="flex flex-col justify-center space-y-8">
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
-                  className="flex items-start space-x-4 card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
+                  className="flex items-center text-left card-blue-gradient p-6 rounded-xl text-white hover:shadow-glow transition-all duration-300"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-xl">
+                  <div className="text-4xl font-bold text-white w-16 h-16 flex items-center justify-center mr-4 hover:hue-rotate-15 transition duration-500">
                     {index + 1}
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold mb-2 gradient-text">{statement.title}</h3>
                     <p className="text-body">{statement.description}</p>
                   </div>
