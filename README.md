@@ -106,7 +106,7 @@ For questions and collaboration:
 - Jan Renz: `jan.renz@german-uds.de`
 - Partha Das: `partha.das@german-uds.de`
 - Manoj Bevoor: `manoj.bevoor@german-uds.de`
-- Website: [www.foundation.german-uds.de](https://www.foundation.german-uds.de)
+
 
 ---
 
