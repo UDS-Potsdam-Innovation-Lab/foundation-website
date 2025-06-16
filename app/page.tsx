@@ -14,29 +14,22 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-highlight">
-              Creating the digital future with social responsibility
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-2 text-highlight">
+              INNOVATING
             </h1>
-            <p className="text-xl md:text-2xl text-body mb-8">
-              Join us in shaping a globally inclusive and technologically advanced education system
+            <h2 className="text-2xl md:text-3xl font-medium mb-6 text-highlight">
+              FOR A BETTER DIGITAL FUTURE
+            </h2>
+            <p className="text-xl md:text-2xl text-orange-500 mb-8">Join us in shaping a globally inclusive and technologically advanced education system
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="/about"
-                className="btn-primary"
-              >
+              <a href="/about" className="text-white border border-orange-500 text-lg md:text-xl px-6 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
                 Learn More
               </a>
-              <a
-                href="/get-involved"
-                className="btn-primary"
-              >
+              <a href="/get-involved" className="text-white border border-orange-500 text-lg md:text-xl px-6 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
                 Support Us
               </a>
-              <a
-                href="/contact"
-                className="btn-outline"
-              >
+              <a href="/contact" className="text-white border border-orange-500 text-lg md:text-xl px-6 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
                 Contact
               </a>
             </div>

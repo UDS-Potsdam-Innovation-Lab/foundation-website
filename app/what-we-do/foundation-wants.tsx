@@ -8,8 +8,7 @@ export default function FoundationWants() {
     <section className="py-20 card-blue-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
-          title="What the Foundation Wants"
-          subtitle="Our vision for transforming digital education and research"
+          title="Shaping the Future: The Foundation's Vision for Digital Education and Research"
         />
 
         <div className="w-full max-w-4xl mx-auto">
