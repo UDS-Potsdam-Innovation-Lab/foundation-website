@@ -10,14 +10,14 @@ export default function About() {
       image: '/principle1.jpg',
     },
     {
-      title: 'Establish Digital Science',
-      description: 'Creating new standards in digital academic excellence',
-      image: '/principle2.jpg',
-    },
-    {
       title: 'Promote Young Talent',
       description: 'Nurturing the next generation of digital innovators',
       image: '/principle3.jpg',
+    },
+    {
+      title: 'Establish Digital Science',
+      description: 'Creating new standards in digital academic excellence',
+      image: '/principle2.jpg',
     },
     {
       title: 'Support Education',
