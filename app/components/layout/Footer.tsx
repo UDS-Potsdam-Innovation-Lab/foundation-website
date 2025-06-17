@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useTranslation } from '../../locales/useTranslation';
 // This is the ONLY Footer component to be used. Do not use app/components/Footer.tsx.
-const Footer = () => {
+const Footer = ({ locale = 'en' }: { locale?: string }) => {
+  const t = useTranslation(locale);
   const footerLinks = [
     {
       title: 'Quick Links',
@@ -41,7 +43,7 @@ const Footer = () => {
               className="h-10 w-auto mb-4"
             />
             <p className="text-sm text-white">
-              Shaping the future of digital education and innovation.
+              {t.footer.description}
             </p>
           </div>
           
@@ -72,9 +74,13 @@ const Footer = () => {
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="text-sm text-body hover:text-accent">Privacy Policy</Link>
+            <Link href="/privacy" className="text-sm text-body hover:text-accent">
+              {t.footer.privacy}
+            </Link>
             <span className="text-body">|</span>
-            <Link href="/imprint" className="text-sm text-body hover:text-accent">Imprint</Link>
+            <Link href="/imprint" className="text-sm text-body hover:text-accent">
+              {t.footer.imprint}
+            </Link>
           </div>
         </div>
       </div>

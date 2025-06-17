@@ -29,7 +29,8 @@ export default function RootLayout({
         {/* @ts-ignore: Navbar accepts locale prop for i18n */}
         <Navbar locale={params.locale || 'en'} />
         {children}
-        <Footer />
+        {/* @ts-ignore: Footer accepts locale prop for i18n */}
+        <Footer locale={params.locale || 'en'} />
       </body>
     </html>
   );

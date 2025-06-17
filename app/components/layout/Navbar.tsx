@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from '../../locales/useTranslation';
 
 const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   const [activeSection, setActiveSection] = useState('');
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslation(locale);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +36,10 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: t.navbar.home, href: '/' },
+    { name: t.navbar.about, href: '/about' },
     {
-      name: 'Values',
+      name: t.navbar.values,
       href: '/values',
       dropdownItems: [
         { name: 'Guiding Principles', href: '/values#guiding-principles' },
@@ -45,7 +47,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
       ],
     },
     {
-      name: 'What We Do',
+      name: t.navbar.whatWeDo,
       href: '/what-we-do',
       dropdownItems: [
         { name: 'Purpose', href: '/what-we-do#purpose' },
@@ -55,7 +57,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
       ],
     },
     {
-      name: 'Ecosystem',
+      name: t.navbar.ecosystem,
       href: '/ecosystem',
       dropdownItems: [
         { name: 'UDS Overview', href: '/ecosystem#german-uds-overview' },
@@ -64,15 +66,15 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
       ],
     },
     {
-      name: 'Learn More',
+      name: t.navbar.learnMore,
       href: '/learn-more',
       dropdownItems: [
         { name: 'Info', href: '/learn-more#info' },
         { name: 'Resources', href: '/learn-more#links' },
       ],
     },
-    { name: 'Team', href: '/team' },
-    { name: 'Contact', href: '/contact' },
+    { name: t.navbar.team, href: '/team' },
+    { name: t.navbar.contact, href: '/contact' },
   ];
 
   const isActive = (href: string) => {

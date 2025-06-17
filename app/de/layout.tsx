@@ -20,16 +20,17 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={params.locale || 'de'} className="scroll-smooth">
+    <html lang={params.locale || 'en'} className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className={`${inter.className} page-blue-gradient`}>
         <ScrollProgress />
         {/* @ts-ignore: Navbar accepts locale prop for i18n */}
-        <Navbar locale={params.locale || 'de'} />
+        <Navbar locale={params.locale || 'en'} />
         {children}
-        <Footer />
+        {/* @ts-ignore: Footer accepts locale prop for i18n */}
+        <Footer locale={params.locale || 'en'} />
       </body>
     </html>
   );
