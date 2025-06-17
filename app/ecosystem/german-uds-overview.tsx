@@ -1,42 +1,31 @@
 'use client';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
+import Image from 'next/image';
 
 export default function GermanUDSOverview() {
   const entities = [
     {
       title: 'German UDS',
       icon: '🎓',
-      description: 'The university itself, dedicated to providing cutting-edge digital education and research opportunities. We focus on innovative teaching methods and practical application of digital technologies.',
-      details: [
-        'Digital-first education',
-        'Research excellence',
-        'Industry partnerships',
-        'Student success'
-      ]
+      description: 'A university focused on digital-first education and research.',
+      details: ['Digital education', 'Research excellence'],
+      image: '/images/german-uds.jpg',
     },
     {
       title: 'German UDS Foundation',
       icon: '🏛️',
-      description: 'The foundation promotes and finances the German University of Digital Science, shaping the future of digital education through strategic initiatives and support.',
-      details: [
-        'Financial support',
-        'Strategic direction',
-        'Resource allocation',
-        'Vision setting'
-      ]
+      description: 'Drives funding and strategy for digital education.',
+      details: ['Funding support', 'Strategic direction'],
+      image: '/images/german-uds-foundation.jpg',
     },
     {
       title: 'German UDS gGmbH',
       icon: '🧾',
-      description: 'The non-profit organization responsible for operational management and implementation of educational programs and initiatives.',
-      details: [
-        'Program management',
-        'Daily operations',
-        'Quality assurance',
-        'Implementation'
-      ]
-    }
+      description: 'Manages daily operations and educational programs.',
+      details: ['Operations', 'Program management'],
+      image: '/images/german-uds-ggmbh.jpg',
+    },
   ];
 
   return (
@@ -57,18 +46,26 @@ export default function GermanUDSOverview() {
                 transition={{ delay: index * 0.2 }}
                 className="card-blue-gradient rounded-xl p-6 text-white border border-gray-100 dark:border-gray-800 hover:shadow-glow transition-all duration-300"
               >
-                <div className="text-4xl mb-4" role="img" aria-label={entity.title}>
+                <div className="relative w-full h-40 mb-4 rounded overflow-hidden">
+                  <Image
+                    src={entity.image}
+                    alt={entity.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="text-3xl mb-2" role="img" aria-label={entity.title}>
                   {entity.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4 gradient-text">{entity.title}</h3>
-                <p className="text-body mb-6">
+                <h3 className="text-lg font-bold mb-2 gradient-text">{entity.title}</h3>
+                <p className="text-sm mb-4">
                   {entity.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-1 text-sm">
                   {entity.details.map((detail, detailIndex) => (
                     <li
                       key={detailIndex}
-                      className="flex items-center text-body"
+                      className="flex items-center"
                     >
                       <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>
                       {detail}

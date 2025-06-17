@@ -7,28 +7,24 @@ import Button from '../components/ui/Button';
 export default function Participation() {
   const financialOptions = [
     {
-      number: '01',
       title: 'Donate to Foundation',
-      description: 'Support our mission with direct donations that help fund digital education initiatives.',
-      details: 'Tax-deductible contributions for both individuals and organizations'
+      description: 'Support digital education by contributing directly.',
+      image: '/images/donate.jpg'
     },
     {
-      number: '02',
       title: 'Fund Scholarships',
-      description: 'Enable talented students to access quality digital education through scholarship programs.',
-      details: 'Create named scholarships or contribute to existing funds'
+      description: 'Help students access education by funding scholarships.',
+      image: '/images/scholarships.jpg'
     },
     {
-      number: '03',
       title: 'Acquire Shares in gGmbH',
-      description: 'Become a stakeholder in our non-profit organization and help shape our future.',
-      details: 'Strategic investment opportunities for long-term impact'
+      description: 'Be a part of our journey through strategic investment.',
+      image: '/images/shares.jpg'
     },
     {
-      number: '04',
       title: 'Sponsor Programs',
-      description: 'Support specific educational programs, research initiatives, or infrastructure development.',
-      details: 'Targeted funding for concrete projects and initiatives'
+      description: 'Support specific research or education programs.',
+      image: '/images/sponsor.jpg'
     }
   ];
 
@@ -37,52 +33,44 @@ export default function Participation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Financial Support & Participation"
-          subtitle="Join us in shaping the future of digital education through various investment options"
+          subtitle="Join us in shaping the future of digital education"
         />
 
-        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-12">
-          <Image
-            src="/shares.png"
-            alt="Investment and Participation Opportunities"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {financialOptions.map((option, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="group card-blue-gradient rounded-xl p-6 hover:shadow-glow transition-all duration-300"
+              className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-glow transition-all duration-300"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
-                  {option.number}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 gradient-text">{option.title}</h3>
-                  <p className="text-body mb-2">{option.description}</p>
-                  <p className="text-sm text-body">{option.details}</p>
-                </div>
+              <div className="relative w-full h-48">
+                <Image
+                  src={option.image}
+                  alt={option.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold mb-2 gradient-text">{option.title}</h3>
+                <p className="text-sm text-body">{option.description}</p>
               </div>
             </motion.div>
           ))}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex justify-center mt-8"
-          >
-            <Button href="/contact" variant="primary">
-              Contact Us to Learn More
-            </Button>
-          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex justify-center mt-12"
+        >
+          <Button href="/contact" variant="primary">
+            Contact Us to Learn More
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
