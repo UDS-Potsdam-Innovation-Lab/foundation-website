@@ -13,7 +13,7 @@ export default function Purpose() {
     {
       title: 'Global Cooperation',
       description: 'Fostering international partnerships and collaboration to advance digital education worldwide.',
-      link: '/global',
+      link: '/',
       color: 'from-purple-500 to-purple-600',
     },
     {
