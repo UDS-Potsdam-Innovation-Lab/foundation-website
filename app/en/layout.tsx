@@ -14,23 +14,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   return (
-    <html lang={params.locale || 'en'} className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className={`${inter.className} page-blue-gradient`}>
         <ScrollProgress />
-        {/* @ts-ignore: Navbar accepts locale prop for i18n */}
-        <Navbar locale={params.locale || 'en'} />
+        <Navbar locale="en" />
         {children}
-        {/* @ts-ignore: Footer accepts locale prop for i18n */}
-        <Footer locale={params.locale || 'en'} />
+        <Footer locale="en" />
       </body>
     </html>
   );
