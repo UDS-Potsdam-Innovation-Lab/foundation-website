@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
-const Navbar = () => {
+const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -99,6 +100,18 @@ const Navbar = () => {
     }
   };
 
+  // Helper to switch locale in the URL
+  const switchLocale = (targetLocale: string) => {
+    // Remove current locale from path and add targetLocale
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments[0] === 'en' || segments[0] === 'de') {
+      segments[0] = targetLocale;
+    } else {
+      segments.unshift(targetLocale);
+    }
+    router.push('/' + segments.join('/'));
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 nav-footer-gradient ${
@@ -177,6 +190,22 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
+              <div className="flex items-center space-x-2 ml-4">
+                <button
+                  onClick={() => switchLocale('en')}
+                  className={`px-2 py-1 rounded text-sm font-semibold border ${locale === 'en' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
+                  aria-label="Switch to English"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => switchLocale('de')}
+                  className={`px-2 py-1 rounded text-sm font-semibold border ${locale === 'de' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
+                  aria-label="Switch to German"
+                >
+                  DE
+                </button>
+              </div>
             </div>
           </div>
           
@@ -258,6 +287,22 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
+              <div className="flex items-center space-x-2 mt-4">
+                <button
+                  onClick={() => switchLocale('en')}
+                  className={`px-2 py-1 rounded text-sm font-semibold border w-12 ${locale === 'en' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
+                  aria-label="Switch to English"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => switchLocale('de')}
+                  className={`px-2 py-1 rounded text-sm font-semibold border w-12 ${locale === 'de' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
+                  aria-label="Switch to German"
+                >
+                  DE
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

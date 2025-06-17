@@ -63,7 +63,7 @@ export default function Purpose() {
                         rel={purpose.link.startsWith('http') ? 'noopener noreferrer' : ''}
                         className="inline-flex items-center text-accent hover:text-secondary transition-colors"
                       >
-                        Learn More
+                        {/* Learn More */}
                         <svg
                           className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
                           fill="none"
