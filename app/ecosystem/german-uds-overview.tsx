@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import SectionTitle from '../../components/ui/SectionTitle';
+import SectionTitle from '../components/ui/SectionTitle';
 import Image from 'next/image';
 
 export default function GermanUDSOverview() {

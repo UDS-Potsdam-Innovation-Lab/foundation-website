@@ -79,16 +79,15 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
 
   const isActive = (href: string) => {
     if (locale === 'en') {
-      // For English, compare without locale prefix
-      const pathWithoutLocale = pathname.replace(/^\/en/, '');
+      // For English, compare directly
       if (href === '/') {
-        return pathWithoutLocale === '' || pathWithoutLocale === '/';
+        return pathname === '' || pathname === '/';
       }
       if (href.includes('#')) {
         const [path, anchor] = href.split('#');
-        return pathWithoutLocale === path && activeSection === anchor;
+        return pathname === path && activeSection === anchor;
       }
-      return pathWithoutLocale.startsWith(href);
+      return pathname.startsWith(href);
     } else {
       // For other languages, use full path comparison
       if (href === `/${locale}`) {

@@ -1,8 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import SectionTitle from '../../components/ui/SectionTitle';
-import Button from '../../components/ui/Button';
+import SectionTitle from '../components/ui/SectionTitle';
+import Button from '../components/ui/Button';
 
 export default function Participation() {
   const financialOptions = [
