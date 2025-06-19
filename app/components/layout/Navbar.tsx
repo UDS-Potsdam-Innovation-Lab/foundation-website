@@ -36,49 +36,49 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   }, []);
 
   const navItems = [
-    { name: t.navbar.home, href: '/' },
-    { name: t.navbar.about, href: '/about' },
+    { name: t.navbar.home, href: `/${locale}` },
+    { name: t.navbar.about, href: `/${locale}/about` },
     {
       name: t.navbar.values,
-      href: '/values',
+      href: `/${locale}/values`,
       dropdownItems: [
-        { name: 'Guiding Principles', href: '/values#guiding-principles' },
-        { name: 'Core Beliefs', href: '/values#core-beliefs' },
+        { name: 'Guiding Principles', href: `/${locale}/values#guiding-principles` },
+        { name: 'Core Beliefs', href: `/${locale}/values#core-beliefs` },
       ],
     },
     {
       name: t.navbar.whatWeDo,
-      href: '/what-we-do',
+      href: `/${locale}/what-we-do`,
       dropdownItems: [
-        { name: 'Purpose', href: '/what-we-do#purpose' },
-        { name: 'Foundation Goals', href: '/what-we-do#foundation-wants' },
-        { name: 'Support Us', href: '/what-we-do#support-us' },
-        { name: 'Get Involved', href: '/what-we-do#interested' },
+        { name: 'Purpose', href: `/${locale}/what-we-do#purpose` },
+        { name: 'Foundation Goals', href: `/${locale}/what-we-do#foundation-wants` },
+        { name: 'Support Us', href: `/${locale}/what-we-do#support-us` },
+        { name: 'Get Involved', href: `/${locale}/what-we-do#interested` },
       ],
     },
     {
       name: t.navbar.ecosystem,
-      href: '/ecosystem',
+      href: `/${locale}/ecosystem`,
       dropdownItems: [
-        { name: 'UDS Overview', href: '/ecosystem#german-uds-overview' },
-        { name: 'Shareholding', href: '/ecosystem#shareholding' },
-        { name: 'Participation', href: '/ecosystem#participation' },
+        { name: 'UDS Overview', href: `/${locale}/ecosystem#german-uds-overview` },
+        { name: 'Shareholding', href: `/${locale}/ecosystem#shareholding` },
+        { name: 'Participation', href: `/${locale}/ecosystem#participation` },
       ],
     },
     {
       name: t.navbar.learnMore,
-      href: '/learn-more',
+      href: `/${locale}/learn-more`,
       dropdownItems: [
-        { name: 'Info', href: '/learn-more#info' },
-        { name: 'Resources', href: '/learn-more#links' },
+        { name: 'Info', href: `/${locale}/learn-more#info` },
+        { name: 'Resources', href: `/${locale}/learn-more#links` },
       ],
     },
-    { name: t.navbar.team, href: '/team' },
-    { name: t.navbar.contact, href: '/contact' },
+    { name: t.navbar.team, href: `/${locale}/team` },
+    { name: t.navbar.contact, href: `/${locale}/contact` },
   ];
 
   const isActive = (href: string) => {
-    if (href === '/') {
+    if (href === `/${locale}`) {
       return pathname === href;
     }
     if (href.includes('#')) {
@@ -104,14 +104,15 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
 
   // Helper to switch locale in the URL
   const switchLocale = (targetLocale: string) => {
-    // Remove current locale from path and add targetLocale
+    // Get the current path without the locale
     const segments = pathname.split('/').filter(Boolean);
-    if (segments[0] === 'en' || segments[0] === 'de') {
-      segments[0] = targetLocale;
-    } else {
-      segments.unshift(targetLocale);
-    }
-    router.push('/' + segments.join('/'));
+    const currentLocale = segments[0];
+    const isKnownLocale = currentLocale === 'en' || currentLocale === 'de';
+    const pathWithoutLocale = isKnownLocale ? segments.slice(1).join('/') : segments.join('/');
+    
+    // Construct the new URL
+    const newPath = `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    window.location.href = newPath;
   };
 
   return (
@@ -124,7 +125,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex-shrink-0" aria-label="Home">
+          <Link href={`/${locale}`} className="flex-shrink-0" aria-label="Home">
             <Image
               src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
               alt="German University of Digital Science Foundation"
@@ -210,25 +211,27 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
               </div>
             </div>
           </div>
-          
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-accent transition-colors"
-            aria-expanded={isOpen}
-            aria-label="Toggle menu"
-          >
-            <div className="relative w-6 h-6">
-              <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
-              }`}></span>
-              <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                isOpen ? 'opacity-0' : 'opacity-100'
-              }`}></span>
-              <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                isOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
-              }`}></span>
-            </div>
-          </button>
+
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-body hover:text-accent focus:outline-none"
+              aria-expanded={isOpen}
+              aria-label="Toggle menu"
+            >
+              <div className="relative w-6 h-6">
+                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                  isOpen ? 'rotate-45' : '-translate-y-2'
+                }`}></span>
+                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                  isOpen ? 'opacity-0' : 'opacity-100'
+                }`}></span>
+                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                  isOpen ? '-rotate-45' : 'translate-y-2'
+                }`}></span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 

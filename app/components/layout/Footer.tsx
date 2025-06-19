@@ -7,19 +7,19 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
     {
       title: 'Quick Links',
       links: [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Values', href: '/values' },
-        { name: 'What We Do', href: '/what-we-do' },
+        { name: 'Home', href: `/${locale}` },
+        { name: 'About', href: `/${locale}/about` },
+        { name: 'Values', href: `/${locale}/values` },
+        { name: 'What We Do', href: `/${locale}/what-we-do` },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { name: 'Ecosystem', href: '/ecosystem' },
-        { name: 'Learn More', href: '/learn-more' },
-        { name: 'Team', href: '/team' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Ecosystem', href: `/${locale}/ecosystem` },
+        { name: 'Learn More', href: `/${locale}/learn-more` },
+        { name: 'Team', href: `/${locale}/team` },
+        { name: 'Contact', href: `/${locale}/contact` },
       ],
     },
     {
@@ -27,7 +27,7 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },
         { name: 'Phone', href: 'tel:+493319689220' },
-        { name: 'Location', href: '/contact' },
+        { name: 'Location', href: `/${locale}/contact` },
       ],
     },
   ];
@@ -74,11 +74,11 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="text-sm text-body hover:text-accent">
+            <Link href={`/${locale}/privacy`} className="text-sm text-body hover:text-accent">
               {t.footer.privacy}
             </Link>
             <span className="text-body">|</span>
-            <Link href="/imprint" className="text-sm text-body hover:text-accent">
+            <Link href={`/${locale}/imprint`} className="text-sm text-body hover:text-accent">
               {t.footer.imprint}
             </Link>
           </div>
