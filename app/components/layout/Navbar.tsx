@@ -140,7 +140,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href={`/${locale}`} className="flex-shrink-0" aria-label="Home">
+          <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex-shrink-0" aria-label="Home">
             <Image
               src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
               alt="German University of Digital Science Foundation"
