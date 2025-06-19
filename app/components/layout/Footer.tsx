@@ -7,19 +7,19 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
     {
       title: 'Quick Links',
       links: [
-        { name: 'Home', href: `/${locale}` },
-        { name: 'About', href: `/${locale}/about` },
-        { name: 'Values', href: `/${locale}/values` },
-        { name: 'What We Do', href: `/${locale}/what-we-do` },
+        { name: 'Home', href: locale === 'en' ? '/' : `/${locale}` },
+        { name: 'About', href: locale === 'en' ? '/about' : `/${locale}/about` },
+        { name: 'Values', href: locale === 'en' ? '/values' : `/${locale}/values` },
+        { name: 'What We Do', href: locale === 'en' ? '/what-we-do' : `/${locale}/what-we-do` },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { name: 'Ecosystem', href: `/${locale}/ecosystem` },
-        { name: 'Learn More', href: `/${locale}/learn-more` },
-        { name: 'Team', href: `/${locale}/team` },
-        { name: 'Contact', href: `/${locale}/contact` },
+        { name: 'Ecosystem', href: locale === 'en' ? '/ecosystem' : `/${locale}/ecosystem` },
+        { name: 'Learn More', href: locale === 'en' ? '/learn-more' : `/${locale}/learn-more` },
+        { name: 'Team', href: locale === 'en' ? '/team' : `/${locale}/team` },
+        { name: 'Contact', href: locale === 'en' ? '/contact' : `/${locale}/contact` },
       ],
     },
     {
@@ -27,7 +27,7 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },
         { name: 'Phone', href: 'tel:+493319689220' },
-        { name: 'Location', href: `/${locale}/contact` },
+        { name: 'Location', href: locale === 'en' ? '/contact' : `/${locale}/contact` },
       ],
     },
   ];
@@ -74,11 +74,11 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href={`/${locale}/privacy`} className="text-sm text-body hover:text-accent">
+            <Link href={locale === 'en' ? '/privacy' : `/${locale}/privacy`} className="text-sm text-body hover:text-accent">
               {t.footer.privacy}
             </Link>
             <span className="text-body">|</span>
-            <Link href={`/${locale}/imprint`} className="text-sm text-body hover:text-accent">
+            <Link href={locale === 'en' ? '/imprint' : `/${locale}/imprint`} className="text-sm text-body hover:text-accent">
               {t.footer.imprint}
             </Link>
           </div>

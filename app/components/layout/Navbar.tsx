@@ -36,56 +36,70 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   }, []);
 
   const navItems = [
-    { name: t.navbar.home, href: `/${locale}` },
-    { name: t.navbar.about, href: `/${locale}/about` },
+    { name: t.navbar.home, href: locale === 'en' ? '/' : `/${locale}` },
+    { name: t.navbar.about, href: locale === 'en' ? '/about' : `/${locale}/about` },
     {
       name: t.navbar.values,
-      href: `/${locale}/values`,
+      href: locale === 'en' ? '/values' : `/${locale}/values`,
       dropdownItems: [
-        { name: 'Guiding Principles', href: `/${locale}/values#guiding-principles` },
-        { name: 'Core Beliefs', href: `/${locale}/values#core-beliefs` },
+        { name: 'Guiding Principles', href: locale === 'en' ? '/values#guiding-principles' : `/${locale}/values#guiding-principles` },
+        { name: 'Core Beliefs', href: locale === 'en' ? '/values#core-beliefs' : `/${locale}/values#core-beliefs` },
       ],
     },
     {
       name: t.navbar.whatWeDo,
-      href: `/${locale}/what-we-do`,
+      href: locale === 'en' ? '/what-we-do' : `/${locale}/what-we-do`,
       dropdownItems: [
-        { name: 'Purpose', href: `/${locale}/what-we-do#purpose` },
-        { name: 'Foundation Goals', href: `/${locale}/what-we-do#foundation-wants` },
-        { name: 'Support Us', href: `/${locale}/what-we-do#support-us` },
-        { name: 'Get Involved', href: `/${locale}/what-we-do#interested` },
+        { name: 'Purpose', href: locale === 'en' ? '/what-we-do#purpose' : `/${locale}/what-we-do#purpose` },
+        { name: 'Foundation Goals', href: locale === 'en' ? '/what-we-do#foundation-wants' : `/${locale}/what-we-do#foundation-wants` },
+        { name: 'Support Us', href: locale === 'en' ? '/what-we-do#support-us' : `/${locale}/what-we-do#support-us` },
+        { name: 'Get Involved', href: locale === 'en' ? '/what-we-do#interested' : `/${locale}/what-we-do#interested` },
       ],
     },
     {
       name: t.navbar.ecosystem,
-      href: `/${locale}/ecosystem`,
+      href: locale === 'en' ? '/ecosystem' : `/${locale}/ecosystem`,
       dropdownItems: [
-        { name: 'UDS Overview', href: `/${locale}/ecosystem#german-uds-overview` },
-        { name: 'Shareholding', href: `/${locale}/ecosystem#shareholding` },
-        { name: 'Participation', href: `/${locale}/ecosystem#participation` },
+        { name: 'UDS Overview', href: locale === 'en' ? '/ecosystem#german-uds-overview' : `/${locale}/ecosystem#german-uds-overview` },
+        { name: 'Shareholding', href: locale === 'en' ? '/ecosystem#shareholding' : `/${locale}/ecosystem#shareholding` },
+        { name: 'Participation', href: locale === 'en' ? '/ecosystem#participation' : `/${locale}/ecosystem#participation` },
       ],
     },
     {
       name: t.navbar.learnMore,
-      href: `/${locale}/learn-more`,
+      href: locale === 'en' ? '/learn-more' : `/${locale}/learn-more`,
       dropdownItems: [
-        { name: 'Info', href: `/${locale}/learn-more#info` },
-        { name: 'Resources', href: `/${locale}/learn-more#links` },
+        { name: 'Info', href: locale === 'en' ? '/learn-more#info' : `/${locale}/learn-more#info` },
+        { name: 'Resources', href: locale === 'en' ? '/learn-more#links' : `/${locale}/learn-more#links` },
       ],
     },
-    { name: t.navbar.team, href: `/${locale}/team` },
-    { name: t.navbar.contact, href: `/${locale}/contact` },
+    { name: t.navbar.team, href: locale === 'en' ? '/team' : `/${locale}/team` },
+    { name: t.navbar.contact, href: locale === 'en' ? '/contact' : `/${locale}/contact` },
   ];
 
   const isActive = (href: string) => {
-    if (href === `/${locale}`) {
-      return pathname === href;
+    if (locale === 'en') {
+      // For English, compare without locale prefix
+      const pathWithoutLocale = pathname.replace(/^\/en/, '');
+      if (href === '/') {
+        return pathWithoutLocale === '' || pathWithoutLocale === '/';
+      }
+      if (href.includes('#')) {
+        const [path, anchor] = href.split('#');
+        return pathWithoutLocale === path && activeSection === anchor;
+      }
+      return pathWithoutLocale.startsWith(href);
+    } else {
+      // For other languages, use full path comparison
+      if (href === `/${locale}`) {
+        return pathname === href;
+      }
+      if (href.includes('#')) {
+        const [path, anchor] = href.split('#');
+        return pathname === path && activeSection === anchor;
+      }
+      return pathname.startsWith(href);
     }
-    if (href.includes('#')) {
-      const [path, anchor] = href.split('#');
-      return pathname === path && activeSection === anchor;
-    }
-    return pathname.startsWith(href);
   };
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -111,8 +125,10 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     const pathWithoutLocale = isKnownLocale ? segments.slice(1).join('/') : segments.join('/');
     
     // Construct the new URL
-    const newPath = `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
-    window.location.href = newPath;
+    const newPath = targetLocale === 'en' 
+      ? `/${pathWithoutLocale}` 
+      : `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    window.location.href = newPath || '/';
   };
 
   return (
