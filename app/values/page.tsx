@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -164,30 +164,16 @@ export default function Values() {
               </div>
             </div>
           </div>
+
+          <div className="mt-12 text-center">
+            <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
+              <a href="/what-we-do" className="text-white text-sm font-medium">
+                Learn More
+              </a>
+            </div>
+          </div>
         </div>
       </section>
-
-      <section className="py-12 text-center bg-[#7cb0de] border-t border-[#5a8ac3]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-bold mb-4 text-[#0a0f4a]">
-            Discover how we turn our beliefs into action
-          </h2>
-          <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
-            <a
-              href="/what-we-do"
-              className="text-white text-sm font-medium"
-            >
-              Learn More
-            </a>
-          </div>
-        </motion.div>
-      </section>
-
-      <div className="h-12 bg-[#5a8ac3]" />
     </main>
   );
 }
