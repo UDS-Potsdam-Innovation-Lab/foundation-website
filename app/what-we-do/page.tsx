@@ -107,7 +107,7 @@ export default function WhatWeDoPage() {
             {purposes.map((purpose, index) => (
               <div
                 key={index}
-                className="rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+                className="rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
               >
                 <div className="flex flex-col h-[140px]">
                   <div className="relative h-[50%] w-full">
@@ -179,7 +179,7 @@ export default function WhatWeDoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
+                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
                 <div className="relative w-full h-[352px]">
                   <Image src={method.image} alt={method.title} fill className="object-cover" />
@@ -226,9 +226,9 @@ export default function WhatWeDoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[92%] h-full rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col text-left"
+                className="w-[92%] h-full rounded-br-2xl overflow-hidden bg-[#aac8e8] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col text-left"
               >
-                <div className="bg-[#f3f6fd] px-6 py-4 border-b border-gray-200">
+                <div className="bg-[#aac8e8] px-6 py-6">
                   <h3 className="text-[#f7931e] font-bold text-lg uppercase tracking-wide">
                     {section.title}
                   </h3>
