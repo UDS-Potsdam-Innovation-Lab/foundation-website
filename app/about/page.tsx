@@ -121,19 +121,13 @@ export default function Page() {
       </section>
 
       {/* Learn More Section */}
-      <section className="py-12 px-4 bg-[#6ea4c7] border-y border-[#5a8ac3]">
+      <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold mb-2 text-[#0a0f4a]">
-              Why the Foundation Exists
-            </h2>
-            <p className="text-[#0a0f4a] mb-4">
-              Advancing lifelong digital skills to foster equity and innovation in a changing world
-            </p>
             <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
               <a href="/values" className="text-white text-sm font-medium">
                 Learn More
@@ -142,8 +136,6 @@ export default function Page() {
           </motion.div>
         </div>
       </section>
-
-      <div className="h-10 bg-[#5a8ac3]" />
     </main>
   );
 }
