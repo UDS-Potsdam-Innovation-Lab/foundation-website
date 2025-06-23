@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 
 export default function Page() {
@@ -55,6 +56,24 @@ export default function Page() {
       title: 'Sponsor Programs',
       description: 'Support specific research or education programs.',
       image: '/images/sponsor.jpg',
+    },
+  ];
+
+  const resources = [
+    {
+      title: 'German UDS Brochure',
+      description: 'Download our comprehensive overview of German UDS',
+      link: 'https://german-uds.de/cta',
+    },
+    {
+      title: 'Scientific Reports',
+      description: 'Access our latest research and scientific publications',
+      link: 'https://german-uds.de/scientific-reports',
+    },
+    {
+      title: 'Digital Education Podcast',
+      description: 'Listen to our weekly discussions with industry experts',
+      link: 'https://german-uds.de/podcasts',
     },
   ];
 
@@ -175,18 +194,69 @@ export default function Page() {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex justify-center mt-12"
-          >
-            <Button href="/contact" variant="primary">
-              Contact Us to Learn More
-            </Button>
-          </motion.div>
         </div>
+      </section>
+
+      <section className="pt-4 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h1 className="text-4xl font-bold mb-4 text-[#000080]">Resources</h1>
+            <p className="text-lg text-[#0a0f4a]">Explore our publications and media content</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {resources.map((resource, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="group bg-white rounded-xl overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500 transition-all duration-300"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-[#f7931e]">{resource.title}</h3>
+                  <p className="text-gray-700 mb-4">{resource.description}</p>
+                  <a
+                    href={resource.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-center transition-all duration-300 hover:scale-105"
+                  >
+                    View Resource
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="w-full bg-[#d7e7f8] bg-opacity-30 px-4 py-4 text-center"
+        >
+          <p className="text-[#0a0f4a]">
+            For more information, contact us at:{' '}
+            <a
+              href="mailto:office@foundation.german-uds.de"
+              className="text-[#f7931e] hover:text-orange-700 transition-colors"
+            >
+              office@foundation.german-uds.de
+            </a>
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex justify-center mt-4"
+        >
+          <Button href="/contact" variant="primary">
+            Contact Us
+          </Button>
+        </motion.div>
       </section>
     </main>
   );

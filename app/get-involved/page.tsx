@@ -1,7 +1,10 @@
 'use client';
-import { motion } from 'framer-motion';
 
-export default function GetInvolved() {
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Button from '../components/ui/Button';
+
+export default function Page() {
   const supportWays = [
     {
       title: 'Donations',
@@ -26,58 +29,61 @@ export default function GetInvolved() {
   ];
 
   return (
-    <main className="pt-24">
-      <section className="py-20 hero-gradient">
+    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+      <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl font-bold mb-6 gradient-text">Get Involved</h1>
-            <p className="text-xl text-body max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Get Involved</h1>
+            <p className="text-lg text-[#0a0f4a]">
               Join us in our mission to transform digital education and create lasting impact
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-14 gap-x-4 mb-12 place-items-center">
             {supportWays.map((way, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="overflow-hidden rounded-xl card-blue-gradient text-white hover:shadow-glow transition-shadow duration-300"
+                transition={{ delay: index * 0.1 }}
+                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
-                <div className="relative h-48">
-                  <img
-                    src={way.image}
-                    alt={way.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative w-full h-[300px]">
+                  <Image src={way.image} alt={way.title} fill className="object-cover" />
                 </div>
-                <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-4 gradient-text">{way.title}</h2>
-                  <p className="text-body mb-4">{way.description}</p>
-                  <button className="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                    Learn More
-                  </button>
+                <div className="p-6 flex flex-col justify-between flex-grow text-left">
+                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{way.title}</h3>
+                  <p className="text-[#0a0f4a] text-sm mb-2">{way.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center p-8 rounded-xl card-blue-gradient text-white"
-          >
-            <h2 className="text-2xl font-bold mb-4 gradient-text">Tax Benefits</h2>
-            <p className="text-body">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="w-screen bg-[#d7e7f8] bg-opacity-30 px-4 py-8 text-center"
+        >
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4 text-[#000080]">Tax Benefits</h2>
+            <p className="text-[#0a0f4a] max-w-3xl mx-auto">
               Your support is tax-deductible. As a registered non-profit organization, we provide all necessary documentation for tax purposes.
             </p>
+          </div>
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="flex justify-center mt-12"
+          >
+            <Button href="/contact" variant="primary">
+              Learn More
+            </Button>
           </motion.div>
         </div>
       </section>

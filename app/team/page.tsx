@@ -34,7 +34,7 @@ export default function Team() {
       title: 'Representative',
       email: 'christoph.meinel@german-uds.de',
       image: '/ch_m.jpg',
-      videoUrl: '', // No video yet
+      videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&player_id=0&app_id=58479',
       bio: 'Christoph Meinel was Managing Director and CEO of the Hasso Plattner Institute for Digital Engineering (HPI) at the University of Potsdam from 2004 to 2023. He is Professor Emeritus (C4) of Computer Science at the University of Potsdam and held the Chair of Internet Technologies and Systems at HPI. In 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university\'s operating company, German UDS gGmbH.'
     }
   ];
@@ -46,8 +46,8 @@ export default function Team() {
   };
 
   return (
-    <main className="pt-24">
-      <section className="py-20 hero-gradient">
+    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,25 +55,22 @@ export default function Team() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-6 gradient-text">Our Team</h1>
-            <p className="text-xl text-body max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Our Team</h1>
+            <p className="text-xl text-[#0a0f4a] max-w-3xl mx-auto">
               Meet the visionaries leading the German University of Digital Science Foundation
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="group perspective h-full"
-              >
+              <div key={index} className="group perspective h-full">
                 <div
                   className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${flipped[index] ? 'rotate-y-180' : ''}`}
                   style={{ minHeight: 480 }}
                 >
                   {/* Front Side */}
                   <motion.div
-                    className={`absolute inset-0 w-full h-full bg-white dark:bg-[#002B5C] rounded-xl p-10 flex flex-col justify-between transition-opacity duration-300 ${flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                    className={`absolute inset-0 w-full h-full bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col justify-between transition-opacity duration-300 ${flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2 }}
@@ -90,9 +87,9 @@ export default function Team() {
                         />
                       </div>
                       <div className="flex-grow flex flex-col">
-                        <h2 className="text-2xl font-bold mb-2 gradient-text">{member.name}</h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-semibold mb-4">{member.title}</p>
-                        <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed">
+                        <h2 className="text-2xl font-bold mb-2 text-[#f7931e]">{member.name}</h2>
+                        <p className="text-gray-600 font-semibold mb-4">{member.title}</p>
+                        <p className="text-[#0a0f4a] mb-6 text-sm leading-relaxed">
                           {member.bio}
                         </p>
                       </div>
@@ -115,9 +112,10 @@ export default function Team() {
                       )}
                     </div>
                   </motion.div>
+
                   {/* Back Side */}
                   <div
-                    className={`absolute inset-0 w-full h-full bg-white dark:bg-[#002B5C] rounded-xl p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} rotate-y-180`}
+                    className={`absolute inset-0 w-full h-full bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} rotate-y-180`}
                   >
                     {member.videoUrl ? (
                       <>
@@ -142,7 +140,7 @@ export default function Team() {
                         </div>
                       </>
                     ) : (
-                      <p className="text-body">No video available.</p>
+                      <p className="text-[#0a0f4a]">No video available.</p>
                     )}
                   </div>
                 </div>

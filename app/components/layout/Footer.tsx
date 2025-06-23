@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useTranslation } from '../../locales/useTranslation';
+
 // This is the ONLY Footer component to be used. Do not use app/components/Footer.tsx.
 const Footer = ({ locale = 'en' }: { locale?: string }) => {
   const t = useTranslation(locale);
@@ -33,7 +34,7 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
   ];
 
   return (
-    <footer className="nav-footer-gradient">
+    <footer className="bg-transparent text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -46,19 +47,18 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
               {t.footer.description}
             </p>
           </div>
-          
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h4 className="text-sm font-semibold mb-4">{section.title}</h4>
+              <h4 className="text-sm font-semibold mb-4 text-white">{section.title}</h4>
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     {link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
-                      <a href={link.href} className="text-sm text-body hover:text-accent">
+                      <a href={link.href} className="text-sm text-white hover:text-orange-300">
                         {link.name}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-sm text-body hover:text-accent">
+                      <Link href={link.href} className="text-sm text-white hover:text-orange-300">
                         {link.name}
                       </Link>
                     )}
@@ -68,17 +68,17 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-center text-body">
+
+        <div className="mt-8 pt-8 border-t border-white/30 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-center text-white">
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href={locale === 'en' ? '/privacy' : `/${locale}/privacy`} className="text-sm text-body hover:text-accent">
+            <Link href={locale === 'en' ? '/privacy' : `/${locale}/privacy`} className="text-sm text-white hover:text-orange-300">
               {t.footer.privacy}
             </Link>
-            <span className="text-body">|</span>
-            <Link href={locale === 'en' ? '/imprint' : `/${locale}/imprint`} className="text-sm text-body hover:text-accent">
+            <span className="text-white">|</span>
+            <Link href={locale === 'en' ? '/imprint' : `/${locale}/imprint`} className="text-sm text-white hover:text-orange-300">
               {t.footer.imprint}
             </Link>
           </div>
