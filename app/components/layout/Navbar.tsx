@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from '../../locales/useTranslation';
 
@@ -10,21 +9,34 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [showNavbar, setShowNavbar] = useState(true);
   const router = useRouter();
   const pathname = usePathname();
   const t = useTranslation(locale);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      const scrolledUpEnough = lastScrollY - currentScrollY > 100;
+
+      if (currentScrollY < 50 || scrolledUpEnough) {
+        setShowNavbar(true);
+      } else if (currentScrollY > lastScrollY) {
+        setShowNavbar(false);
+      }
+
+      lastScrollY = currentScrollY;
 
       const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = currentScrollY + 100;
 
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = (section as HTMLElement).offsetHeight;
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           setActiveSection(section.id);
         }
@@ -111,14 +123,19 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     const isKnownLocale = currentLocale === 'en' || currentLocale === 'de';
     const pathWithoutLocale = isKnownLocale ? segments.slice(1).join('/') : segments.join('/');
 
-    const newPath = targetLocale === 'en' 
-      ? `/${pathWithoutLocale}` 
+    const newPath = targetLocale === 'en'
+      ? `/${pathWithoutLocale}`
       : `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
     window.location.href = newPath || '/';
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-transparent`} role="navigation" aria-label="Main navigation">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 bg-transparent ${showNavbar ? 'top-0' : '-top-20'}`}
+      style={{ transitionProperty: 'top' }}
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex-shrink-0" aria-label="Home">
@@ -138,7 +155,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                 <div key={item.name} className="relative group" role="none">
                   {item.dropdownItems ? (
                     <>
-                      <Link 
+                      <Link
                         href={item.href}
                         className={`text-[#001B3F] hover:text-[#003366] px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                           pathname.startsWith(item.href) ? 'border-b-2 border-[#003366]' : ''

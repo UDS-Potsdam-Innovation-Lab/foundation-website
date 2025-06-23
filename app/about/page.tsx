@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Button from '../components/ui/Button';
@@ -28,20 +29,34 @@ export default function Page() {
     {
       title: 'Digital Resilience',
       description: 'Building adaptability and strength through digital empowerment.',
+      videoUrl: 'https://player.vimeo.com/video/1092449114',
     },
     {
       title: 'Lifelong Learning',
       description: 'Education never stops — it evolves with you.',
+      videoUrl: 'https://player.vimeo.com/video/1092448821',
     },
     {
       title: 'Digital Future',
       description: 'Envisioning and shaping the technological world of tomorrow.',
+      videoUrl: 'https://player.vimeo.com/video/1092448406',
     },
     {
       title: 'Empowering the University',
       description: 'How the Foundation fuels UDS progress every day.',
+      videoUrl: 'https://player.vimeo.com/video/1094752301',
     },
   ];
+
+  const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(videoStatements.length).fill(false));
+
+  const handlePlay = (index: number) => {
+    setActiveVideos((prev) => {
+      const updated = [...prev];
+      updated[index] = true;
+      return updated;
+    });
+  };
 
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
@@ -107,10 +122,24 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full aspect-video bg-white rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-6 flex flex-col justify-between text-left"
+                className="w-full aspect-video bg-white rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-6 flex flex-col justify-between text-left relative"
               >
-                <div className="flex-grow"></div>
-                <div>
+                {activeVideos[index] ? (
+                  <iframe
+                    src={video.videoUrl}
+                    className="absolute inset-0 w-full h-full rounded-br-2xl"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <button
+                    onClick={() => handlePlay(index)}
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30 text-white text-2xl font-bold"
+                  >
+                    ▶
+                  </button>
+                )}
+                <div className="relative z-10 mt-auto">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
                   <p className="text-[#0a0f4a] text-sm">{video.description}</p>
                 </div>
