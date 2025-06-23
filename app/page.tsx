@@ -1,58 +1,58 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import ParticlesBackground from './components/ParticlesBackground';
 
-export default function Home() {
+export default function Page() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center hero-section hero-gradient relative overflow-hidden">
+    <main className="bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+      {/* Hero + CTA Section Combined */}
+      <section className="min-h-screen flex flex-col justify-center hero-section hero-gradient relative overflow-hidden">
         <ParticlesBackground />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-highlight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#000080]">
               Building A Digital Future With Social Responsibility
             </h1>
             <div className="flex flex-wrap justify-center gap-4 mb-10">
               <a
                 href="/about"
-                className="px-6 py-2 border border-orange-500 rounded-full text-white text-sm font-medium hover:bg-orange-500 hover:text-white transition"
+                className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
               >
                 Learn More
               </a>
               <a
                 href="/get-involved"
-                className="px-6 py-2 border border-orange-500 rounded-full text-white text-sm font-medium hover:bg-orange-500 hover:text-white transition"
+                className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
               >
                 Support Us
               </a>
             </div>
-            <p className="text-xl md:text-2xl bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent font-semibold mt-4">
-              Join us in shaping a globally inclusive and technologically advanced education system
-            </p>
+            <p className="text-xl md:text-2xl font-semibold text-white mb-20">
+  Join us in shaping a globally inclusive and technologically advanced education system
+</p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 card-blue-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 gradient-text">Ready to Shape the Future?</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Join us in our mission to transform digital education
-            </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl font-bold mb-6 text-[#000080]">
+              Ready to Shape the Future?
+            </h2>
             <a
               href="/get-involved"
-              className="btn-primary px-8 py-3 rounded-full text-sm font-medium inline-block"
+              className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
             >
               Get Involved
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>
