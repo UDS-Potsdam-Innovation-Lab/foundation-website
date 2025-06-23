@@ -65,21 +65,12 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
         { name: 'Participation', href: locale === 'en' ? '/ecosystem#participation' : `/${locale}/ecosystem#participation` },
       ],
     },
-    {
-      name: t.navbar.learnMore,
-      href: locale === 'en' ? '/learn-more' : `/${locale}/learn-more`,
-      dropdownItems: [
-        { name: 'Info', href: locale === 'en' ? '/learn-more#info' : `/${locale}/learn-more#info` },
-        { name: 'Resources', href: locale === 'en' ? '/learn-more#links' : `/${locale}/learn-more#links` },
-      ],
-    },
     { name: t.navbar.team, href: locale === 'en' ? '/team' : `/${locale}/team` },
     { name: t.navbar.contact, href: locale === 'en' ? '/contact' : `/${locale}/contact` },
   ];
 
   const isActive = (href: string) => {
     if (locale === 'en') {
-      // For English, compare directly
       if (href === '/') {
         return pathname === '' || pathname === '/';
       }
@@ -89,7 +80,6 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
       }
       return pathname.startsWith(href);
     } else {
-      // For other languages, use full path comparison
       if (href === `/${locale}`) {
         return pathname === href;
       }
@@ -115,15 +105,12 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     }
   };
 
-  // Helper to switch locale in the URL
   const switchLocale = (targetLocale: string) => {
-    // Get the current path without the locale
     const segments = pathname.split('/').filter(Boolean);
     const currentLocale = segments[0];
     const isKnownLocale = currentLocale === 'en' || currentLocale === 'de';
     const pathWithoutLocale = isKnownLocale ? segments.slice(1).join('/') : segments.join('/');
-    
-    // Construct the new URL
+
     const newPath = targetLocale === 'en' 
       ? `/${pathWithoutLocale}` 
       : `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
@@ -131,34 +118,20 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   };
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 nav-footer-gradient ${
-        scrolled ? 'nav-blur shadow-lg' : 'nav-blur'
-      }`}
-      role="navigation"
-      aria-label="Main navigation"
-    >
+    <nav className={`fixed w-full z-50 transition-all duration-300 bg-transparent`} role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex-shrink-0" aria-label="Home">
             <Image
-              src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
+              src="/UDS_foundation_logo_pos_rgb.png"
               alt="German University of Digital Science Foundation"
               width={180}
               height={40}
-              className="h-10 w-auto dark:hidden"
-              priority
-            />
-            <Image
-              src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
-              alt="German University of Digital Science Foundation"
-              width={180}
-              height={40}
-              className="h-10 w-auto hidden dark:block"
+              className="h-10 w-auto"
               priority
             />
           </Link>
-          
+
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4" role="menubar">
               {navItems.map((item) => (
@@ -167,39 +140,19 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                     <>
                       <Link 
                         href={item.href}
-                        className={`text-body hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                          pathname.startsWith(item.href) ? 'text-accent border-b-2 border-accent' : ''
+                        className={`text-[#001B3F] hover:text-[#003366] px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                          pathname.startsWith(item.href) ? 'border-b-2 border-[#003366]' : ''
                         }`}
                         role="menuitem"
                       >
                         {item.name}
                       </Link>
-                      <div 
-                        className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in"
-                        role="menu"
-                      >
-                        <div className="rounded-xl nav-footer-gradient shadow-lg ring-1 ring-black/5 backdrop-blur-sm overflow-hidden">
-                          {item.dropdownItems.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className={`block px-4 py-3 text-sm text-body hover:bg-[#1e293b] transition-colors ${
-                                isActive(subItem.href) ? 'text-accent bg-[#1e293b]' : ''
-                              }`}
-                              role="menuitem"
-                              onClick={(e) => handleAnchorClick(e, subItem.href)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
                     </>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-body hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        isActive(item.href) ? 'text-accent border-b-2 border-accent' : ''
+                      className={`text-[#001B3F] hover:text-[#003366] px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                        isActive(item.href) ? 'border-b-2 border-[#003366]' : ''
                       }`}
                       role="menuitem"
                     >
@@ -208,125 +161,10 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                   )}
                 </div>
               ))}
-              <div className="flex items-center space-x-2 ml-4">
-                <button
-                  onClick={() => switchLocale('en')}
-                  className={`px-2 py-1 rounded text-sm font-semibold border ${locale === 'en' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
-                  aria-label="Switch to English"
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => switchLocale('de')}
-                  className={`px-2 py-1 rounded text-sm font-semibold border ${locale === 'de' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
-                  aria-label="Switch to German"
-                >
-                  DE
-                </button>
-              </div>
             </div>
-          </div>
-
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-body hover:text-accent focus:outline-none"
-              aria-expanded={isOpen}
-              aria-label="Toggle menu"
-            >
-              <div className="relative w-6 h-6">
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                  isOpen ? 'rotate-45' : '-translate-y-2'
-                }`}></span>
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                  isOpen ? 'opacity-0' : 'opacity-100'
-                }`}></span>
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${
-                  isOpen ? '-rotate-45' : 'translate-y-2'
-                }`}></span>
-              </div>
-            </button>
           </div>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-white/95 dark:bg-[#001B3F]/95 backdrop-blur-sm"
-            role="menu"
-          >
-            <div className="px-4 pt-2 pb-3 space-y-2">
-              {navItems.map((item) => (
-                <div key={item.name} className="py-1">
-                  {item.dropdownItems ? (
-                    <>
-                      <Link
-                        href={item.href}
-                        className={`block px-3 py-2 text-base font-medium text-body border-l-4 ${
-                          pathname.startsWith(item.href) ? 'border-accent' : 'border-transparent'
-                        }`}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                      <div className="pl-4 space-y-1">
-                        {item.dropdownItems.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className={`block px-3 py-2 text-base text-body hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
-                              isActive(subItem.href) ? 'text-accent bg-gray-50 dark:bg-[#002B5C]' : ''
-                            }`}
-                            onClick={(e) => {
-                              handleAnchorClick(e, subItem.href);
-                              setIsOpen(false);
-                            }}
-                            role="menuitem"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={`block px-3 py-2 text-base text-body hover:bg-gray-50 dark:hover:bg-[#002B5C] rounded-md transition-colors ${
-                        isActive(item.href) ? 'text-accent bg-gray-50 dark:bg-[#002B5C]' : ''
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                      role="menuitem"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <div className="flex items-center space-x-2 mt-4">
-                <button
-                  onClick={() => switchLocale('en')}
-                  className={`px-2 py-1 rounded text-sm font-semibold border w-12 ${locale === 'en' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
-                  aria-label="Switch to English"
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => switchLocale('de')}
-                  className={`px-2 py-1 rounded text-sm font-semibold border w-12 ${locale === 'de' ? 'bg-accent text-white border-accent' : 'bg-white/10 text-body border-gray-300 dark:border-gray-700'}`}
-                  aria-label="Switch to German"
-                >
-                  DE
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };

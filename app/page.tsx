@@ -18,7 +18,21 @@ export default function Page() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#000080]">
               Building A Digital Future With Social Responsibility
             </h1>
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <p className="text-xl md:text-2xl font-semibold text-white mb-20">
+              Join us in shaping a globally inclusive and technologically advanced education system
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mt-20"
+          >
+            <h2 className="text-4xl font-bold mb-6 text-[#000080]">
+              Ready to Shape the Future?
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/about"
                 className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
@@ -31,27 +45,13 @@ export default function Page() {
               >
                 Support Us
               </a>
+              <a
+                href="/get-involved"
+                className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
+              >
+                Get Involved
+              </a>
             </div>
-            <p className="text-xl md:text-2xl font-semibold text-white mb-20">
-  Join us in shaping a globally inclusive and technologically advanced education system
-</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h2 className="text-4xl font-bold mb-6 text-[#000080]">
-              Ready to Shape the Future?
-            </h2>
-            <a
-              href="/get-involved"
-              className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300 text-white text-sm font-medium"
-            >
-              Get Involved
-            </a>
           </motion.div>
         </div>
       </section>
