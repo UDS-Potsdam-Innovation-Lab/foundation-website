@@ -122,24 +122,28 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full aspect-video bg-white rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-6 flex flex-col justify-between text-left relative"
+                className="w-full bg-white rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col overflow-hidden"
               >
-                {activeVideos[index] ? (
-                  <iframe
-                    src={video.videoUrl}
-                    className="absolute inset-0 w-full h-full rounded-br-2xl"
-                    allow="autoplay; fullscreen"
-                    allowFullScreen
-                  ></iframe>
-                ) : (
-                  <button
-                    onClick={() => handlePlay(index)}
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30 text-white text-2xl font-bold"
-                  >
-                    ▶
-                  </button>
-                )}
-                <div className="relative z-10 mt-auto">
+                <div className="relative w-full aspect-video bg-black">
+                  {activeVideos[index] ? (
+                    <iframe
+                      src={`${video.videoUrl}?autoplay=1`}
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <div className="w-full h-full">
+                      <button
+                        onClick={() => handlePlay(index)}
+                        className="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30 text-white text-2xl font-bold"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <div className="p-6 text-left">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
                   <p className="text-[#0a0f4a] text-sm">{video.description}</p>
                 </div>
