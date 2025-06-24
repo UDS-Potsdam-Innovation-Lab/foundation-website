@@ -20,7 +20,6 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
         { name: 'Ecosystem', href: locale === 'en' ? '/ecosystem' : `/${locale}/ecosystem` },
         { name: 'Learn More', href: locale === 'en' ? '/learn-more' : `/${locale}/learn-more` },
         { name: 'Team', href: locale === 'en' ? '/team' : `/${locale}/team` },
-        { name: 'Contact', href: locale === 'en' ? '/contact' : `/${locale}/contact` },
       ],
     },
     {

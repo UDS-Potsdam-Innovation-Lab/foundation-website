@@ -49,7 +49,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
 
   const navItems = [
     { name: t.navbar.home, href: locale === 'en' ? '/' : `/${locale}` },
-    { name: t.navbar.about, href: locale === 'en' ? '/about' : `/${locale}/about` },
+    { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` }, // <-- Changed here
     {
       name: t.navbar.values,
       href: locale === 'en' ? '/values' : `/${locale}/values`,
