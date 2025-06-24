@@ -12,21 +12,21 @@ export default function Page() {
       icon: '🎓',
       description: 'A university focused on digital-first education and research.',
       details: ['Digital education', 'Research excellence'],
-      image: '/images/german-uds.jpg',
+      image: '/german-uds.jpg',
     },
     {
       title: 'German UDS Foundation',
       icon: '🏛️',
       description: 'Drives funding and strategy for digital education.',
       details: ['Funding support', 'Strategic direction'],
-      image: '/images/german-uds-foundation.jpg',
+      image: '/german-uds-foundation.jpg',
     },
     {
       title: 'German UDS gGmbH',
       icon: '🧾',
       description: 'Manages daily operations and educational programs.',
       details: ['Operations', 'Program management'],
-      image: '/images/german-uds-ggmbh.jpg',
+      image: '/german-uds-ggmbh.jpg',
     },
   ];
 
@@ -40,22 +40,26 @@ export default function Page() {
     {
       title: 'Donate to Foundation',
       description: 'Support digital education by contributing directly.',
-      image: '/images/donate.jpg',
+      image: '/images/financial-support-and-participation.jpg',
+      style: 'object-[0%_0%]'
     },
     {
       title: 'Fund Scholarships',
       description: 'Help students access education by funding scholarships.',
-      image: '/images/scholarships.jpg',
+      image: '/images/financial-support-and-participation.jpg',
+      style: 'object-[25%_50%]'
     },
     {
       title: 'Acquire Shares in gGmbH',
       description: 'Be a part of our journey through strategic investment.',
-      image: '/images/shares.jpg',
+      image: '/images/financial-support-and-participation.jpg',
+      style: 'object-[50%_100%]'
     },
     {
       title: 'Sponsor Programs',
       description: 'Support specific research or education programs.',
-      image: '/images/sponsor.jpg',
+      image: '/images/financial-support-and-participation.jpg',
+      style: 'object-[75%_25%]'
     },
   ];
 
@@ -173,90 +177,41 @@ export default function Page() {
             <p className="text-lg text-[#0a0f4a]">Join us in shaping the future of digital education</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-14 gap-x-4 mb-12 place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-10 gap-x-6">
             {financialOptions.map((option, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
+                className="rounded-md rounded-br-2xl overflow-hidden bg-white shadow-md transition-all duration-300 hover:shadow-orange-400 hover:shadow-lg hover:ring-2 hover:ring-orange-500"
               >
-                <div className="relative w-full h-[352px]">
-                  <Image src={option.image} alt={option.title} fill className="object-cover" />
+                <div className={`relative h-40 w-full`}>
+                  <Image
+                    src={option.image}
+                    alt={option.title}
+                    fill
+                    className={`object-cover ${option.style}`}
+                  />
                 </div>
-                <div className="p-6 flex flex-col justify-start flex-grow text-left">
-                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{option.title}</h3>
-                  <p className="text-[#0a0f4a] text-sm leading-relaxed">
+                <div className="bg-white px-4 py-5">
+                  <h3 className="text-sm font-bold text-[#f7931e] mb-2">
+                    {option.title}
+                  </h3>
+                  <p className="text-sm text-[#0a0f4a] leading-relaxed">
                     {option.description}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="pt-4 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl font-bold mb-4 text-[#000080]">Resources</h1>
-            <p className="text-lg text-[#0a0f4a]">Explore our publications and media content</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {resources.map((resource, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="group bg-white rounded-xl overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500 transition-all duration-300"
-              >
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-[#f7931e]">{resource.title}</h3>
-                  <p className="text-gray-700 mb-4">{resource.description}</p>
-                  <a
-                    href={resource.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-center transition-all duration-300 hover:scale-105"
-                  >
-                    View Resource
-                  </a>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-10 text-center">
+            <Button href="/contact" variant="primary">
+              Learn More
+            </Button>
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="w-full bg-[#d7e7f8] bg-opacity-30 px-4 py-4 text-center"
-        >
-          <p className="text-[#0a0f4a]">
-            For more information, contact us at:{' '}
-            <a
-              href="mailto:office@foundation.german-uds.de"
-              className="text-[#f7931e] hover:text-orange-700 transition-colors"
-            >
-              office@foundation.german-uds.de
-            </a>
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="flex justify-center mt-4"
-        >
-          <Button href="/contact" variant="primary">
-            Contact Us
-          </Button>
-        </motion.div>
       </section>
     </main>
   );
