@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Button from '../components/ui/Button';
@@ -29,26 +29,26 @@ export default function Page() {
     {
       title: 'Digital Resilience',
       description: 'Building adaptability and strength through digital empowerment.',
-      videoUrl: 'https://player.vimeo.com/video/1092449114',
+      videoId: '1092449114',
     },
     {
       title: 'Lifelong Learning',
       description: 'Education never stops — it evolves with you.',
-      videoUrl: 'https://player.vimeo.com/video/1092448821',
+      videoId: '1092448821',
     },
     {
       title: 'Digital Future',
       description: 'Envisioning and shaping the technological world of tomorrow.',
-      videoUrl: 'https://player.vimeo.com/video/1092448406',
+      videoId: '1092448406',
     },
     {
       title: 'Empowering the University',
       description: 'How the Foundation fuels UDS progress every day.',
-      videoUrl: 'https://player.vimeo.com/video/1094752301',
+      videoId: '1094752301',
     },
   ];
 
-  const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(videoStatements.length).fill(false));
+  const [activeVideos, setActiveVideos] = useState(Array(videoStatements.length).fill(false));
 
   const handlePlay = (index: number) => {
     setActiveVideos((prev) => {
@@ -58,15 +58,24 @@ export default function Page() {
     });
   };
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      videoStatements.forEach((video) => {
+        const img = new window.Image();
+        img.src = `https://vumbnail.com/${video.videoId}.jpg`;
+      });
+    }
+  }, []);
+
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       {/* About Section */}
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">About Us</h1>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">About</h1>
             <p className="text-lg text-[#0a0f4a]">
-              <strong>The German UDS Foundation GmbH</strong> supports the German University of Digital Science by
+              <strong>The German UDS Foundation</strong> supports the German University of Digital Science by
               funding innovative education and research in digital science. Our mission is to promote digital
               transformation, integrate digital skills into society, and shape an inclusive, future-ready digital world.
             </p>
@@ -122,24 +131,31 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full aspect-video bg-white rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-6 flex flex-col justify-between text-left relative"
+                className="w-full flex flex-col rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
               >
-                {activeVideos[index] ? (
-                  <iframe
-                    src={video.videoUrl}
-                    className="absolute inset-0 w-full h-full rounded-br-2xl"
-                    allow="autoplay; fullscreen"
-                    allowFullScreen
-                  ></iframe>
-                ) : (
-                  <button
-                    onClick={() => handlePlay(index)}
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30 text-white text-2xl font-bold"
-                  >
-                    ▶
-                  </button>
-                )}
-                <div className="relative z-10 mt-auto">
+                <div className="relative aspect-video">
+                  {activeVideos[index] ? (
+                    <iframe
+                      src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`}
+                      className="absolute inset-0 w-full h-full rounded-t-br-2xl"
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <div
+                      onClick={() => handlePlay(index)}
+                      className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer"
+                      style={{
+                        backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
+                    >
+                      <div className="bg-black bg-opacity-50 w-10 h-10 flex items-center justify-center rounded-full text-white text-2xl absolute bottom-2 right-2">▶</div>
+                    </div>
+                  )}
+                </div>
+                <div className="bg-white p-4 rounded-br-2xl">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
                   <p className="text-[#0a0f4a] text-sm">{video.description}</p>
                 </div>
