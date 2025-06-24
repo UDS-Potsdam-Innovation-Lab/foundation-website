@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,7 +20,6 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       const scrolledUpEnough = lastScrollY - currentScrollY > 100;
 
       if (currentScrollY < 50 || scrolledUpEnough) {
@@ -49,7 +49,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
 
   const navItems = [
     { name: t.navbar.home, href: locale === 'en' ? '/' : `/${locale}` },
-    { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` }, // <-- Changed here
+    { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` },
     {
       name: t.navbar.values,
       href: locale === 'en' ? '/values' : `/${locale}/values`,
