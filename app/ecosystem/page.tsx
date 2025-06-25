@@ -40,25 +40,25 @@ export default function Page() {
     {
       title: 'Donate to Foundation',
       description: 'Support digital education by contributing directly.',
-      image: '/images/financial-support-and-participation.jpg',
+      image: '/financial-support-and-participation.jpg',
       style: 'object-[0%_0%]'
     },
     {
       title: 'Fund Scholarships',
       description: 'Help students access education by funding scholarships.',
-      image: '/images/financial-support-and-participation.jpg',
+      image: '/financial-support-and-participation.jpg',
       style: 'object-[25%_50%]'
     },
     {
       title: 'Acquire Shares in gGmbH',
       description: 'Be a part of our journey through strategic investment.',
-      image: '/images/financial-support-and-participation.jpg',
+      image: '/financial-support-and-participation.jpg',
       style: 'object-[50%_100%]'
     },
     {
       title: 'Sponsor Programs',
       description: 'Support specific research or education programs.',
-      image: '/images/financial-support-and-participation.jpg',
+      image: '/financial-support-and-participation.jpg',
       style: 'object-[75%_25%]'
     },
   ];
@@ -187,11 +187,10 @@ export default function Page() {
                 className="rounded-md rounded-br-2xl overflow-hidden bg-white shadow-md transition-all duration-300 hover:shadow-orange-400 hover:shadow-lg hover:ring-2 hover:ring-orange-500"
               >
                 <div className={`relative h-40 w-full`}>
-                  <Image
+                  <img
                     src={option.image}
                     alt={option.title}
-                    fill
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </div>
                 <div className="bg-white px-4 py-5">
