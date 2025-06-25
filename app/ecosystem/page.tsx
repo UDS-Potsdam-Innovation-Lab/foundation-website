@@ -191,7 +191,7 @@ export default function Page() {
                     src={option.image}
                     alt={option.title}
                     fill
-                    className={`object-cover ${option.style}`}
+                    className="object-cover"
                   />
                 </div>
                 <div className="bg-white px-4 py-5">
