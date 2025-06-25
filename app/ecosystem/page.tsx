@@ -187,9 +187,10 @@ export default function Page() {
                 className="rounded-md rounded-br-2xl overflow-hidden bg-white shadow-md transition-all duration-300 hover:shadow-orange-400 hover:shadow-lg hover:ring-2 hover:ring-orange-500"
               >
                 <div className={`relative h-40 w-full`}>
-                  <img
+                  <Image
                     src={option.image}
                     alt={option.title}
+                    fill
                     className="object-cover w-full h-full"
                   />
                 </div>
