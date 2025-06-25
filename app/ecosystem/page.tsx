@@ -41,25 +41,25 @@ export default function Page() {
       title: 'Donate to Foundation',
       description: 'Support digital education by contributing directly.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[0%_0%]'
+      //style: 'object-[0%_0%]'
     },
     {
       title: 'Fund Scholarships',
       description: 'Help students access education by funding scholarships.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[25%_50%]'
+      //style: 'object-[25%_50%]'
     },
     {
       title: 'Acquire Shares in gGmbH',
       description: 'Be a part of our journey through strategic investment.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[50%_100%]'
+      //style: 'object-[50%_100%]'
     },
     {
       title: 'Sponsor Programs',
       description: 'Support specific research or education programs.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[75%_25%]'
+      //style: 'object-[75%_25%]'
     },
   ];
 
