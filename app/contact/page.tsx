@@ -18,14 +18,14 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
+              <div className="bg-[#dbeafe] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
                 <h2 className="text-2xl font-bold mb-4 text-[#f7931e]">Address</h2>
                 <p>
                   German UDS Foundation<br />
@@ -35,7 +35,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
+              <div className="bg-[#dbeafe] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
                 <h2 className="text-2xl font-bold mb-4 text-[#f7931e]">Contact Details</h2>
                 <div className="space-y-4">
                   <p>
@@ -51,7 +51,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
+              <div className="bg-[#dbeafe] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-8 text-[#0a0f4a]">
                 <h2 className="text-2xl font-bold mb-4 text-[#f7931e]">Donation Details</h2>
                 <div className="space-y-2">
                   <p>
@@ -70,9 +70,9 @@ export default function Contact() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-4"
+              className="flex flex-col justify-between"
             >
-              <div className="relative w-full h-[400px] rounded-br-2xl overflow-hidden border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
+              <div className="relative w-full h-full min-h-[760px] rounded-br-2xl overflow-hidden border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
                 <iframe
                   src="https://maps.google.com/maps?q=German%20UDS%20Foundation%2C%20Potsdam&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   className="absolute w-full h-full border-0"
@@ -82,7 +82,7 @@ export default function Contact() {
                   title="German UDS Foundation Location"
                 ></iframe>
               </div>
-              <p className="text-sm text-[#0a0f4a] text-center">
+              <p className="text-sm text-[#0a0f4a] text-center mt-2">
                 Map data ©2025 Google
               </p>
             </motion.div>
