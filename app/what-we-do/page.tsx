@@ -186,9 +186,9 @@ export default function WhatWeDoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
+                className="w-[92%] h-[360px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
-                <div className="relative w-full h-[352px]">
+                <div className="relative w-full h-[240px]">
                   <Image src={method.image} alt={method.title} fill className="object-cover" />
                 </div>
                 <div className="p-4 flex flex-col justify-end flex-grow text-left">
