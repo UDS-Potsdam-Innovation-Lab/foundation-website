@@ -10,24 +10,28 @@ export default function WhatWeDoPage() {
       description:
         "Promoting and financing the German University of Digital Science through strategic initiatives and partnerships.",
       image: "/support-german-uds.jpg",
+      objectPosition: "center top",
     },
     {
       title: "Global Cooperation",
       description:
         "Fostering international partnerships and collaboration to advance digital education worldwide.",
       image: "/support-german-uds.jpg",
+      objectPosition: "left center",
     },
     {
       title: "Campus of Virtual Education (COVE)",
       description:
         "Pioneering virtual learning environments and innovative digital education platforms.",
       image: "/support-german-uds.jpg",
+      objectPosition: "right center",
     },
     {
       title: "German-UDS.Academy",
       description:
         "Providing accessible, high-quality digital education through our online learning platform.",
       image: "/support-german-uds.jpg",
+      objectPosition: "center bottom",
     },
   ];
 
@@ -109,20 +113,19 @@ export default function WhatWeDoPage() {
                 key={index}
                 className="rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
               >
-                <div className="flex flex-col h-[140px]">
-                  <div className="relative h-[50%] w-full">
+                <div className="flex flex-col h-[220px] md:h-[280px]">
+                  <div className="relative h-[60%] w-full">
                     <img
                       src={purpose.image}
                       alt={purpose.title}
                       className="w-full h-full object-cover"
+                      style={{ objectPosition: purpose.objectPosition }}
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-start pl-6">
-                      <h3 className="text-white text-base font-semibold text-left">
-                        {purpose.title}
-                      </h3>
-                    </div>
                   </div>
-                  <div className="h-[50%] w-full p-4 flex items-center justify-start">
+                  <div className="h-[40%] w-full p-4 flex flex-col justify-start">
+                    <h3 className="text-[#f7931e] text-base font-semibold mb-2">
+                      {purpose.title}
+                    </h3>
                     <p className="text-[#0a0f4a] text-sm leading-snug">
                       {purpose.description}
                     </p>
@@ -143,7 +146,9 @@ export default function WhatWeDoPage() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#000080]">Shaping the Future</h2>
-            <p className="mt-2 text-lg text-[#000080]">The Foundation's Vision for Digital Education and Research</p>
+            <p className="mt-2 text-lg text-[#000080]">
+              The Foundation's Vision for Digital Education and Research
+            </p>
           </motion.div>
 
           <div className="mt-10 mx-auto w-full max-w-4xl h-[400px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
@@ -169,7 +174,9 @@ export default function WhatWeDoPage() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#000080]">Support Our Mission</h2>
-            <p className="mt-2 text-lg text-[#000080]">Join us in transforming digital education through your generous support</p>
+            <p className="mt-2 text-lg text-[#000080]">
+              Join us in transforming digital education through your generous support
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-4 mb-12 place-items-center">
@@ -179,9 +186,9 @@ export default function WhatWeDoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
+                className="w-[92%] h-[360px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
-                <div className="relative w-full h-[352px]">
+                <div className="relative w-full h-[240px]">
                   <Image src={method.image} alt={method.title} fill className="object-cover" />
                 </div>
                 <div className="p-4 flex flex-col justify-end flex-grow text-left">
@@ -216,7 +223,9 @@ export default function WhatWeDoPage() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#0a0f4a]">Get in Touch</h2>
-            <p className="mt-2 text-lg text-[#0a0f4a]">Ready to make a difference? Here's how you can reach us</p>
+            <p className="mt-2 text-lg text-[#0a0f4a]">
+              Ready to make a difference? Here's how you can reach us
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-14 gap-x-4 mb-12 place-items-center mt-10">

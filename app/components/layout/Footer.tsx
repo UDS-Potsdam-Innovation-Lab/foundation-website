@@ -9,7 +9,7 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
       title: 'Quick Links',
       links: [
         { name: 'Home', href: locale === 'en' ? '/' : `/${locale}` },
-        { name: 'About', href: locale === 'en' ? '/about' : `/${locale}/about` },
+        { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` },
         { name: 'Values', href: locale === 'en' ? '/values' : `/${locale}/values` },
         { name: 'What We Do', href: locale === 'en' ? '/what-we-do' : `/${locale}/what-we-do` },
       ],
@@ -23,7 +23,11 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
       ],
     },
     {
-      title: 'Contact',
+      title: (
+        <a href="https://foundation.german-uds.de/contact/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-300">
+          Contact
+        </a>
+      ),
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },
         { name: 'Phone', href: 'tel:+493319689220' },
@@ -33,7 +37,7 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
   ];
 
   return (
-    <footer className="bg-transparent text-white">
+    <footer className="bg-[#1f2937] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>

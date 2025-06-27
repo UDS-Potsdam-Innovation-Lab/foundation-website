@@ -70,13 +70,13 @@ export default function Team() {
                 >
                   {/* Front Side */}
                   <motion.div
-                    className={`absolute inset-0 w-full h-full bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col justify-between transition-opacity duration-300 ${flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                    className={`absolute inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col justify-between transition-opacity duration-300 ${flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2 }}
                   >
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8" style={{ minHeight: 220 }}>
-                      <div className="w-40 h-40 relative flex-shrink-0">
+                    <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10" style={{ minHeight: 220 }}>
+                      <div className="w-36 h-36 md:w-40 md:h-40 relative flex-shrink-0 self-center md:self-start">
                         <Image
                           src={member.image}
                           alt={member.name}
@@ -115,7 +115,7 @@ export default function Team() {
 
                   {/* Back Side */}
                   <div
-                    className={`absolute inset-0 w-full h-full bg-white rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} rotate-y-180`}
+                    className={`absolute inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} rotate-y-180`}
                   >
                     {member.videoUrl ? (
                       <>
