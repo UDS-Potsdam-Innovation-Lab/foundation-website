@@ -74,7 +74,7 @@ export default function Contact() {
             >
               <div className="relative w-full h-full min-h-[760px] rounded-br-2xl overflow-hidden border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
                 <iframe
-                  src="https://maps.google.com/maps?q=German%20UDS%20Foundation%2C%20Potsdam&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2910.56031081689!2d13.114972077129813!3d52.38893897202708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851fb407e3c71%3A0xba68ac8043e34259!2sGerman%20University%20Of%20Digital%20Science%20(UDS)!5e1!3m2!1sen!2sde!4v1751035903278!5m2!1sen!2sde"
                   className="absolute w-full h-full border-0"
                   allowFullScreen
                   loading="lazy"
