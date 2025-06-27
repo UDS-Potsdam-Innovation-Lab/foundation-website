@@ -58,6 +58,7 @@ export default function Values() {
 
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+      {/* Guiding Principles Section */}
       <section id="core-beliefs" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -96,6 +97,7 @@ export default function Values() {
         </div>
       </section>
 
+      {/* Core Beliefs Section */}
       <section id="guiding-principles" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
@@ -115,54 +117,24 @@ export default function Values() {
             Our foundation is built on fundamental beliefs that drive our mission to transform digital education and shape the future of learning
           </motion.p>
 
-          <div className="flex flex-wrap justify-center gap-6">
-            {beliefs.slice(0, 4).map((belief, index) => (
-              <div
+          <div className="flex flex-wrap justify-center gap-8">
+            {beliefs.map((belief, index) => (
+              <motion.div
                 key={index}
-                className="w-[350px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="w-[300px] h-[380px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
-                <div className="flex flex-col h-[140px]">
-                  <div className="relative h-[50%] w-full">
-                    <img
-                      src={belief.image}
-                      alt={belief.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-start pl-6">
-                      <h3 className="text-white text-base font-semibold text-left">
-                        {belief.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="h-[50%] w-full p-4 flex items-center justify-start">
-                    <p className="text-[#0a0f4a] text-sm leading-snug">
-                      {belief.description}
-                    </p>
-                  </div>
+                <div className="relative w-full h-[270px]">
+                  <Image src={belief.image} alt={belief.title} fill className="object-cover" />
                 </div>
-              </div>
+                <div className="p-4 flex flex-col justify-start text-left flex-grow">
+                  <h3 className="text-[#f7931e] text-base font-bold mb-2">{belief.title}</h3>
+                  <p className="text-[#0a0f4a] text-sm leading-snug">{belief.description}</p>
+                </div>
+              </motion.div>
             ))}
-            <div className="w-[350px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
-              <div className="flex flex-col h-[140px]">
-                <div className="relative h-[50%] w-full">
-                  <img
-                    src={beliefs[4].image}
-                    alt={beliefs[4].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-start pl-6">
-                    <h3 className="text-white text-base font-semibold text-left">
-                      {beliefs[4].title}
-                    </h3>
-                  </div>
-                </div>
-                <div className="h-[50%] w-full p-4 flex items-center justify-start">
-                  <p className="text-[#0a0f4a] text-sm leading-snug">
-                    {beliefs[4].description}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="mt-12 text-center">

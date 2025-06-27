@@ -6,16 +6,19 @@ export default function Page() {
   return (
     <main className="scroll-smooth">
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
-        {/* Blue gradient background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-blue-100 via-blue-300 to-blue-700" />
+        {/* Brighter blue gradient background */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#e0f2ff] via-[#b3d9ff] to-[#6ca8e6]" />
 
-        {/* Soft blended background image, slightly more visible */}
+        {/* More visible background image with stronger opacity and overlay blending */}
         <div
-          className="absolute inset-0 z-0 bg-center bg-cover opacity-20 mix-blend-soft-light"
+          className="absolute inset-0 z-0 bg-center bg-cover opacity-40 mix-blend-overlay"
           style={{
             backgroundImage: `url('/abstract-bg.png')`,
           }}
         />
+
+        {/* Light dark overlay to slightly balance brightness */}
+        <div className="absolute inset-0 z-0 bg-black/5" />
 
         {/* Foreground Content */}
         <div className="relative z-10 max-w-5xl">
@@ -23,7 +26,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-4xl md:text-6xl font-bold text-[#000080] drop-shadow-xl leading-tight"
+            className="text-4xl md:text-6xl font-bold text-[#000080] drop-shadow-md leading-tight"
           >
             Empowering Digital Education Through Vision and Support
           </motion.h1>
@@ -32,7 +35,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="mt-6 text-lg md:text-xl text-white/90 font-medium drop-shadow"
+            className="mt-6 text-lg md:text-xl text-[#0a0f4a] font-medium drop-shadow-sm"
           >
             Join us in shaping a future where education is inclusive, global, and driven by innovation.
           </motion.p>
