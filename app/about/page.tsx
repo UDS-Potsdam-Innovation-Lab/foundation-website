@@ -74,11 +74,10 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">About Us</h1>
-            <p className="text-lg text-[#0a0f4a]">
-              <strong>The German UDS Foundation</strong> supports the German University of Digital Science by
-              funding innovative education and research in digital science. Our mission is to promote digital
-              transformation, integrate digital skills into society, and shape an inclusive, future-ready digital world.
-            </p>
+            <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
+  The German UDS Foundation supports the German University of Digital Science by funding innovative education and research in digital science. Our mission is to promote digital transformation, integrate digital skills into society, and shape an inclusive, future-ready digital world.
+</p>
+
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
