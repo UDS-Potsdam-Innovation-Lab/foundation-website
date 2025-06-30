@@ -9,7 +9,7 @@ export default function Page() {
         {/* Brighter blue gradient background */}
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#e0f2ff] via-[#b3d9ff] to-[#6ca8e6]" />
 
-        {/* More visible background image with stronger opacity and overlay blending */}
+        {/* Subtly blended background image */}
         <div
           className="absolute inset-0 z-0 bg-center bg-cover opacity-40 mix-blend-overlay"
           style={{
@@ -17,11 +17,11 @@ export default function Page() {
           }}
         />
 
-        {/* Light dark overlay to slightly balance brightness */}
+        {/* Slight black overlay to soften the brightness */}
         <div className="absolute inset-0 z-0 bg-black/5" />
 
-        {/* Foreground Content */}
-        <div className="relative z-10 max-w-5xl">
+        {/* Foreground Content (shifted left for alignment) */}
+        <div className="relative z-10 max-w-5xl transform -translate-x-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,6 +30,14 @@ export default function Page() {
           >
             Empowering Digital Education Through Vision and Support
           </motion.h1>
+
+          {/* Small orange line under header */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mx-auto mt-2 h-1 w-12 bg-orange-500 rounded-full origin-center"
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
