@@ -1,6 +1,6 @@
 # German UDS Foundation Website
 
-This repository contains the Next.js project for the German University of Digital Science Foundation website. The site is inspired by [german-uds.de](https://german-uds.de) and [innovation.german-uds.de), emphasizing a modular, scalable, and future-oriented design system.
+This repository contains the Next.js project for the German University of Digital Science Foundation website. The site is inspired by [German UDS](https://german-uds.de) and [German UDS Innovation](innovation.german-uds.de), emphasizing a modular, scalable, and future-oriented design system.
 
 ---
 
@@ -146,9 +146,12 @@ Contributions are welcome! Please open an issue or submit a pull request for imp
 
 ## 📬 Contact
 
-For questions and collaboration:
+For questions about German UDS Foundation, please contact:   
 
 - [Prof. Dr. Mike Friedrichsen](mailto:mike.friedrichsen@german-uds.de)
+
+For questions about collaboration, please contact:  
+
 - [Jan Renz](mailto:jan.renz@german-uds.de)
 - [Partha Das](mailto:partha.das@german-uds.de)
 - [Manoj Bevoor](mailto:manoj.bevoor@german-uds.de)
