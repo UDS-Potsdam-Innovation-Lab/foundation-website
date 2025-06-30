@@ -19,7 +19,7 @@ export default function Team() {
       email: 'syster.friedrichsen@foundation.german-uds.de',
       image: '/syster_f.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092448702?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Syster Friedrichsen is Managing Partner of ditcom GmbH. Previously, she held various managing director positions in companies within the communications industry. She studied Communication Science and Geography at Johannes Gutenberg University Mainz and Freie Universität Berlin, earning a Magistra Artium degree.'
+      bio: 'Syster Friedrichsen is Managing Partner of ditcom GmbH and FB CloudHouse GmbH. Previously, she held various managing director positions in companies within the communications industry. She studied Communication Science and Geography at Johannes Gutenberg University Mainz and Freie Universität Berlin, earning a Magistra Artium degree.'
     },
     {
       name: 'Wulf Wersig',
