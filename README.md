@@ -1,6 +1,6 @@
 # German UDS Foundation Website
 
-This repository contains the Next.js project for the German University of Digital Science Foundation website. The site is inspired by [German UDS](https://german-uds.de) and [German UDS Innovation](innovation.german-uds.de), emphasizing a modular, scalable, and future-oriented design system.
+This repository contains the Next.js project for the German University of Digital Science Foundation website. The site is inspired by [German UDS](https://german-uds.de) and [German UDS Innovation](https://innovation.german-uds.de), emphasizing a modular, scalable, and future-oriented design system.
 
 ---
 
