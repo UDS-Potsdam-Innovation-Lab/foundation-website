@@ -1,7 +1,18 @@
-
 # German UDS Foundation Website
 
-This repository contains the Next.js project for the German University of Digital Science Foundation website. It is inspired by the structure and visual language of [german-uds.de](https://german-uds.de) and [innovation.german-uds.de](https://innovation.german-uds.de), and emphasizes a modular, scalable, and futuristic design system.
+This repository contains the Next.js project for the German University of Digital Science Foundation website. The site is inspired by [german-uds.de](https://german-uds.de) and [innovation.german-uds.de), emphasizing a modular, scalable, and future-oriented design system.
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** [Next.js 15](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animation:** [framer-motion](https://www.framer.com/motion/)
+- **Icons:** [@heroicons/react](https://github.com/tailwindlabs/heroicons)
+- **Particles:** [tsparticles](https://github.com/matteobruni/tsparticles)
+- **TypeScript**
+- **Deployment:** GitHub Pages
 
 ---
 
@@ -9,67 +20,66 @@ This repository contains the Next.js project for the German University of Digita
 
 ```
 app/
-├── layout.tsx                            // Global layout with Navbar + Footer
-├── page.tsx                              // Home Page
-├── about/
-│   └── page.tsx                          // Why the German UDS Foundation Exists
-├── values/
-│   ├── guiding-principles.tsx
-│   └── core-beliefs.tsx
-├── what-we-do/
-│   ├── purpose.tsx
-│   ├── foundation-wants.tsx
-│   ├── support-us.tsx
-│   └── interested.tsx
-├── ecosystem/
-│   ├── german-uds-overview.tsx
-│   ├── shareholding.tsx
-│   └── participation.tsx
-├── global/
-│   └── international-market.tsx
-├── learn-more/
-│   ├── info.tsx
-│   └── links.tsx
-├── team/
+├── layout.tsx                // Global layout (Navbar, Footer)
+├── page.tsx                  // Home Page
+├── about/                    // About the Foundation
 │   └── page.tsx
-├── contact/
+├── values/                   // Values, Principles, Beliefs
 │   └── page.tsx
-components/
-├── layout/
-│   ├── Navbar.tsx
-│   └── Footer.tsx
-└── ui/
-    ├── Button.tsx
-    ├── SectionTitle.tsx
-    └── Card.tsx
+├── what-we-do/               // Foundation Activities
+│   └── page.tsx
+├── ecosystem/                // Ecosystem & Participation
+│   └── page.tsx
+├── global/                   // International Activities
+│   └── page.tsx
+├── get-involved/             // Support & Participation
+│   └── page.tsx
+├── team/                     // Team Members
+│   └── page.tsx
+├── contact/                  // Contact Form/Info
+│   └── page.tsx
+├── imprint/                  // Legal Notice
+│   └── page.tsx
+├── privacy/                  // Privacy Policy
+│   └── page.tsx
+├── de/                       // German Localized Pages
+│   └── ...
+├── components/               // Shared React Components
+│   ├── layout/               // Navbar, Footer
+│   ├── ui/                   // UI Elements (Button, Card, etc.)
+│   └── ParticlesBackground.tsx
+├── locales/                  // i18n translation files
+│   ├── en.ts
+│   ├── de.ts
+│   └── useTranslation.ts
+├── globals.css               // Tailwind & global styles
+...
+public/                       // Static assets (images, icons, etc.)
 ```
 
 ---
 
-## 🖼 Public Assets
+## 🌐 Features
 
-Place all images in the `/public` directory.
-
----
-
-### 🔨 Scaffold Setup
-
-Create all pages and folders as per the project structure above. Implement layout sharing and ensure internal routing is consistent with the folder tree.
-
-### 🔁 Refactor Existing Code
-
-Move all current logic and components to their appropriate files. Preserve any existing Tailwind styling, animation classes, or component logic.
+- **Multi-language support** (EN/DE)
+- **Responsive, accessible design**
+- **Animated backgrounds and transitions**
+- **Modular, reusable components**
+- **SEO-friendly static export**
+- **Deployed on GitHub Pages**
 
 ---
 
-## 🔗 Navigation Guidelines
-
-Navbar should include:
+## 🔗 Navigation Structure
 
 - Home
 - About
-- Values → Guiding Principles, Core Beliefs
-- What We Do → Purpose, Support
+- Values
+  - Guiding Principles
+  - Core Beliefs
+- What We Do
+  - Purpose
+  - Support
 - Ecosystem
 - Global
 - Learn More
@@ -78,23 +88,59 @@ Navbar should include:
 
 ---
 
-## Getting Started
+## 🖼 Public Assets
 
-First, run the development server:
+All images and static files are located in the `/public` directory. Use subfolders for organization (e.g., `/public/support/`, `/public/images/`).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun run dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   # or
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Run the development server:**
+
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+3. **Build for production:**
+
+   ```bash
+   pnpm build && pnpm export
+   # or
+   npm run build && npm run export
+   # or
+   yarn build && yarn export
+   ```
+
+---
+
+## 🚢 Deployment
+
+- The site is deployed via **GitHub Actions** to GitHub Pages.
+- Custom domain: [foundation.german-uds.de](https://foundation.german-uds.de)
+- See `.github/workflows/deploy.yml` for CI/CD details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for improvements, bug fixes, or new features.
 
 ---
 
@@ -102,12 +148,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 For questions and collaboration:
 
-- Prof. Dr. Mike Friedrichsen: `mike.friedrichsen@german-uds.de`
-- Jan Renz: `jan.renz@german-uds.de`
-- Partha Das: `partha.das@german-uds.de`
-- Manoj Bevoor: `manoj.bevoor@german-uds.de`
-
+- [Prof. Dr. Mike Friedrichsen](mailto:mike.friedrichsen@german-uds.de)
+- [Jan Renz](mailto:jan.renz@german-uds.de)
+- [Partha Das](mailto:partha.das@german-uds.de)
+- [Manoj Bevoor](mailto:manoj.bevoor@german-uds.de)
 
 ---
 
-## License
+## 📝 License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
