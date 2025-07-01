@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -21,7 +22,10 @@ const config: Config = {
         sans: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(234, 88, 12, 0.5)',
+        glow: '0 0 20px rgba(234, 88, 12, 0.5)',
+      },
+      height: {
+        'screen-dvh': '100dvh',
       },
       keyframes: {
         breathing: {
@@ -34,6 +38,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(({ addBase, theme }) => {
+      addBase({
+        'html': { color: theme('colors.gray.800') },
+        'a': { color: theme('colors.primary.DEFAULT') },
+      });
+    }),
+  ],
 };
+
 export default config;
