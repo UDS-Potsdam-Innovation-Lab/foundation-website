@@ -157,8 +157,8 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                     <>
                       <Link
                         href={item.href}
-                        className={`text-[#001B3F] hover:text-[#003366] px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                          pathname.startsWith(item.href) ? 'border-b-2 border-[#003366]' : ''
+                        className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 rounded-md text-sm font-medium transition-colors ${
+                          pathname.startsWith(item.href) ? 'border-b-2 border-orange-500' : ''
                         }`}
                         role="menuitem"
                       >
@@ -168,8 +168,8 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-[#001B3F] hover:text-[#003366] px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        isActive(item.href) ? 'border-b-2 border-[#003366]' : ''
+                      className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 rounded-md text-sm font-medium transition-colors ${
+                        isActive(item.href) ? 'border-b-2 border-orange-500' : ''
                       }`}
                       role="menuitem"
                     >
