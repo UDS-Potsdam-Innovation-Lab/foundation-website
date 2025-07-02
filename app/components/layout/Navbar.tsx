@@ -157,7 +157,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                     <>
                       <Link
                         href={item.href}
-                        className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 rounded-md text-sm font-medium transition-colors ${
+                        className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
                           pathname.startsWith(item.href) ? 'border-b-2 border-orange-500' : ''
                         }`}
                         role="menuitem"
@@ -168,7 +168,7 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 rounded-md text-sm font-medium transition-colors ${
+                      className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
                         isActive(item.href) ? 'border-b-2 border-orange-500' : ''
                       }`}
                       role="menuitem"
@@ -180,80 +180,8 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
               ))}
             </div>
           </div>
-
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#001B3F] hover:text-[#003366] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-              )}
-            </button>
-          </div>
         </div>
       </div>
-
-      {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white bg-opacity-95 backdrop-blur-md flex flex-col md:hidden transition-all duration-300">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-            <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex-shrink-0" aria-label="Home" onClick={() => setIsOpen(false)}>
-              <Image
-                src="/UDS_foundation_logo_pos_rgb.png"
-                alt="German University of Digital Science Foundation"
-                width={140}
-                height={32}
-                className="h-8 w-auto"
-                priority
-              />
-            </Link>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#001B3F] hover:text-[#003366] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500"
-              aria-label="Close menu"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-          </div>
-          <div className="flex-1 flex flex-col justify-center items-center space-y-6 mt-8">
-            {navItems.map((item) => (
-              <div key={item.name} className="w-full text-center">
-                {item.dropdownItems ? (
-                  <details className="w-full" open={false}>
-                    <summary className="cursor-pointer py-3 px-6 text-lg font-semibold text-[#001B3F] hover:text-[#003366] focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-md">
-                      {item.name}
-                    </summary>
-                    <div className="flex flex-col items-center space-y-2 mt-2">
-                      {item.dropdownItems.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          className="block py-2 px-8 text-base text-[#003366] hover:text-orange-500 transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </details>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="block py-3 px-6 text-lg font-semibold text-[#001B3F] hover:text-orange-500 transition-colors rounded-md"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   );
 };
