@@ -75,37 +75,40 @@ export default function Page() {
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">About Us</h1>
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
-  The German UDS Foundation supports the German University of Digital Science by funding innovative education and research in digital science. Our mission is to promote digital transformation, integrate digital skills into society, and shape an inclusive, future-ready digital world.
-</p>
-
+              The German UDS Foundation supports the German University of Digital Science by funding innovative
+              education and research in digital science. Our mission is to promote digital transformation, integrate
+              digital skills into society, and shape an inclusive, future-ready digital world.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-full min-h-[650px] rounded-xl overflow-hidden"
+              className="relative w-full h-full min-h-[650px] rounded-xl overflow-hidden shadow-xl"
             >
               <Image
                 src="/why_foundation.png"
-                alt="Team Member Photo"
+                alt="Why Foundation"
                 fill
                 className="object-cover object-top"
                 priority
               />
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-1 justify-center items-center">
+            {/* Key Statements */}
+            <div className="grid grid-cols-1 gap-6 min-h-[650px]">
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="w-full h-[100px] rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e0effa] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col justify-center text-left p-4"
+                  transition={{ delay: index * 0.15 }}
+                  className="bg-white rounded-2xl border border-gray-200 p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300"
                 >
-                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{statement.title}</h3>
+                  <h3 className="text-[#f7931e] font-semibold text-xl mb-2">{statement.title}</h3>
                   <p className="text-[#0a0f4a] text-sm leading-relaxed">{statement.description}</p>
                 </motion.div>
               ))}
@@ -150,7 +153,9 @@ export default function Page() {
                         backgroundPosition: 'center',
                       }}
                     >
-                      <div className="bg-black bg-opacity-50 w-10 h-10 flex items-center justify-center rounded-full text-white text-2xl absolute bottom-2 right-2">▶</div>
+                      <div className="bg-black bg-opacity-50 w-10 h-10 flex items-center justify-center rounded-full text-white text-2xl absolute bottom-2 right-2">
+                        ▶
+                      </div>
                     </div>
                   )}
                 </div>

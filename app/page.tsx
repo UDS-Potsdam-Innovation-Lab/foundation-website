@@ -6,47 +6,45 @@ export default function Page() {
   return (
     <main className="scroll-smooth">
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
-        {/* Brighter blue gradient background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#e0f2ff] via-[#b3d9ff] to-[#6ca8e6]" />
-
-        {/* Subtly blended background image */}
+        {/* Background image only */}
         <div
-          className="absolute inset-0 z-0 bg-center bg-cover opacity-40 mix-blend-overlay"
+          className="absolute inset-0 z-0 bg-center bg-cover"
           style={{
             backgroundImage: `url('/abstract-bg.png')`,
           }}
         />
 
-        {/* Slight black overlay to soften the brightness */}
-        <div className="absolute inset-0 z-0 bg-black/5" />
+        {/* Foreground Content */}
+        <div className="relative z-10 max-w-3xl transform -translate-x-6">
+          {/* Glassmorphic box with blue hue */}
+          <div className="bg-[#d0e8ff]/20 backdrop-blur-md rounded-2xl px-6 py-8 shadow-md border border-white/30">
+            <motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="text-3xl md:text-5xl font-bold text-white drop-shadow-[0_0_8px_rgba(0,0,128,0.5)] leading-tight"
+>
+  Empowering Digital Education Through Vision and Support
+</motion.h1>
 
-        {/* Foreground Content (shifted left for alignment) */}
-        <div className="relative z-10 max-w-5xl transform -translate-x-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-4xl md:text-6xl font-bold text-[#000080] drop-shadow-md leading-tight"
-          >
-            Empowering Digital Education Through Vision and Support
-          </motion.h1>
 
-          {/* Small orange line under header */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-2 h-1 w-12 bg-orange-500 rounded-full origin-center"
-          />
+            {/* Small orange line under header */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mx-auto mt-3 h-1 w-10 bg-orange-500 rounded-full origin-center"
+            />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mt-6 text-lg md:text-xl text-[#0a0f4a] font-medium drop-shadow-sm"
-          >
-            Join us in shaping a future where education is inclusive, global, and driven by innovation.
-          </motion.p>
+            <motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.2 }}
+  className="mt-6 text-base md:text-lg text-white font-medium drop-shadow-[0_0_6px_rgba(0,0,128,0.4)]"
+>
+  Join us in shaping a future where education is inclusive, global, and driven by innovation.
+</motion.p>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
