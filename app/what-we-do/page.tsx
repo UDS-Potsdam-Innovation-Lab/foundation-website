@@ -8,28 +8,28 @@ export default function WhatWeDoPage() {
     {
       title: "Support German UDS",
       description:
-        "Promoting and financing the German University of Digital Science through strategic initiatives and partnerships.",
+        "Promoting and financing the German University of Digital Science through strategic initiatives and partnerships",
       image: "/support-german-uds.jpg",
       objectPosition: "center top",
     },
     {
       title: "Global Cooperation",
       description:
-        "Fostering international partnerships and collaboration to advance digital education worldwide.",
+        "Fostering international partnerships and collaboration to advance digital education worldwide",
       image: "/support-german-uds.jpg",
       objectPosition: "left center",
     },
     {
       title: "Campus of Virtual Education (COVE)",
       description:
-        "Pioneering virtual learning environments and innovative digital education platforms.",
+        "Pioneering virtual learning environments and innovative digital education platforms",
       image: "/support-german-uds.jpg",
       objectPosition: "right center",
     },
     {
       title: "German-UDS.Academy",
       description:
-        "Providing accessible, high-quality digital education through our online learning platform.",
+        "Providing accessible, high-quality digital education through our online learning platform",
       image: "/support-german-uds.jpg",
       objectPosition: "center bottom",
     },
@@ -38,32 +38,32 @@ export default function WhatWeDoPage() {
   const supportMethods = [
     {
       title: "Donations",
-      description: "Support our initiatives with flexible giving options.",
+      description: "Support our initiatives with flexible giving options",
       image: "/support/1.png",
     },
     {
       title: "Endowments",
-      description: "Leave a legacy through sustainable funding.",
+      description: "Leave a legacy through sustainable funding",
       image: "/support/2.png",
     },
     {
       title: "Project Support",
-      description: "Back specific projects that align with your interests.",
+      description: "Back projects that align with your interests",
       image: "/support/3.png",
     },
     {
       title: "Corporate Partnerships",
-      description: "Collaborate with us to drive innovation.",
+      description: "Collaborate with us to drive innovation",
       image: "/support/4.png",
     },
     {
       title: "Research Funding",
-      description: "Fuel groundbreaking research and education.",
+      description: "Fuel groundbreaking research and education",
       image: "/support/5.png",
     },
     {
       title: "Infrastructure Support",
-      description: "Help build and maintain our digital infrastructure.",
+      description: "Help build and maintain our digital infrastructure",
       image: "/support/6.png",
     },
   ];
@@ -173,9 +173,9 @@ export default function WhatWeDoPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl font-bold text-[#000080]">Support Our Mission</h2>
+            <h2 className="text-3xl font-bold text-[#000080]">Support Our Mission </h2>
             <p className="mt-2 text-lg text-[#000080]">
-              Join us in transforming digital education through your generous support
+              In Transforming Digital Education
             </p>
           </motion.div>
 
@@ -208,7 +208,7 @@ export default function WhatWeDoPage() {
               <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
             </div>
             <p className="text-sm mt-3">
-              All donations are tax-deductible. Documentation will be provided for your records.
+              All donations are tax-deductible. Documentation will be provided for your records
             </p>
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function WhatWeDoPage() {
           >
             <h2 className="text-3xl font-bold text-[#0a0f4a]">Get in Touch</h2>
             <p className="mt-2 text-lg text-[#0a0f4a]">
-              Ready to make a difference? Here's how you can reach us
+              Ready to make a difference? Here's how you can support us with your generous contributions
             </p>
           </motion.div>
 

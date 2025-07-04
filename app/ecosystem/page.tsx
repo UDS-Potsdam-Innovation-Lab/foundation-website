@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 
 export default function Page() {
@@ -42,48 +41,31 @@ export default function Page() {
       title: 'Donate to Foundation',
       description: 'Support digital education by contributing directly.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[0%_0%]'
+      style: 'object-[0%_0%]',
     },
     {
       title: 'Fund Scholarships',
       description: 'Help students access education by funding scholarships.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[25%_25%]'
+      style: 'object-[25%_25%]',
     },
     {
       title: 'Acquire Shares in gGmbH',
       description: 'Be a part of our journey through strategic investment.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[50%_50%]'
+      style: 'object-[50%_50%]',
     },
     {
       title: 'Sponsor Programs',
       description: 'Support specific research or education programs.',
       image: '/financial-support-and-participation.jpg',
-      style: 'object-[75%_75%]'
-    },
-  ];
-
-  const resources = [
-    {
-      title: 'German UDS Brochure',
-      description: 'Download our comprehensive overview of German UDS',
-      link: 'https://german-uds.de/cta',
-    },
-    {
-      title: 'Scientific Reports',
-      description: 'Access our latest research and scientific publications',
-      link: 'https://german-uds.de/scientific-reports',
-    },
-    {
-      title: 'Digital Education Podcast',
-      description: 'Listen to our weekly discussions with industry experts',
-      link: 'https://german-uds.de/podcasts',
+      style: 'object-[75%_75%]',
     },
   ];
 
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+      {/* Ecosystem Section */}
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -121,40 +103,32 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Shareholding Structure Section */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Shareholding Structure</h1>
-            <p className="text-lg text-[#0a0f4a]">Understanding the ownership distribution of German UDS</p>
+            <p className="text-lg text-[#0a0f4a]">Ownership distribution of German UDS</p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
             {shares.map((share, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-gradient-to-br from-[#fff7f0] to-[#fffaf7] border border-orange-200 px-6 py-5 rounded-br-2xl shadow-md hover:shadow-xl hover:ring-2 hover:ring-orange-400 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="w-full h-[140px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col items-center justify-center text-center px-4 py-6"
               >
-                <div className="text-2xl font-extrabold text-orange-500 mb-1">
-                  {share.percentage}%
-                </div>
-                <h3 className="font-semibold text-base text-[#000080] mb-1">
-                  {share.holder}
-                </h3>
-                <hr className="border-t border-gray-200 mb-2" />
-                <p className="text-sm text-[#0a0f4a]">
-                  Represents {share.percentage}% of total shareholding in the organization.
-                </p>
-              </div>
+                <div className="text-3xl font-bold text-orange-500 mb-1">{share.percentage}%</div>
+                <h3 className="text-[#000080] text-xs font-semibold leading-snug">{share.holder}</h3>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
+      {/* Financial Support Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
