@@ -19,29 +19,28 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrolledUpEnough = lastScrollY - currentScrollY > 100;
+  const currentScrollY = window.scrollY;
 
-      if (currentScrollY < 50 || scrolledUpEnough) {
-        setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY) {
-        setShowNavbar(false);
-      }
+  // Show navbar only at top
+  if (currentScrollY < 50) {
+    setShowNavbar(true);
+  } else {
+    setShowNavbar(false);
+  }
 
-      lastScrollY = currentScrollY;
+  // Highlight current section in view (this part stays)
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPosition = currentScrollY + 100;
 
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = currentScrollY + 100;
+  sections.forEach((section) => {
+    const sectionTop = (section as HTMLElement).offsetTop;
+    const sectionHeight = (section as HTMLElement).offsetHeight;
 
-      sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(section.id);
-        }
-      });
-    };
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      setActiveSection(section.id);
+    }
+  });
+};
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
