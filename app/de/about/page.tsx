@@ -77,11 +77,11 @@ export default function Page() {
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       {/* Über uns Abschnitt */}
-      <section className="scroll-mt-32 h-[calc(100vh-6rem)] relative z-10 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="text-center mb-8">
+      <section className="scroll-mt-32 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">Über uns</h1>
-            <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-[#0a0f4a] max-w-4xl mx-auto leading-relaxed">
               Die German UDS Foundation unterstützt die German University of Digital Science durch die Förderung
               innovativer Bildung und Forschung im Bereich der Digitalwissenschaften. Unsere Mission ist es, die digitale
               Transformation voranzutreiben, digitale Kompetenzen in die Gesellschaft zu integrieren und eine inklusive,
@@ -89,13 +89,13 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 h-[75vh]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 auto-rows-auto">
             {/* Linkes Bild */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-full rounded-xl overflow-hidden shadow-xl lg:col-span-3"
+              className="relative w-full aspect-[4/3] md:aspect-auto lg:col-span-3 rounded-xl overflow-hidden shadow-xl"
             >
               <Image
                 src="/why_foundation.png"
@@ -107,14 +107,14 @@ export default function Page() {
             </motion.div>
 
             {/* Rechte Seite: 4 Boxen */}
-            <div className="lg:col-span-2 h-full flex flex-col gap-4">
+            <div className="lg:col-span-2 flex flex-col gap-4">
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.15 }}
-                  className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 overflow-hidden flex flex-col"
+                  className="flex-1 min-h-[180px] bg-white rounded-2xl border border-gray-200 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 overflow-hidden flex flex-col"
                 >
                   {/* Bild oben */}
                   <div className="relative w-full h-24 overflow-hidden">
@@ -145,7 +145,7 @@ export default function Page() {
       </section>
 
       {/* Stimmen Abschnitt */}
-      <section className="py-20 mt-40">
+      <section className="py-20 mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Stimmen der Stiftung</h2>
@@ -153,14 +153,14 @@ export default function Page() {
               Erfahre, warum unsere Kernmitglieder an die Mission der German UDS Foundation glauben
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {videoStatements.map((video, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full flex flex-col rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+                className="w-full flex flex-col rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 overflow-hidden"
               >
                 <div className="relative aspect-video">
                   {activeVideos[index] ? (
