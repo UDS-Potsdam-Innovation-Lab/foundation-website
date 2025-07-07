@@ -69,7 +69,7 @@ export default function Values() {
           >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Leitprinzipien</h1>
             <p className="text-xl text-[#0a0f4a] max-w-3xl mx-auto">
-              Unsere Leitprinzipien inspirieren uns, die digitale Zukunft zu gestalten, zu fördern und zu stärken
+              Unsere Leitprinzipien inspirieren uns, die digitale Zukunft zu gestalten,<br /> zu fördern und zu stärken
             </p>
           </motion.div>
 

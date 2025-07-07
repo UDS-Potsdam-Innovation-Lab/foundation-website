@@ -50,7 +50,7 @@ export default function Page() {
     },
     {
       title: 'Stärkung der Universität',
-      description: 'Wie die Stiftung täglich den Fortschritt der UDS vorantreibt',
+      description: 'Wie die Stiftung täglich den Fortschritt der German UDS vorantreibt',
       videoId: '1094752301',
     },
   ];
