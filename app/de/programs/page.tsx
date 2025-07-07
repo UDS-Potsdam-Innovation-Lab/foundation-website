@@ -4,23 +4,23 @@ import { motion } from 'framer-motion';
 export default function Programs() {
   const programs = [
     {
-      title: 'Support for German UDS Operations',
-      description: 'Providing essential resources and infrastructure to maintain and expand German UDS initiatives.',
+      title: 'Unterstützung der German UDS Aktivitäten',
+      description: 'Bereitstellung wesentlicher Ressourcen und Infrastrukturen zur Aufrechterhaltung und Erweiterung der German UDS-Initiativen.',
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
     },
     {
-      title: 'Global Cooperation in Research',
-      description: 'Fostering international partnerships to advance digital education research and innovation.',
+      title: 'Globale Zusammenarbeit in der Forschung',
+      description: 'Förderung internationaler Partnerschaften zur Weiterentwicklung von Forschung und Innovation in der digitalen Bildung.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
     },
     {
       title: 'Campus of Virtual Education',
-      description: 'Building the future of education through immersive virtual learning environments.',
+      description: 'Gestaltung der Zukunft des Lernens durch immersive virtuelle Bildungsumgebungen.',
       image: 'https://images.pexels.com/photos/3182755/pexels-photo-3182755.jpeg',
     },
     {
       title: 'German-UDS.Academy',
-      description: 'Promoting digital platforms that make education accessible to everyone.',
+      description: 'Förderung digitaler Plattformen, die Bildung für alle zugänglich machen.',
       image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg',
     },
   ];
@@ -35,9 +35,9 @@ export default function Programs() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-6 gradient-text">Our Programs</h1>
+            <h1 className="text-4xl font-bold mb-6 gradient-text">Unsere Programme</h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Discover our innovative initiatives that are shaping the future of digital education
+              Entdecken Sie unsere innovativen Initiativen zur Gestaltung der digitalen Bildungszukunft
             </p>
           </motion.div>
 

@@ -48,7 +48,7 @@ export default function WhatWeDoPage() {
     },
     {
       title: "Project Support",
-      description: "Back projects that align with your interests",
+      description: "Back  projects that align with your interests",
       image: "/support/3.png",
     },
     {
@@ -276,7 +276,7 @@ export default function WhatWeDoPage() {
               <h3 className="text-lg font-bold text-white">Contact Us</h3>
             </div>
             <p className="text-sm mt-3">
-              Have questions or want to get involved? We’re happy to hear from you and will respond as soon as possible.
+              Have questions or want to get involved? We’re happy to hear from you and will respond as soon as possible
             </p>
           </div>
         </div>

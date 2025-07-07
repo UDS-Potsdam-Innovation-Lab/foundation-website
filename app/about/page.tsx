@@ -35,22 +35,22 @@ export default function Page() {
   const videoStatements = [
     {
       title: 'Digital Resilience',
-      description: 'Building adaptability and strength through digital empowerment.',
+      description: 'Building adaptability and strength through digital empowerment',
       videoId: '1092449114',
     },
     {
       title: 'Lifelong Learning',
-      description: 'Education never stops — it evolves with you.',
+      description: 'Education never stops — it evolves with you',
       videoId: '1092448821',
     },
     {
       title: 'Digital Future',
-      description: 'Envisioning and shaping the technological world of tomorrow.',
+      description: 'Envisioning and shaping the technological world of tomorrow',
       videoId: '1092448406',
     },
     {
       title: 'Empowering the University',
-      description: 'How the Foundation fuels UDS progress every day.',
+      description: 'How the Foundation fuels UDS progress every day',
       videoId: '1094752301',
     },
   ];
@@ -84,7 +84,7 @@ export default function Page() {
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
               The German UDS Foundation supports the German University of Digital Science by funding innovative
               education and research in digital science. Our mission is to promote digital transformation, integrate
-              digital skills into society, and shape an inclusive, future-ready digital world.
+              digital skills into society, and shape an inclusive, future-ready digital world
             </p>
           </div>
 
