@@ -3,25 +3,32 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '../components/ui/Button';
 
 export default function Page() {
   const keyStatements = [
     {
       title: 'Promote and Fund',
       description: 'Finance the German University of Digital Science through strategic initiatives',
+      transform: '',
+      objectPosition: 'top left',
     },
     {
       title: 'Shape Digital Society',
       description: 'Actively contribute to the development and evolution of digital civil society',
+      transform: 'scaleX(-1)',
+      objectPosition: 'center',
     },
     {
       title: 'Integrate Digital Science',
       description: 'Seamlessly incorporate Digital Science into research and public life',
+      transform: 'rotate(180deg)',
+      objectPosition: 'bottom left',
     },
     {
       title: 'Pioneer Education',
       description: 'Lead the way in developing and implementing innovative digital education models',
+      transform: 'scaleY(-1)',
+      objectPosition: 'top right',
     },
   ];
 
@@ -70,10 +77,10 @@ export default function Page() {
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       {/* About Section */}
-      <section className="scroll-mt-32 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">About Us</h1>
+      <section className="scroll-mt-32 h-[calc(100vh-6rem)] relative z-10 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold mb-4 text-[#000080]">About Us</h1>
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
               The German UDS Foundation supports the German University of Digital Science by funding innovative
               education and research in digital science. Our mission is to promote digital transformation, integrate
@@ -81,13 +88,13 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 h-[75vh]">
+            {/* Left Image */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-full min-h-[650px] rounded-xl overflow-hidden shadow-xl"
+              className="relative w-full h-full rounded-xl overflow-hidden shadow-xl lg:col-span-3"
             >
               <Image
                 src="/why_foundation.png"
@@ -98,18 +105,37 @@ export default function Page() {
               />
             </motion.div>
 
-            {/* Key Statements */}
-            <div className="grid grid-cols-1 gap-6 min-h-[650px]">
+            {/* Right: 4 Equal-Height Boxes, No Scroll */}
+            <div className="lg:col-span-2 h-full flex flex-col gap-4">
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.15 }}
-                  className="bg-white rounded-2xl border border-gray-200 p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300"
+                  className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 overflow-hidden flex flex-col"
                 >
-                  <h3 className="text-[#f7931e] font-semibold text-xl mb-2">{statement.title}</h3>
-                  <p className="text-[#0a0f4a] text-sm leading-relaxed">{statement.description}</p>
+                  {/* Top Image */}
+                  <div className="relative w-full h-24 overflow-hidden">
+                    <div
+                      className="absolute inset-0"
+                      style={{ transform: statement.transform }}
+                    >
+                      <Image
+                        src="/about_us_abstract.png"
+                        alt={statement.title}
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: statement.objectPosition }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="p-4 flex flex-col justify-center">
+                    <h3 className="text-[#f7931e] font-semibold text-lg mb-1">{statement.title}</h3>
+                    <p className="text-[#0a0f4a] text-sm leading-snug">{statement.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -118,7 +144,7 @@ export default function Page() {
       </section>
 
       {/* Voices Section */}
-      <section className="py-20">
+      <section className="py-20 mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Voices of the Foundation</h2>
