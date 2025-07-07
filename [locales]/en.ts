@@ -5,7 +5,6 @@ const en = {
     values: "Values",
     whatWeDo: "What We Do",
     ecosystem: "Ecosystem",
-    learnMore: "Learn More",
     team: "Team",
     contact: "Contact",
   },

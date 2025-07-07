@@ -7,27 +7,27 @@ export default function Values() {
   const beliefs = [
     {
       title: "Rethinking Education",
-      description: "Transforming traditional education models to meet the demands of the digital age.",
+      description: "Transforming traditional education models to meet the demands of the digital age",
       image: "/beliefs1.png",
     },
     {
       title: "Supporting Visionaries",
-      description: "Empowering innovative thinkers who shape the future of digital education.",
+      description: "Empowering innovative thinkers who shape the future of digital education",
       image: "/beliefs2.png",
     },
     {
       title: "Digital Education",
-      description: "Making quality education accessible through cutting-edge digital platforms.",
+      description: "Making quality education accessible through cutting-edge digital platforms",
       image: "/beliefs3.png",
     },
     {
       title: "Global Education",
-      description: "Breaking down geographical barriers to create a worldwide learning community.",
+      description: "Breaking down geographical barriers to create a worldwide learning community",
       image: "/beliefs4.png",
     },
     {
       title: "Harmony between AI and Humans",
-      description: "Fostering a balanced integration of artificial intelligence in education.",
+      description: "Fostering a balanced integration of artificial intelligence in education",
       image: "/beliefs5.png",
     },
   ];
@@ -69,7 +69,7 @@ export default function Values() {
           >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Guiding Principles</h1>
             <p className="text-xl text-[#0a0f4a] max-w-3xl mx-auto">
-              Our guiding principles inspire how we shape, support, and strengthen the digital future.
+              Our guiding principles inspire how we shape, support, and strengthen the digital future
             </p>
           </motion.div>
 

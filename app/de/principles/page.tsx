@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 export default function Principles() {
   const principles = [
     {
-      title: 'Shape the Digital Future',
-      description: 'Leading innovation in digital education and research',
+      title: 'Die digitale Zukunft gestalten',
+      description: 'Führend in Innovationen für digitale Bildung und Forschung',
     },
     {
-      title: 'Establish Digital Science',
-      description: 'Creating new standards in digital academic excellence',
+      title: 'Digitale Wissenschaft etablieren',
+      description: 'Neue Maßstäbe akademischer Exzellenz im Digitalen setzen',
     },
     {
-      title: 'Promote Young Talent',
-      description: 'Nurturing the next generation of digital innovators',
+      title: 'Junge Talente fördern',
+      description: 'Die nächste Generation digitaler Innovatoren unterstützen',
     },
     {
-      title: 'Support Future Skills',
-      description: 'Developing essential competencies for the digital age',
+      title: 'Zukunftskompetenzen stärken',
+      description: 'Entwicklung essenzieller Fähigkeiten für das digitale Zeitalter',
     },
   ];
 
@@ -31,10 +31,10 @@ export default function Principles() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-6 gradient-text">Guiding Principles</h1>
+            <h1 className="text-4xl font-bold mb-6 gradient-text">Leitprinzipien</h1>
             <p className="text-xl text-body max-w-3xl mx-auto">
-              Our foundation is built on core principles that guide our mission to transform
-              digital education and research
+              Unsere Stiftung basiert auf zentralen Prinzipien, die unsere Mission zur Transformation
+              von digitaler Bildung und Forschung leiten.
             </p>
           </motion.div>
 

@@ -1,58 +1,70 @@
 'use client';
-import { motion } from 'framer-motion';
-import ParticlesBackground from '../components/ParticlesBackground';
 
-export default function Home() {
+import { motion } from 'framer-motion';
+
+export default function Page() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center hero-section hero-gradient relative overflow-hidden">
-        <ParticlesBackground />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 text-center">
+    <main className="scroll-smooth">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+        {/* Hintergrundbild */}
+        <div
+          className="absolute inset-0 z-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url('/abstract-bg.png')`,
+          }}
+        />
+
+        {/* Vordergrundinhalt */}
+        <div className="relative z-10 max-w-3xl transform -translate-x-6">
+          {/* Glasartiger Kasten mit blauer Tönung */}
+          <div className="bg-[#d0e8ff]/20 backdrop-blur-md rounded-2xl px-6 py-8 shadow-md border border-white/30">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-3xl md:text-5xl font-bold text-white drop-shadow-[0_0_8px_rgba(0,0,128,0.5)] leading-tight"
+            >
+              Digitale Bildung stärken durch Vision und Unterstützung
+            </motion.h1>
+
+            {/* Kleine orangefarbene Linie unter der Überschrift */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mx-auto mt-3 h-1 w-10 bg-orange-500 rounded-full origin-center"
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="mt-6 text-base md:text-lg text-white font-medium drop-shadow-[0_0_6px_rgba(0,0,128,0.4)]"
+            >
+              Gestalten Sie mit uns eine Zukunft, in der Bildung inklusiv, global und innovationsgetrieben ist
+            </motion.p>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-highlight">
-              Building A Digital Future With Social Responsibility
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            {[
+              { href: '/de/about', label: 'Mehr erfahren' },
+              { href: '/de/get-involved', label: 'Unterstützen' },
+              { href: '/de/get-involved', label: 'Mitmachen' },
+            ].map(({ href, label }) => (
               <a
-                href="/about"
-                className="px-6 py-2 border border-orange-500 rounded-full text-white text-sm font-medium hover:bg-orange-500 hover:text-white transition"
+                key={label}
+                href={href}
+                className="px-5 py-2 rounded-md bg-orange-500 hover:bg-orange-600 transition text-white font-semibold shadow-md"
               >
-                Learn More
+                {label}
               </a>
-              <a
-                href="/get-involved"
-                className="px-6 py-2 border border-orange-500 rounded-full text-white text-sm font-medium hover:bg-orange-500 hover:text-white transition"
-              >
-                Support Us
-              </a>
-            </div>
-            <p className="text-xl md:text-2xl bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent font-semibold mt-4">
-              Join us in shaping a globally inclusive and technologically advanced education system
-            </p>
+            ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 card-blue-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 gradient-text">Ready to Shape the Future?</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Join us in our mission to transform digital education
-            </p>
-            <a
-              href="/get-involved"
-              className="btn-primary px-8 py-3 rounded-full text-sm font-medium inline-block"
-            >
-              Get Involved
-            </a>
-          </div>
         </div>
       </section>
     </main>

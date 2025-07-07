@@ -4,96 +4,88 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
-import { useTranslation } from '../../locales/useTranslation';
+import { useTranslation } from '../../../[locales]/useTranslation';
 
-const Navbar = ({ locale = 'en' }: { locale?: string }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [showNavbar, setShowNavbar] = useState(true);
-  const router = useRouter();
   const pathname = usePathname();
-  const t = useTranslation(locale);
+  const router = useRouter();
+
+  // Determine current locale from path
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale = segments[0] === 'de' ? 'de' : 'en';
+  const pathWithoutLocale = segments[0] === 'de' ? segments.slice(1).join('/') : segments.join('/');
+
+  const t = useTranslation(currentLocale);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-  const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY;
+      setShowNavbar(currentScrollY < 50);
 
-  // Show navbar only at top
-  if (currentScrollY < 50) {
-    setShowNavbar(true);
-  } else {
-    setShowNavbar(false);
-  }
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = currentScrollY + 100;
 
-  // Highlight current section in view (this part stays)
-  const sections = document.querySelectorAll('section[id]');
-  const scrollPosition = currentScrollY + 100;
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
 
-  sections.forEach((section) => {
-    const sectionTop = (section as HTMLElement).offsetTop;
-    const sectionHeight = (section as HTMLElement).offsetHeight;
-
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      setActiveSection(section.id);
-    }
-  });
-};
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(section.id);
+        }
+      });
+    };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: t.navbar.home, href: locale === 'en' ? '/' : `/${locale}` },
-    { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` },
+    { name: t.navbar.home, href: currentLocale === 'en' ? '/' : `/${currentLocale}` },
+    { name: t.navbar.about, href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
     {
       name: t.navbar.values,
-      href: locale === 'en' ? '/values' : `/${locale}/values`,
+      href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values`,
       dropdownItems: [
-        { name: 'Guiding Principles', href: locale === 'en' ? '/values#guiding-principles' : `/${locale}/values#guiding-principles` },
-        { name: 'Core Beliefs', href: locale === 'en' ? '/values#core-beliefs' : `/${locale}/values#core-beliefs` },
+        { name: t.navbar.guidingPrinciples, href: currentLocale === 'en' ? '/values#guiding-principles' : `/${currentLocale}/values#guiding-principles` },
+        { name: t.navbar.coreBeliefs, href: currentLocale === 'en' ? '/values#core-beliefs' : `/${currentLocale}/values#core-beliefs` },
       ],
     },
     {
       name: t.navbar.whatWeDo,
-      href: locale === 'en' ? '/what-we-do' : `/${locale}/what-we-do`,
+      href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do`,
       dropdownItems: [
-        { name: 'Purpose', href: locale === 'en' ? '/what-we-do#purpose' : `/${locale}/what-we-do#purpose` },
-        { name: 'Foundation Goals', href: locale === 'en' ? '/what-we-do#foundation-wants' : `/${locale}/what-we-do#foundation-wants` },
-        { name: 'Support Us', href: locale === 'en' ? '/what-we-do#support-us' : `/${locale}/what-we-do#support-us` },
-        { name: 'Get Involved', href: locale === 'en' ? '/what-we-do#interested' : `/${locale}/what-we-do#interested` },
+        { name: t.navbar.purpose, href: currentLocale === 'en' ? '/what-we-do#purpose' : `/${currentLocale}/what-we-do#purpose` },
+        { name: t.navbar.foundationGoals, href: currentLocale === 'en' ? '/what-we-do#foundation-goals' : `/${currentLocale}/what-we-do#foundation-goals` },
+        { name: t.navbar.supportUs, href: currentLocale === 'en' ? '/what-we-do#support-us' : `/${currentLocale}/what-we-do#support-us` },
+        { name: t.navbar.getInvolved, href: currentLocale === 'en' ? '/what-we-do#get-involved' : `/${currentLocale}/what-we-do#get-involved` },
       ],
     },
     {
       name: t.navbar.ecosystem,
-      href: locale === 'en' ? '/ecosystem' : `/${locale}/ecosystem`,
+      href: currentLocale === 'en' ? '/ecosystem' : `/${currentLocale}/ecosystem`,
       dropdownItems: [
-        { name: 'UDS Overview', href: locale === 'en' ? '/ecosystem#german-uds-overview' : `/${locale}/ecosystem#german-uds-overview` },
-        { name: 'Shareholding', href: locale === 'en' ? '/ecosystem#shareholding' : `/${locale}/ecosystem#shareholding` },
-        { name: 'Participation', href: locale === 'en' ? '/ecosystem#participation' : `/${locale}/ecosystem#participation` },
+        { name: t.navbar.udsOverview, href: currentLocale === 'en' ? '/ecosystem#german-uds-overview' : `/${currentLocale}/ecosystem#german-uds-overview` },
+        { name: t.navbar.shareholding, href: currentLocale === 'en' ? '/ecosystem#shareholding' : `/${currentLocale}/ecosystem#shareholding` },
+        { name: t.navbar.participation, href: currentLocale === 'en' ? '/ecosystem#participation' : `/${currentLocale}/ecosystem#participation` },
       ],
     },
-    { name: t.navbar.team, href: locale === 'en' ? '/team' : `/${locale}/team` },
-    { name: t.navbar.contact, href: locale === 'en' ? '/contact' : `/${locale}/contact` },
+    { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
+    { name: t.navbar.contact, href: currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact` },
   ];
 
   const isActive = (href: string) => {
-    if (locale === 'en') {
-      if (href === '/') {
-        return pathname === '' || pathname === '/';
-      }
+    if (currentLocale === 'en') {
+      if (href === '/') return pathname === '' || pathname === '/';
       if (href.includes('#')) {
         const [path, anchor] = href.split('#');
         return pathname === path && activeSection === anchor;
       }
       return pathname.startsWith(href);
     } else {
-      if (href === `/${locale}`) {
-        return pathname === href;
-      }
+      if (href === `/${currentLocale}`) return pathname === href;
       if (href.includes('#')) {
         const [path, anchor] = href.split('#');
         return pathname === path && activeSection === anchor;
@@ -117,27 +109,22 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
   };
 
   const switchLocale = (targetLocale: string) => {
-    const segments = pathname.split('/').filter(Boolean);
-    const currentLocale = segments[0];
-    const isKnownLocale = currentLocale === 'en' || currentLocale === 'de';
-    const pathWithoutLocale = isKnownLocale ? segments.slice(1).join('/') : segments.join('/');
-
-    const newPath = targetLocale === 'en'
-      ? `/${pathWithoutLocale}`
-      : `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    const newPath =
+      targetLocale === 'en'
+        ? `/${pathWithoutLocale}`
+        : `/${targetLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
     window.location.href = newPath || '/';
   };
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-500 bg-transparent ${showNavbar ? 'top-0' : '-top-20'}`}
-      style={{ transitionProperty: 'top' }}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex-shrink-0" aria-label="Home">
+          <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="flex-shrink-0" aria-label="Home">
             <Image
               src="/UDS_foundation_logo_pos_rgb.png"
               alt="German University of Digital Science Foundation"
@@ -152,31 +139,39 @@ const Navbar = ({ locale = 'en' }: { locale?: string }) => {
             <div className="ml-10 flex items-baseline space-x-4" role="menubar">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group" role="none">
-                  {item.dropdownItems ? (
-                    <>
-                      <Link
-                        href={item.href}
-                        className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
-                          pathname.startsWith(item.href) ? 'border-b-2 border-orange-500' : ''
-                        }`}
-                        role="menuitem"
-                      >
-                        {item.name}
-                      </Link>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
-                        isActive(item.href) ? 'border-b-2 border-orange-500' : ''
-                      }`}
-                      role="menuitem"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
+                      isActive(item.href) ? 'border-b-2 border-orange-500' : ''
+                    }`}
+                    role="menuitem"
+                    onClick={(e) => handleAnchorClick(e, item.href)}
+                  >
+                    {item.name}
+                  </Link>
                 </div>
               ))}
+
+              {/* Language Switcher */}
+              <div className="ml-12 pl-4 border-l border-gray-300 flex items-center space-x-1 text-sm font-medium">
+                <button
+                  onClick={() => switchLocale('en')}
+                  className={`transition-colors hover:text-[#003366] ${
+                    currentLocale === 'en' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
+                  }`}
+                >
+                  EN
+                </button>
+                <span className="text-gray-400">|</span>
+                <button
+                  onClick={() => switchLocale('de')}
+                  className={`transition-colors hover:text-[#003366] ${
+                    currentLocale === 'de' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
+                  }`}
+                >
+                  DE
+                </button>
+              </div>
             </div>
           </div>
         </div>

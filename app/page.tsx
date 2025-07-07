@@ -42,7 +42,7 @@ export default function Page() {
   transition={{ duration: 1, delay: 0.2 }}
   className="mt-6 text-base md:text-lg text-white font-medium drop-shadow-[0_0_6px_rgba(0,0,128,0.4)]"
 >
-  Join us in shaping a future where education is inclusive, global, and driven by innovation.
+  Join us in shaping a future where education is inclusive, global, and driven by innovation
 </motion.p>
           </div>
 

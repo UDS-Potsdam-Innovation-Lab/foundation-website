@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useTranslation } from '../../locales/useTranslation';
+import { useTranslation } from '../../../[locales]/useTranslation';
 
 // This is the ONLY Footer component to be used. Do not use app/components/Footer.tsx.
 const Footer = ({ locale = 'en' }: { locale?: string }) => {
