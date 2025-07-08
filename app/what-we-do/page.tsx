@@ -204,12 +204,21 @@ export default function WhatWeDoPage() {
 
         <div className="w-screen bg-[#8fb5e2] py-8 px-4">
           <div className="max-w-4xl mx-auto text-center text-[#0a0f4a]">
-            <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
-              <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
-            </div>
+            <a
+              href="/tax-benefits.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300"
+          >
+  <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
+</a>
+
             <p className="text-sm mt-3">
-              All donations are tax-deductible. Documentation will be provided for your records
-            </p>
+  View our official certificate above confirming tax-deductibility, issued by the German tax authorities.
+</p>
+<p className="text-sm mt-2">
+  All donations are tax-deductible and will be acknowledged with appropriate documentation.
+</p>
           </div>
         </div>
       </section>
