@@ -1,19 +1,18 @@
 const de = {
   navbar: {
-    home: "Home",
-    about: "About",
-    values: "Values",
-    whatWeDo: "What We Do",
-    ecosystem: "Ecosystem",
+    home: "Startseite",
+    about: "Über uns",               // ✅ Corrected from "About"
+    values: "Werte",
+    whatWeDo: "Was wir tun",
+    ecosystem: "Ökosystem",
     team: "Team",
-    contact: "Contact",
+    contact: "Kontakt",
   },
   footer: {
-    contact: "Contact",
+    contact: "Kontakt",
     imprint: "Impressum",
     privacy: "Datenschutz",
-    description: "Shaping the future of digital education and innovation.",
-    // Add more as needed
+    description: "Gestaltung der Zukunft digitaler Bildung und Innovation.",
   },
 };
-export default de; 
+export default de;

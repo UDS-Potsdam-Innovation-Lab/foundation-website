@@ -1,37 +1,58 @@
+'use client';
+
 import Link from 'next/link';
 import { useTranslation } from '../../../[locales]/useTranslation';
+import { usePathname } from 'next/navigation';
 
-// This is the ONLY Footer component to be used. Do not use app/components/Footer.tsx.
-const Footer = ({ locale = 'en' }: { locale?: string }) => {
-  const t = useTranslation(locale);
+const Footer = () => {
+  const pathname = usePathname();
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale = segments[0] === 'de' ? 'de' : 'en';
+
+  const t = useTranslation(currentLocale);
+
   const footerLinks = [
     {
-      title: 'Quick Links',
+      title: currentLocale === 'de' ? 'Schnellzugriff' : 'Quick Links',
       links: [
-        { name: 'Home', href: locale === 'en' ? '/' : `/${locale}` },
-        { name: 'About Us', href: locale === 'en' ? '/about' : `/${locale}/about` },
-        { name: 'Values', href: locale === 'en' ? '/values' : `/${locale}/values` },
-        { name: 'What We Do', href: locale === 'en' ? '/what-we-do' : `/${locale}/what-we-do` },
+        { name: t.navbar.home, href: currentLocale === 'en' ? '/' : `/${currentLocale}` },
+        { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
+        { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
+        { name: t.navbar.whatWeDo, href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do` },
       ],
     },
     {
-      title: 'Resources',
+      title: currentLocale === 'de' ? 'Ressourcen' : 'Resources',
       links: [
-        { name: 'Ecosystem', href: locale === 'en' ? '/ecosystem' : `/${locale}/ecosystem` },
-        { name: 'Learn More', href: locale === 'en' ? '/learn-more' : `/${locale}/learn-more` },
-        { name: 'Team', href: locale === 'en' ? '/team' : `/${locale}/team` },
+        {
+          name: currentLocale === 'de' ? 'German UDS Website' : 'German UDS Website',
+          href: 'https://german-uds.de',
+        },
+        {
+          name: currentLocale === 'de' ? 'Steuervorteile Übersicht' : 'Tax Benefits Overview',
+          href: '/tax-benefits.pdf',
+        },
+        {
+          name: currentLocale === 'de' ? 'Broschüre' : 'Brochure',
+          href: '/GUDS_Brochure_Final.pdf',
+        },
       ],
     },
     {
       title: (
-        <a href="https://foundation.german-uds.de/contact/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-300">
-          Contact
+        <a
+          href="https://foundation.german-uds.de/contact/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-orange-300"
+        >
+          {t.footer.contact}
         </a>
       ),
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },
         { name: 'Phone', href: 'tel:+493319689220' },
-        { name: 'Location', href: locale === 'en' ? '/contact' : `/${locale}/contact` },
+        { name: t.footer.contact, href: currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact` },
       ],
     },
   ];
@@ -77,11 +98,11 @@ const Footer = ({ locale = 'en' }: { locale?: string }) => {
             © {new Date().getFullYear()} German University of Digital Science Foundation. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href={locale === 'en' ? '/privacy' : `/${locale}/privacy`} className="text-sm text-white hover:text-orange-300">
+            <Link href={currentLocale === 'en' ? '/privacy' : `/${currentLocale}/privacy`} className="text-sm text-white hover:text-orange-300">
               {t.footer.privacy}
             </Link>
             <span className="text-white">|</span>
-            <Link href={locale === 'en' ? '/imprint' : `/${locale}/imprint`} className="text-sm text-white hover:text-orange-300">
+            <Link href={currentLocale === 'en' ? '/imprint' : `/${currentLocale}/imprint`} className="text-sm text-white hover:text-orange-300">
               {t.footer.imprint}
             </Link>
           </div>
