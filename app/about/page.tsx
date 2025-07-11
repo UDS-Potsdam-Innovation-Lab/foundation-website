@@ -76,10 +76,11 @@ export default function Page() {
 
   return (
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+
       {/* About Section */}
-      <section className="scroll-mt-32 h-[calc(100vh-6rem)] relative z-10 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="text-center mb-8">
+      <section className="scroll-mt-32 min-h-screen py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">About Us</h1>
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
               The German UDS Foundation supports the German University of Digital Science by funding innovative
@@ -88,13 +89,13 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 h-[75vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Image */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-full rounded-xl overflow-hidden shadow-xl lg:col-span-3"
+              className="relative w-full h-64 sm:h-80 lg:h-full rounded-xl overflow-hidden shadow-xl lg:col-span-3"
             >
               <Image
                 src="/why_foundation.png"
@@ -105,17 +106,16 @@ export default function Page() {
               />
             </motion.div>
 
-            {/* Right: 4 Equal-Height Boxes, No Scroll */}
-            <div className="lg:col-span-2 h-full flex flex-col gap-4">
+            {/* Right: Boxes */}
+            <div className="lg:col-span-2 flex flex-col gap-4">
               {keyStatements.map((statement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.15 }}
-                  className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 overflow-hidden flex flex-col"
+                  className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-md hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 transition duration-300 overflow-hidden flex flex-col"
                 >
-                  {/* Top Image */}
                   <div className="relative w-full h-24 overflow-hidden">
                     <div
                       className="absolute inset-0"
@@ -130,8 +130,6 @@ export default function Page() {
                       />
                     </div>
                   </div>
-
-                  {/* Text */}
                   <div className="p-4 flex flex-col justify-center">
                     <h3 className="text-[#f7931e] font-semibold text-lg mb-1">{statement.title}</h3>
                     <p className="text-[#0a0f4a] text-sm leading-snug">{statement.description}</p>
@@ -144,22 +142,23 @@ export default function Page() {
       </section>
 
       {/* Voices Section */}
-      <section className="py-20 mt-40">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Voices of the Foundation</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
               Hear why our core members believe in the mission of the German UDS Foundation
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
             {videoStatements.map((video, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full flex flex-col rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+                className="w-full flex flex-col rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 transition duration-300 overflow-hidden"
               >
                 <div className="relative aspect-video">
                   {activeVideos[index] ? (
@@ -185,7 +184,7 @@ export default function Page() {
                     </div>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded-br-2xl">
+                <div className="bg-white p-4">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
                   <p className="text-[#0a0f4a] text-sm">{video.description}</p>
                 </div>
@@ -195,7 +194,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Learn More Section */}
+      {/* Learn More */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
