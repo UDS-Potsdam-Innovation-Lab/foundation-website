@@ -1,7 +1,7 @@
 const en = {
   navbar: {
     home: "Home",
-    about: "About",
+    about: "About Us",
     values: "Values",
     whatWeDo: "What We Do",
     ecosystem: "Ecosystem",

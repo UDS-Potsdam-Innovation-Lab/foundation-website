@@ -16,7 +16,7 @@ export default function Page() {
 
         {/* Vordergrundinhalt */}
         <div className="relative z-10 max-w-3xl transform -translate-x-6">
-          {/* Glasartiger Kasten mit blauer Tönung */}
+          {/* Glassmorphische Box mit Blauton */}
           <div className="bg-[#d0e8ff]/20 backdrop-blur-md rounded-2xl px-6 py-8 shadow-md border border-white/30">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -24,7 +24,7 @@ export default function Page() {
               transition={{ duration: 1 }}
               className="text-3xl md:text-5xl font-bold text-white drop-shadow-[0_0_8px_rgba(0,0,128,0.5)] leading-tight"
             >
-              Digitale Bildung stärken durch Vision und Unterstützung
+              Digitale Bildung durch Vision und Unterstützung stärken
             </motion.h1>
 
             {/* Kleine orangefarbene Linie unter der Überschrift */}
@@ -41,7 +41,7 @@ export default function Page() {
               transition={{ duration: 1, delay: 0.2 }}
               className="mt-6 text-base md:text-lg text-white font-medium drop-shadow-[0_0_6px_rgba(0,0,128,0.4)]"
             >
-              Gestalten Sie mit uns eine Zukunft, in der Bildung inklusiv, global und innovationsgetrieben ist
+              Gestalte mit uns eine Zukunft, in der Bildung inklusiv, global und innovationsgetrieben ist
             </motion.p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Page() {
           >
             {[
               { href: '/de/about', label: 'Mehr erfahren' },
-              { href: '/de/get-involved', label: 'Unterstützen' },
+              { href: '/de/get-involved', label: 'Unterstütze uns' },
               { href: '/de/get-involved', label: 'Mitmachen' },
             ].map(({ href, label }) => (
               <a
