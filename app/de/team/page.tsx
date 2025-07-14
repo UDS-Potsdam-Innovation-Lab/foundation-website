@@ -27,7 +27,7 @@ export default function Team() {
       email: 'wulf.wersig@foundation.german-uds.de',
       image: '/wulf_w.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092449059?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Wulf Wersig was Headmaster and Managing Director of the Regional Vocational Education and Training Center for Business in the state capital Kiel until 2016—an institution awarded the German School Prize. After studying Economics and Business Education in Kiel and Berlin, he witnessed the digital transformation from the beginning and actively implemented it in his professional environment. From 2017 to 2023, he served as Managing Director of the operating company German UDS gGmbH.',
+      bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in der Landeshauptstadt Kiel – Trägerin des Deutschen Schulpreises Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin erlebte er die digitale Transformation von Beginn an und setzte sie aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
       name: 'Prof. Dr. Christoph Meinel',
