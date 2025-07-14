@@ -153,7 +153,7 @@ export default function WhatWeDoPage() {
 
           <div className="mt-10 mx-auto w-full max-w-4xl h-[400px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
             <Image
-              src="/shaping-the-future.png"
+              src="/shaping-the-future-de.png"
               alt="Zukunft gestalten Bild"
               fill
               className="object-cover"
