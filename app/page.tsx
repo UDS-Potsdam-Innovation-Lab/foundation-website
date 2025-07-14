@@ -24,7 +24,7 @@ export default function Page() {
               transition={{ duration: 1 }}
               className="text-2xl sm:text-3xl md:text-5xl font-bold text-white drop-shadow-[0_0_8px_rgba(0,0,128,0.5)] leading-tight"
             >
-              Strengthening Digital Education Through Vision and Support
+              Empowering Digital Education Through Vision and Support
             </motion.h1>
 
             {/* Small orange line under the heading */}
