@@ -2,7 +2,7 @@ const de = {
   navbar: {
     home: "Startseite",
     about: "Über uns",               // ✅ Corrected from "About"
-    values: "Werte",
+    values: "Ziele",
     whatWeDo: "Was wir tun",
     ecosystem: "Ökosystem",
     team: "Team",

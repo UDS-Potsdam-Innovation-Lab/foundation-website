@@ -24,7 +24,7 @@ export default function Page() {
               transition={{ duration: 1 }}
               className="text-2xl sm:text-3xl md:text-5xl font-bold text-white drop-shadow-[0_0_8px_rgba(0,0,128,0.5)] leading-tight"
             >
-              Digitale Bildung durch Vision und Unterstützung stärken
+              Digitale Bildung Gestalten
             </motion.h1>
 
             {/* Kleine orangefarbene Linie unter der Überschrift */}

@@ -45,7 +45,7 @@ export default function Values() {
       objectPosition: "object-[30%]"
     },
     {
-      title: "Digitale Wissenschaft etablieren",
+      title: "Digital Science etablieren",
       description: "Neue Standards in digitaler akademischer Exzellenz setzen",
       image: "/principle2.jpg",
     },
@@ -67,9 +67,9 @@ export default function Values() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Leitprinzipien</h1>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Ziele</h1>
             <p className="text-xl text-[#0a0f4a] max-w-3xl mx-auto">
-              Unsere Leitprinzipien inspirieren uns, die digitale Zukunft zu gestalten,<br /> zu fördern und zu stärken
+              Unser Stiftungszweck inspiriert uns, die digitale Zukunft zu gestalten,<br /> zu fördern und zu stärken
             </p>
           </motion.div>
 
@@ -111,7 +111,7 @@ export default function Values() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4 text-[#000080]">Grundüberzeugungen</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#000080]">Mission</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
               Unsere Stiftung basiert auf grundlegenden Überzeugungen, die unsere Mission leiten, digitale Bildung zu transformieren und die Zukunft des Lernens zu gestalten
             </p>

@@ -221,10 +221,7 @@ export default function WhatWeDoPage() {
               <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
             </a>
             <p className="text-sm mt-3">
-              View our official certificate above confirming tax-deductibility, issued by the German tax authorities.
-            </p>
-            <p className="text-sm mt-2">
-              All donations are tax-deductible and will be acknowledged with appropriate documentation.
+              The German UDS Foundation is authorized to issue certificates in accordance with Section 50 (1) of the Income Tax Ordinance.
             </p>
           </div>
         </div>

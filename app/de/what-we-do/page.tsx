@@ -29,7 +29,7 @@ export default function WhatWeDoPage() {
     {
       title: "German-UDS.Academy",
       description:
-        "Bereitstellung zugänglicher und hochwertiger digitaler Bildung über unsere Online-Lernplattform",
+        "Bereitstellung zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattfom der German UDS",
       image: "/support-german-uds.jpg",
       objectPosition: "center bottom",
     },
@@ -101,7 +101,7 @@ export default function WhatWeDoPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl font-bold text-[#000080] mb-2">Unser Auftrag</h2>
+            <h2 className="text-3xl font-bold text-[#000080] mb-2">Unsere Schwerpunkte</h2>
             <p className="text-[#000080] max-w-2xl mx-auto">
               Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten
             </p>
@@ -175,7 +175,7 @@ export default function WhatWeDoPage() {
           >
             <h2 className="text-3xl font-bold text-[#000080]">Unterstützen Sie unsere Mission</h2>
             <p className="mt-2 text-lg text-[#000080]">
-              Bei der Transformation der digitalen Bildung
+              in der Transformation der digitalen Bildung
             </p>
           </motion.div>
 
@@ -213,11 +213,9 @@ export default function WhatWeDoPage() {
               <h3 className="text-lg font-bold text-white">Steuervorteile</h3>
             </a>
             <p className="text-sm mt-3">
-              Sehen Sie sich oben unser offizielles Zertifikat zur Steuerabzugsfähigkeit an, ausgestellt vom deutschen Finanzamt.
+              Die German UDS Foundation ist berechtigt Bescheinigungen lt. §50 Abs.1 EStDV auszustellen.
             </p>
-            <p className="text-sm mt-2">
-              Alle Spenden sind steuerlich absetzbar und werden mit entsprechenden Unterlagen bestätigt.
-            </p>
+            
           </div>
         </div>
       </section>
@@ -278,16 +276,7 @@ export default function WhatWeDoPage() {
           </div>
         </div>
 
-        <div className="w-full bg-[#5a8ac3] py-8 px-4">
-          <div className="max-w-4xl mx-auto text-center text-[#0a0f4a]">
-            <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
-              <h3 className="text-lg font-bold text-white">Kontaktieren Sie uns</h3>
-            </div>
-            <p className="text-sm mt-3">
-              Haben Sie Fragen oder möchten Sie sich engagieren? Wir freuen uns auf Ihre Nachricht und melden uns schnellstmöglich
-            </p>
-          </div>
-        </div>
+        
       </section>
     </main>
   );
