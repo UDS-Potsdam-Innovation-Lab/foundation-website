@@ -62,8 +62,8 @@ export default function Values() {
       <section id="core-beliefs" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
@@ -100,22 +100,17 @@ export default function Values() {
       {/* Core Beliefs Section */}
       <section id="guiding-principles" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-4 text-center text-[#000080]"
+            className="text-center mb-12"
           >
-            Core Beliefs
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-[#0a0f4a] max-w-3xl mx-auto mb-12 text-center"
-          >
-            Our foundation is built on fundamental beliefs that drive our mission to transform digital education and shape the future of learning
-          </motion.p>
+            <h2 className="text-4xl font-bold mb-4 text-[#000080]">Core Beliefs</h2>
+            <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
+              Our foundation is built on fundamental beliefs that drive our mission to transform digital education and shape the future of learning
+            </p>
+          </motion.div>
 
           <div className="flex flex-wrap justify-center gap-8">
             {beliefs.map((belief, index) => (

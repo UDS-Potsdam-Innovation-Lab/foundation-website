@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -92,7 +92,7 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    <main className="pt-8 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       <section id="purpose" className="scroll-mt-24 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
