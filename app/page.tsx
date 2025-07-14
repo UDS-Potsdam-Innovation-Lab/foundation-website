@@ -1,8 +1,23 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Page() {
+  useEffect(() => {
+    const handler = (event: ErrorEvent) => {
+      if (event.message?.includes('ChunkLoadError') || event?.filename?.includes('page-')) {
+        console.warn('ChunkLoadError detected, reloading...');
+        window.location.reload();
+      }
+    };
+    window.addEventListener('error', handler);
+
+    return () => {
+      window.removeEventListener('error', handler);
+    };
+  }, []);
+
   return (
     <main className="scroll-smooth">
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 text-center overflow-hidden">
@@ -26,6 +41,7 @@ export default function Page() {
             >
               Empowering Digital Education Through Vision and Support
             </motion.h1>
+
             {/* Small orange line under the heading */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
