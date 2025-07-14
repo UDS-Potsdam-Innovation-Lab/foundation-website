@@ -100,9 +100,7 @@ export default function Page() {
             transition={{ delay: 0.8 }}
             className="flex justify-center mt-12"
           >
-            <Button href="/de/contact" variant="primary">
-              Mehr erfahren
-            </Button>
+          
           </motion.div>
         </div>
 
