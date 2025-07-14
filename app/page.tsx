@@ -26,7 +26,6 @@ export default function Page() {
             >
               Empowering Digital Education Through Vision and Support
             </motion.h1>
-
             {/* Small orange line under the heading */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
