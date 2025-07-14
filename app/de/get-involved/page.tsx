@@ -2,32 +2,32 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '../components/ui/Button';
+import Button from '../../components/ui/Button';
 
 export default function Page() {
   const supportWays = [
     {
-      title: 'Donations',
+      title: 'Spenden',
       description:
-        'Support our mission with a one-time or recurring donation to advance digital education initiatives.',
+        'Unterstützen Sie unsere Mission mit einer einmaligen oder regelmäßigen Spende zur Förderung digitaler Bildungsinitiativen.',
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
     },
     {
-      title: 'Endowments',
+      title: 'Stiftungen',
       description:
-        'Create a lasting impact through endowments that support long-term educational programs.',
+        'Schaffen Sie eine nachhaltige Wirkung durch Stiftungen, die langfristige Bildungsprogramme fördern.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
     },
     {
-      title: 'Contributions',
+      title: 'Beiträge',
       description:
-        'Contribute your expertise, time, or resources to advance our mission of digital education.',
+        'Bringen Sie Ihr Fachwissen, Ihre Zeit oder Ihre Ressourcen ein, um unsere Mission der digitalen Bildung voranzubringen.',
       image: 'https://images.pexels.com/photos/3182755/pexels-photo-3182755.jpeg',
     },
     {
-      title: 'Project Funding',
+      title: 'Projektförderung',
       description:
-        'Directly support projects that align with your interests in digital education and innovation.',
+        'Fördern Sie gezielt Projekte, die Ihren Interessen an digitaler Bildung und Innovation entsprechen.',
       image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg',
     },
   ];
@@ -36,6 +36,7 @@ export default function Page() {
     <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -43,9 +44,9 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Get Involved</h1>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Engagieren Sie sich</h1>
             <p className="text-lg text-[#0a0f4a]">
-              Join us in our mission to transform digital education and create lasting impact.
+              Begleiten Sie uns auf unserer Mission, die digitale Bildung zu transformieren und nachhaltige Wirkung zu erzielen.
             </p>
           </motion.div>
 
@@ -84,9 +85,9 @@ export default function Page() {
           className="w-full bg-[#d7e7f8] bg-opacity-30 px-6 py-10 text-center"
         >
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-[#000080]">Tax Benefits</h2>
+            <h2 className="text-2xl font-bold mb-4 text-[#000080]">Steuervorteile</h2>
             <p className="text-[#0a0f4a] text-base leading-relaxed max-w-4xl mx-auto">
-              Your support is tax-deductible. As a non-profit organization, we provide all necessary documentation for your tax return.
+              Ihre Unterstützung ist steuerlich absetzbar. Als gemeinnützige Organisation stellen wir alle erforderlichen Unterlagen für Ihre Steuererklärung bereit.
             </p>
           </div>
         </motion.div>
@@ -99,8 +100,8 @@ export default function Page() {
             transition={{ delay: 0.8 }}
             className="flex justify-center mt-12"
           >
-            <Button href="/en/contact" variant="primary">
-              Learn More
+            <Button href="/de/contact" variant="primary">
+              Mehr erfahren
             </Button>
           </motion.div>
         </div>

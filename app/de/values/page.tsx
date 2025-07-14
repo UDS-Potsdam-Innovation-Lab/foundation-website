@@ -62,8 +62,8 @@ export default function Values() {
       <section id="core-beliefs" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
@@ -73,16 +73,16 @@ export default function Values() {
             </p>
           </motion.div>
 
-          <div className="flex justify-center gap-6 overflow-x-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-4 mb-12 place-items-center">
             {guidingPrinciples.map((principle, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="w-[300px] h-[420px] flex flex-col rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+                className="w-[92%] h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
               >
-                <div className="relative w-full h-[260px]">
+                <div className="relative w-full h-[352px]">
                   <Image
                     src={principle.image}
                     alt={principle.title}
@@ -90,7 +90,7 @@ export default function Values() {
                     className={`object-cover ${principle.objectPosition || ''}`}
                   />
                 </div>
-                <div className="p-4 flex flex-col justify-end flex-grow text-left overflow-hidden">
+                <div className="p-4 flex flex-col justify-end flex-grow text-left">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{principle.title}</h3>
                   <p className="text-[#0a0f4a] text-sm whitespace-pre-line leading-relaxed">
                     {principle.description}
@@ -105,24 +105,19 @@ export default function Values() {
       {/* Grundüberzeugungen */}
       <section id="guiding-principles" className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-4 text-center text-[#000080]"
+            className="text-center mb-12"
           >
-            Grundüberzeugungen
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-[#0a0f4a] max-w-3xl mx-auto mb-12 text-center"
-          >
-            Unsere Stiftung basiert auf grundlegenden Überzeugungen, die unsere Mission leiten, digitale Bildung zu transformieren und die Zukunft des Lernens zu gestalten
-          </motion.p>
+            <h2 className="text-4xl font-bold mb-4 text-[#000080]">Grundüberzeugungen</h2>
+            <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
+              Unsere Stiftung basiert auf grundlegenden Überzeugungen, die unsere Mission leiten, digitale Bildung zu transformieren und die Zukunft des Lernens zu gestalten
+            </p>
+          </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-8">
             {beliefs.map((belief, index) => (
               <motion.div
                 key={index}

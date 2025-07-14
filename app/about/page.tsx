@@ -80,14 +80,19 @@ export default function Page() {
       {/* About Section */}
       <section className="scroll-mt-32 min-h-screen py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">About Us</h1>
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
               The German UDS Foundation supports the German University of Digital Science by funding innovative
               education and research in digital science. Our mission is to promote digital transformation, integrate
               digital skills into society, and shape an inclusive, future-ready digital world
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Image */}
@@ -144,12 +149,17 @@ export default function Page() {
       {/* Voices Section */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Voices of the Foundation</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
               Hear why our core members believe in the mission of the German UDS Foundation
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
             {videoStatements.map((video, index) => (

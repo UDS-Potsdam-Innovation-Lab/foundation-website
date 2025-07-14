@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -92,13 +92,13 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    <main className="pt-8 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
       <section id="purpose" className="scroll-mt-24 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#000080] mb-2">Our Purpose</h2>
@@ -109,8 +109,11 @@ export default function WhatWeDoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {purposes.map((purpose, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
                 className="rounded-br-2xl overflow-hidden border border-gray-300 bg-[#e9f2fb] transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
               >
                 <div className="flex flex-col h-[220px] md:h-[280px]">
@@ -131,7 +134,7 @@ export default function WhatWeDoPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -140,9 +143,9 @@ export default function WhatWeDoPage() {
       <section id="foundation-goals" className="scroll-mt-24 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#000080]">Shaping the Future</h2>
@@ -151,7 +154,12 @@ export default function WhatWeDoPage() {
             </p>
           </motion.div>
 
-          <div className="mt-10 mx-auto w-full max-w-4xl h-[400px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mt-10 mx-auto w-full max-w-4xl h-[400px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+          >
             <Image
               src="/shaping-the-future.png"
               alt="Shaping the Future Image"
@@ -161,16 +169,16 @@ export default function WhatWeDoPage() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               quality={100}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section id="support-us" className="scroll-mt-24 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#000080]">Support Our Mission </h2>
@@ -209,16 +217,15 @@ export default function WhatWeDoPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300"
-          >
-  <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
-</a>
-
+            >
+              <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
+            </a>
             <p className="text-sm mt-3">
-  View our official certificate above confirming tax-deductibility, issued by the German tax authorities.
-</p>
-<p className="text-sm mt-2">
-  All donations are tax-deductible and will be acknowledged with appropriate documentation.
-</p>
+              View our official certificate above confirming tax-deductibility, issued by the German tax authorities.
+            </p>
+            <p className="text-sm mt-2">
+              All donations are tax-deductible and will be acknowledged with appropriate documentation.
+            </p>
           </div>
         </div>
       </section>
@@ -226,9 +233,9 @@ export default function WhatWeDoPage() {
       <section id="get-involved" className="scroll-mt-24 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#0a0f4a]">Get in Touch</h2>

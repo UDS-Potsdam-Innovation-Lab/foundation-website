@@ -79,7 +79,12 @@ export default function Page() {
       {/* Über uns Abschnitt */}
       <section className="scroll-mt-32 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">Über uns</h1>
             <p className="text-lg text-[#0a0f4a] max-w-4xl mx-auto leading-relaxed">
               Die German UDS Foundation unterstützt die German University of Digital Science durch die Förderung
@@ -87,7 +92,7 @@ export default function Page() {
               Transformation voranzutreiben, digitale Kompetenzen in die Gesellschaft zu integrieren und eine inklusive,
               zukunftsfähige digitale Welt zu gestalten
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 auto-rows-auto">
             {/* Linkes Bild */}
@@ -118,10 +123,7 @@ export default function Page() {
                 >
                   {/* Bild oben */}
                   <div className="relative w-full h-24 overflow-hidden">
-                    <div
-                      className="absolute inset-0"
-                      style={{ transform: statement.transform }}
-                    >
+                    <div className="absolute inset-0" style={{ transform: statement.transform }}>
                       <Image
                         src="/about_us_abstract.png"
                         alt={statement.title}
@@ -147,12 +149,17 @@ export default function Page() {
       {/* Stimmen Abschnitt */}
       <section className="py-20 mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-10"
+          >
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Stimmen der Stiftung</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
               Erfahre, warum unsere Kernmitglieder an die Mission der German UDS Foundation glauben
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {videoStatements.map((video, index) => (
               <motion.div

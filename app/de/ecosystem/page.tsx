@@ -68,10 +68,15 @@ export default function Page() {
       {/* Ökosystem Abschnitt */}
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-10"
+          >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">German UDS Ökosystem</h1>
             <p className="text-lg text-[#0a0f4a]">Verständnis für Struktur und Synergien unserer Organisation</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-4 mb-12 place-items-center">
             {entities.map((entity, index) => (
@@ -106,10 +111,15 @@ export default function Page() {
       {/* Anteilseignerstruktur */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-10"
+          >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Anteilseignerstruktur</h1>
             <p className="text-lg text-[#0a0f4a]">Eigentumsverteilung bei German UDS</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
             {shares.map((share, index) => (
@@ -131,10 +141,15 @@ export default function Page() {
       {/* Finanzielle Unterstützung */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-10"
+          >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Finanzielle Unterstützung & Beteiligung</h1>
             <p className="text-lg text-[#0a0f4a]">Gestalten Sie mit uns die Zukunft der digitalen Bildung</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-10 gap-x-6">
             {financialOptions.map((option, index) => (
@@ -154,22 +169,23 @@ export default function Page() {
                   />
                 </div>
                 <div className="bg-white px-4 py-5">
-                  <h3 className="text-sm font-bold text-[#f7931e] mb-2">
-                    {option.title}
-                  </h3>
-                  <p className="text-sm text-[#0a0f4a] leading-relaxed">
-                    {option.description}
-                  </p>
+                  <h3 className="text-sm font-bold text-[#f7931e] mb-2">{option.title}</h3>
+                  <p className="text-sm text-[#0a0f4a] leading-relaxed">{option.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="mt-10 text-center"
+          >
             <Button href="/de/contact" variant="primary">
               Mehr erfahren
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

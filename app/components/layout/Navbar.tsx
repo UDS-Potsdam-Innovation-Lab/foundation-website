@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from '../../../[locales]/useTranslation';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Determine current locale from path
   const segments = pathname.split('/').filter(Boolean);
   const currentLocale = segments[0] === 'de' ? 'de' : 'en';
   const pathWithoutLocale = segments[0] === 'de' ? segments.slice(1).join('/') : segments.join('/');
@@ -135,6 +135,7 @@ const Navbar = () => {
             />
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4" role="menubar">
               {navItems.map((item) => (
@@ -174,8 +175,71 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+          {/* Hamburger Toggle (mobile only) */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-[#001B3F] focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white px-4 py-4 space-y-3 shadow-lg"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="block text-[#001B3F] text-base font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex space-x-4 pt-2 border-t border-gray-200">
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  switchLocale('en');
+                }}
+                className={`transition-colors hover:text-[#003366] ${
+                  currentLocale === 'en' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  switchLocale('de');
+                }}
+                className={`transition-colors hover:text-[#003366] ${
+                  currentLocale === 'de' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
+                }`}
+              >
+                DE
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
