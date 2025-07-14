@@ -15,7 +15,7 @@ export default function Datenschutz() {
         >
           Datenschutzerklärung
         </motion.h1>
-        <p className="mb-8 text-sm text-gray-600 text-center">Letzte Aktualisierung: 13. Mai 2025</p>
+        <p className="mb-8 text-sm text-gray-600 text-center">Letzte Aktualisierung: 10. Juli 2025</p>
 
         {/* Section blocks */}
         {[
