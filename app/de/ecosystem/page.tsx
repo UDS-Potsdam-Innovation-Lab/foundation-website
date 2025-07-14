@@ -9,28 +9,28 @@ export default function Page() {
     {
       title: 'German UDS',
       icon: '🎓',
-      description: 'Eine Universität mit Fokus auf digitale Bildung und Forschung.',
+      description: 'Eine Universität mit Fokus auf digitale Bildung und Forschung',
       details: ['Digitale Bildung', 'Forschungsstärke'],
       image: '/german-uds.jpg',
     },
     {
-      title: 'German UDS Stiftung',
+      title: 'German UDS Foundation',
       icon: '🏛️',
-      description: 'Treibt Finanzierung und Strategie für digitale Bildung voran.',
+      description: 'Treibt Finanzierung und Strategie für digitale Bildung voran',
       details: ['Finanzielle Unterstützung', 'Strategische Ausrichtung'],
       image: '/german-uds-foundation.jpg',
     },
     {
       title: 'German UDS gGmbH',
       icon: '🧾',
-      description: 'Verantwortlich für den operativen Betrieb und Bildungsprogramme.',
+      description: 'Verantwortlich für den operativen Betrieb und Bildungsprogramme',
       details: ['Betrieb', 'Programmdurchführung'],
       image: '/german-uds-ggmbh.jpg',
     },
   ];
 
   const shares = [
-    { holder: 'German UDS Stiftung', percentage: 70 },
+    { holder: 'German UDS Foundation', percentage: 70 },
     { holder: 'German UDS Innovation GmbH', percentage: 15 },
     { holder: 'AI Research Institute', percentage: 5 },
     { holder: 'Professoren, Unternehmen und Organisationen', percentage: 10 },
@@ -39,25 +39,25 @@ export default function Page() {
   const financialOptions = [
     {
       title: 'An die Stiftung spenden',
-      description: 'Unterstützen Sie digitale Bildung durch direkte Beiträge.',
+      description: 'Unterstützen Sie digitale Bildung durch Spenden und Zuwendungen',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[0%_0%]',
     },
     {
       title: 'Stipendien finanzieren',
-      description: 'Ermöglichen Sie Studierenden den Zugang zu Bildung durch Stipendien.',
+      description: 'Ermöglichen Sie Studierenden den Zugang zu Bildung durch Stipendien',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[25%_25%]',
     },
     {
       title: 'Anteile an der gGmbH erwerben',
-      description: 'Werden Sie Teil unserer Reise durch strategische Beteiligung.',
+      description: 'Begleiten Sie uns auf dem Weg durch strategische Beteiligung',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[50%_50%]',
     },
     {
       title: 'Programme sponsern',
-      description: 'Unterstützen Sie gezielt Forschungs- oder Bildungsprogramme.',
+      description: 'Unterstützen Sie gezielt Forschungs- oder Bildungsprogramme',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[75%_75%]',
     },
@@ -117,8 +117,8 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Anteilseignerstruktur</h1>
-            <p className="text-lg text-[#0a0f4a]">Eigentumsverteilung bei German UDS</p>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Gesellschafterstruktur</h1>
+            <p className="text-lg text-[#0a0f4a]">Miteigentümer der German UDS</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
@@ -182,9 +182,7 @@ export default function Page() {
             transition={{ delay: 0.8 }}
             className="mt-10 text-center"
           >
-            <Button href="/de/contact" variant="primary">
-              Mehr erfahren
-            </Button>
+            
           </motion.div>
         </div>
       </section>

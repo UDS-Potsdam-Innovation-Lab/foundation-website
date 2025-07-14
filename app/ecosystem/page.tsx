@@ -16,7 +16,7 @@ export default function Page() {
     {
       title: 'German UDS Foundation',
       icon: '🏛️',
-      description: 'Drives funding and strategy for digital education',
+      description: 'Drives funding and strategy for digital education for the future',
       details: ['Funding support', 'Strategic direction'],
       image: '/german-uds-foundation.jpg',
     },

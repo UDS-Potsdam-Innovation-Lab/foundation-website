@@ -7,31 +7,31 @@ export default function Team() {
   const teamMembers = [
     {
       name: 'Prof. Dr. Mike Friedrichsen',
-      title: 'Vorsitzender',
+      title: 'Vorstandsvorsitzender',
       email: 'mike.friedrichsen@german-uds.de',
       image: '/mike_f.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092448322?badge=0&autopause=0&player_id=0&app_id=58479',
       bio: 'Mike Friedrichsen war 25 Jahre Professor für Wirtschaftsinformatik und Digitale Medien an der Hochschule der Medien Stuttgart und ist Gründungsstifter der German UDS Foundation. Seit 2023 ist er Mitbegründer und Gründungspräsident der German University of Digital Science sowie Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
-      name: 'Syster Friedrichsen',
-      title: 'Stellvertretende Vorsitzende',
+      name: 'Syster Friedrichsen M.A.',
+      title: 'Vorständin',
       email: 'syster.friedrichsen@foundation.german-uds.de',
       image: '/syster_f.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092448702?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Syster Friedrichsen ist geschäftsführende Gesellschafterin der ditcom GmbH und der FB CloudHouse GmbH. Zuvor hatte sie verschiedene Geschäftsführungspositionen in Unternehmen der Kommunikationsbranche inne. Sie studierte Kommunikationswissenschaft und Geografie an der Johannes Gutenberg-Universität Mainz und der Freien Universität Berlin und schloss mit Magistra Artium ab.',
+      bio: 'Syster Friedrichsen ist geschäftsführende Gesellschafterin der ditcom GmbH und der FB CloudHouse GmbH. Nach ihrem Studium der Kommunikationswissenschaften und Geographie in Mainz und Berlin war Syster Friedrichsen als Projektleiterin tätig und hatte verschiedene Geschäftsführungspositionen in Unternehmen der Kommunikationsbranche inne.',
     },
     {
       name: 'Wulf Wersig',
-      title: 'Stellvertretender Vorsitzender',
+      title: 'Vorstand',
       email: 'wulf.wersig@foundation.german-uds.de',
       image: '/wulf_w.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092449059?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in der Landeshauptstadt Kiel – Trägerin des Deutschen Schulpreises Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin erlebte er die digitale Transformation von Beginn an und setzte sie aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
+      bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in der Landeshauptstadt Kiel – Trägerin des Deutschen Schulpreises. Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin setzte er die digitale Transformation aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
       name: 'Prof. Dr. Christoph Meinel',
-      title: 'Vertreter',
+      title: 'Repräsentant',
       email: 'christoph.meinel@german-uds.de',
       image: '/ch_m.jpg',
       videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&player_id=0&app_id=58479',
@@ -57,7 +57,7 @@ export default function Team() {
           >
             <h1 className="text-4xl font-bold mb-6 text-[#000080]">Unser Team</h1>
             <p className="text-xl text-[#0a0f4a] max-w-3xl mx-auto">
-              Lernen Sie die Visionäre kennen, die hinter der German University of Digital Science Foundation stehen
+              Lernen Sie die Visionäre kennen, die hinter der German UDS Foundation stehen
             </p>
           </motion.div>
 
