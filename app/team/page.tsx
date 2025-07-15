@@ -11,7 +11,7 @@ export default function Team() {
       email: 'mike.friedrichsen@german-uds.de',
       image: '/mike_f.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092448322?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: "Mike Friedrichsen was a professor of Business Informatics and Digital Media at Stuttgart Media University for 25 years and is a founding trustee of the German UDS Foundation. Starting in 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university's operating company, German UDS gGmbH"
+      bio: "Mike Friedrichsen was a professor of Business Informatics and Digital Media at Stuttgart Media University for 25 years and is a founding trustee of the German UDS Foundation. Starting in 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university's operating company, German UDS gGmbH."
     },
     {
       name: 'Syster Friedrichsen',
@@ -19,7 +19,7 @@ export default function Team() {
       email: 'syster.friedrichsen@foundation.german-uds.de',
       image: '/syster_f.jpg',
       videoUrl: 'https://player.vimeo.com/video/1092448702?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Syster Friedrichsen is Managing Partner of ditcom GmbH and FB CloudHouse GmbH. Previously, she held various managing director positions in companies within the communications industry. She studied Communication Science and Geography at Johannes Gutenberg University Mainz and Freie Universität Berlin, earning a Magistra Artium degree'
+      bio: 'Syster Friedrichsen is Managing Partner of ditcom GmbH and FB CloudHouse GmbH. Previously, she held various managing director positions in companies within the communications industry. She studied Communication Science and Geography at Johannes Gutenberg University Mainz and Freie Universität Berlin, earning a Magistra Artium degree.'
     },
     {
       name: 'Wulf Wersig',
@@ -35,7 +35,7 @@ export default function Team() {
       email: 'christoph.meinel@german-uds.de',
       image: '/ch_m.jpg',
       videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: "Christoph Meinel was Managing Director and CEO of the Hasso Plattner Institute for Digital Engineering (HPI) at the University of Potsdam from 2004 to 2023. He is Professor Emeritus (C4) of Computer Science at the University of Potsdam and held the Chair of Internet Technologies and Systems at HPI. In 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university's operating company, German UDS gGmbH"
+      bio: "Christoph Meinel was Managing Director and CEO of the Hasso Plattner Institute for Digital Engineering (HPI) at the University of Potsdam from 2004 to 2023. He is Professor Emeritus (C4) of Computer Science at the University of Potsdam and held the Chair of Internet Technologies and Systems at HPI. In 2023, he became Co-Founder and Founding President of the German University of Digital Science, as well as CEO of the university's operating company, German UDS gGmbH."
     }
   ];
 

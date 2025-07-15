@@ -6,28 +6,26 @@ import Button from '../../components/ui/Button';
 
 export default function Page() {
   const entities = [
-    {
-      title: 'German UDS',
-      icon: '🎓',
-      description: 'Eine Universität mit Fokus auf digitale Bildung und Forschung',
-      details: ['Digitale Bildung', 'Forschungsstärke'],
-      image: '/german-uds.jpg',
-    },
-    {
-      title: 'German UDS Foundation',
-      icon: '🏛️',
-      description: 'Treibt Finanzierung und Strategie für digitale Bildung voran',
-      details: ['Finanzielle Unterstützung', 'Strategische Ausrichtung'],
-      image: '/german-uds-foundation.jpg',
-    },
-    {
-      title: 'German UDS gGmbH',
-      icon: '🧾',
-      description: 'Verantwortlich für den operativen Betrieb und Bildungsprogramme',
-      details: ['Betrieb', 'Programmdurchführung'],
-      image: '/german-uds-ggmbh.jpg',
-    },
-  ];
+  {
+    title: 'German UDS',
+    icon: '🎓',
+    description: 'Eine Universität mit Fokus auf digitale Bildung und Forschung, bekannt für ihre Stärke in digitaler Lehre und wissenschaftlicher Exzellenz.',
+    image: '/german-uds.jpg',
+  },
+  {
+    title: 'German UDS Stiftung',
+    icon: '🏛️',
+    description: 'Treibt Finanzierung und Strategie für digitale Bildung voran, bietet gezielte finanzielle Unterstützung und strategische Ausrichtung für die Zukunft.',
+    image: '/german-uds-foundation.jpg',
+  },
+  {
+    title: 'German UDS gGmbH',
+    icon: '🧾',
+    description: 'Verantwortlich für den operativen Betrieb und Bildungsprogramme mit Fokus auf effiziente Durchführung und organisatorisches Management.',
+    image: '/german-uds-ggmbh.jpg',
+  },
+];
+
 
   const shares = [
     { holder: 'German UDS Foundation', percentage: 70 },
@@ -39,7 +37,7 @@ export default function Page() {
   const financialOptions = [
     {
       title: 'An die Stiftung spenden',
-      description: 'Unterstützen Sie digitale Bildung durch Spenden und Zuwendungen',
+      description: 'Unterstützen Sie digitale Bildung durch direkte Beiträge',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[0%_0%]',
     },
@@ -51,7 +49,7 @@ export default function Page() {
     },
     {
       title: 'Anteile an der gGmbH erwerben',
-      description: 'Begleiten Sie uns auf dem Weg durch strategische Beteiligung',
+      description: 'Werden Sie Teil unserer Reise durch strategische Beteiligung',
       image: '/financial-support-and-participation.jpg',
       style: 'object-[50%_50%]',
     },
@@ -93,14 +91,7 @@ export default function Page() {
                 <div className="p-6 flex flex-col justify-between flex-grow text-left">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{entity.title}</h3>
                   <p className="text-[#0a0f4a] text-sm mb-2">{entity.description}</p>
-                  <ul className="text-[#0a0f4a] text-sm space-y-1">
-                    {entity.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center">
-                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-2"></span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
+                  
                 </div>
               </motion.div>
             ))}
@@ -117,8 +108,8 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="text-center mb-10"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Gesellschafterstruktur</h1>
-            <p className="text-lg text-[#0a0f4a]">Miteigentümer der German UDS</p>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Anteilseignerstruktur</h1>
+            <p className="text-lg text-[#0a0f4a]">Eigentumsverteilung bei German UDS</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">

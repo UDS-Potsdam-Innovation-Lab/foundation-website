@@ -9,22 +9,19 @@ export default function Page() {
     {
       title: 'German UDS',
       icon: '🎓',
-      description: 'A university focused on digital-first education and research',
-      details: ['Digital education', 'Research excellence'],
+      description: 'A university focused on digital-first education and research, known for its commitment to digital education and research excellence.',
       image: '/german-uds.jpg',
     },
     {
       title: 'German UDS Foundation',
       icon: '🏛️',
-      description: 'Drives funding and strategy for digital education for the future',
-      details: ['Funding support', 'Strategic direction'],
+      description: 'Drives funding and strategy for digital education for the future, offering funding support and strategic direction.',
       image: '/german-uds-foundation.jpg',
     },
     {
       title: 'German UDS gGmbH',
       icon: '🧾',
-      description: 'Manages daily operations and educational programs',
-      details: ['Operations', 'Program management'],
+      description: 'Manages daily operations and educational programs, focusing on operations and program management.',
       image: '/german-uds-ggmbh.jpg',
     },
   ];
@@ -96,14 +93,6 @@ export default function Page() {
                 <div className="p-6 flex flex-col justify-between flex-grow text-left">
                   <h3 className="text-[#f7931e] font-bold text-base mb-2">{entity.title}</h3>
                   <p className="text-[#0a0f4a] text-sm mb-2">{entity.description}</p>
-                  <ul className="text-[#0a0f4a] text-sm space-y-1">
-                    {entity.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center">
-                        <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-2"></span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </motion.div>
             ))}
