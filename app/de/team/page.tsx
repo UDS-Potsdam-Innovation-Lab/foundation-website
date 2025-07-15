@@ -14,7 +14,7 @@ export default function Team() {
       bio: 'Mike Friedrichsen war 25 Jahre Professor für Wirtschaftsinformatik und Digitale Medien an der Hochschule der Medien Stuttgart und ist Gründungsstifter der German UDS Foundation. Seit 2023 ist er Mitbegründer und Gründungspräsident der German University of Digital Science sowie Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
-      name: 'Syster Friedrichsen M.A.',
+      name: 'Syster Friedrichsen',
       title: 'Vorständin',
       email: 'syster.friedrichsen@foundation.german-uds.de',
       image: '/syster_f.jpg',

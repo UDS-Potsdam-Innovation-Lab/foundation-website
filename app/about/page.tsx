@@ -88,9 +88,7 @@ export default function Page() {
           >
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">About Us</h1>
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
-              The German UDS Foundation supports the German University of Digital Science by funding innovative
-              education and research in digital science. Our mission is to promote digital transformation, integrate
-              digital skills into society, and shape an inclusive, future-ready digital world
+              The German UDS Foundation supports the German University of Digital Science by funding innovative education and research in the field of digital science. Our mission is to advance digital transformation, promote the integration of digital competencies across all sectors of society, and contribute to shaping an inclusive, future-oriented digital world. The foundation operates with official recognition, acknowledged by the Senatsverwaltung für Justiz und Verbraucherschutz.
             </p>
           </motion.div>
 

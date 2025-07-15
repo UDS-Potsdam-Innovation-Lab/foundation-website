@@ -87,10 +87,7 @@ export default function Page() {
           >
             <h1 className="text-4xl font-bold mb-4 text-[#000080]">Über uns</h1>
             <p className="text-lg text-[#0a0f4a] max-w-4xl mx-auto leading-relaxed">
-              Die German UDS Foundation unterstützt die German University of Digital Science durch die Förderung
-              innovativer Bildung und Forschung im Bereich der Digital Science. Unsere Mission ist es, die digitale
-              Transformation voranzutreiben, digitale Kompetenzen in die Gesellschaft zu integrieren und eine inklusive,
-              zukunftsfähige digitale Welt zu gestalten.
+              Die German UDS Foundation unterstützt die German University of Digital Science durch die Förderung innovativer Bildungs- und Forschungsprojekte im Bereich der digitalen Wissenschaften. Unsere Mission ist es, den digitalen Wandel voranzutreiben, digitale Kompetenzen in allen Bereichen der Gesellschaft zu verankern und eine inklusive, zukunftsorientierte digitale Welt mitzugestalten. Die Stiftung ist offiziell anerkannt durch die Senatsverwaltung für Justiz und Verbraucherschutz.
             </p>
           </motion.div>
 
