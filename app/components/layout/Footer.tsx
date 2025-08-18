@@ -19,6 +19,7 @@ const Footer = () => {
         { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
         { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
         { name: t.navbar.whatWeDo, href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do` },
+        { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
       ],
     },
     {
@@ -40,14 +41,7 @@ const Footer = () => {
     },
     {
       title: (
-        <a
-          href="https://foundation.german-uds.de/contact/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-orange-300"
-        >
-          {t.footer.contact}
-        </a>
+        currentLocale === 'de' ? 'Kontakt' : 'Contact'
       ),
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },

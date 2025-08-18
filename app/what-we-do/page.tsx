@@ -158,7 +158,7 @@ export default function WhatWeDoPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mt-10 mx-auto w-full max-w-4xl h-[400px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
+            className="mt-10 mx-auto w-full max-w-4xl h-[200px] relative overflow-hidden hover:shadow-2xl hover:ring-2 hover:ring-orange-500"
           >
             <Image
               src="/shaping-the-future.png"

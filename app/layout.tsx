@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import BackToTopButton from './components/ui/BackToTopButton';
 import ErrorBoundary from './components/ErrorBoundary';
+import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <CookieBanner />
           <BackToTopButton />
         </ErrorBoundary>
       </body>
