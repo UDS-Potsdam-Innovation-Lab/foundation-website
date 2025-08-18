@@ -155,7 +155,7 @@ export default function Page() {
           >
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Voices of the Foundation</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
-              Hear why our core members believe in the mission of the German UDS Foundation
+              Hear why our members of the executive board believe in the mission of the German UDS Foundation
             </p>
           </motion.div>
 

@@ -154,7 +154,7 @@ export default function Page() {
           >
             <h2 className="text-3xl font-bold text-[#000080] mb-4">Stimmen der Stiftung</h2>
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
-              Erfahre, warum unsere Kernmitglieder an die Mission der German UDS Foundation glauben
+              Erfahre, warum unsere Vorstandsmitglieder an die Mission der German UDS Foundation glauben
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
