@@ -19,6 +19,7 @@ const Footer = () => {
         { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
         { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
         { name: t.navbar.whatWeDo, href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do` },
+        { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
       ],
     },
     {
