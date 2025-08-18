@@ -40,14 +40,7 @@ const Footer = () => {
     },
     {
       title: (
-        <a
-          href="https://foundation.german-uds.de/contact/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-orange-300"
-        >
-          {t.footer.contact}
-        </a>
+        currentLocale === 'de' ? 'Kontakt' : 'Contact'
       ),
       links: [
         { name: 'Email', href: 'mailto:office@foundation.german-uds.de' },
