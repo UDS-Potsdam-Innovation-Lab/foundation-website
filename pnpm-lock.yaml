@@ -11,6 +11,9 @@ importers:
       '@heroicons/react':
         specifier: ^2.0.18
         version: 2.2.0(react@18.2.0)
+      '@vimeo/player':
+        specifier: ^2.29.3
+        version: 2.29.3
       client-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -48,6 +51,9 @@ importers:
       '@types/react-dom':
         specifier: 18.2.7
         version: 18.2.7
+      '@types/vimeo__player':
+        specifier: ^2.18.3
+        version: 2.18.3
       autoprefixer:
         specifier: 10.4.15
         version: 10.4.15(postcss@8.4.31)
@@ -379,6 +385,9 @@ packages:
   '@types/scheduler@0.26.0':
     resolution: {integrity: sha512-WFHp9YUJQ6CKshqoC37iOlHnQSmxNc795UhB26CyBBttrN9svdIrUjl/NjnNmfcwtncN0h/0PPAFWv9ovP8mLA==}
 
+  '@types/vimeo__player@2.18.3':
+    resolution: {integrity: sha512-IzSzb6doT4I4uAnBHa+mBCiNtK7iAllEJjtpkX0sKY6/s1Vi+aX1134IAiPgiyFlMvFab/oZQpSeccK4r0/T2A==}
+
   '@typescript-eslint/parser@6.21.0':
     resolution: {integrity: sha512-tbsV1jPne5CkFQCgPBcDOt30ItF7aJoZL997JSF7MhGQqOeT3svWRYxiqlfA5RUdlHN6Fi+EI9bxqbdyAUZjYQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
@@ -494,6 +503,9 @@ packages:
     resolution: {integrity: sha512-hHKFx+opG5BA3/owMXon8ypwSotBGTdblG6oda/iOu9+OEYnk0cxD2uIcGyGT8jCK578kV+xMrNxqbn8Zjlpgw==}
     cpu: [x64]
     os: [win32]
+
+  '@vimeo/player@2.29.3':
+    resolution: {integrity: sha512-pS2LsZbcbuQmV9BatpxdjcsFsjuas1jslCzY48o1qsXJ/sQuPiWIuk5B/dSaLbY3AcnS4M1IPphPgA7PRSMdxA==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1361,6 +1373,9 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     hasBin: true
 
+  native-promise-only@0.8.1:
+    resolution: {integrity: sha512-zkVhZUA3y8mbz652WrL5x0fB0ehrBkulWT3TomAQ9iDtyXZvzKeEA6GPxAItBYeNYl5yngKRX612qHOhvMkDeg==}
+
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -2051,6 +2066,10 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  weakmap-polyfill@2.0.4:
+    resolution: {integrity: sha512-ZzxBf288iALJseijWelmECm/1x7ZwQn3sMYIkDr2VvZp7r6SEKuT8D0O9Wiq6L9Nl5mazrOMcmiZE/2NCenaxw==}
+    engines: {node: '>=8.10.0'}
+
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
     engines: {node: '>= 0.4'}
@@ -2361,6 +2380,8 @@ snapshots:
 
   '@types/scheduler@0.26.0': {}
 
+  '@types/vimeo__player@2.18.3': {}
+
   '@typescript-eslint/parser@6.21.0(eslint@8.49.0)(typescript@5.2.2)':
     dependencies:
       '@typescript-eslint/scope-manager': 6.21.0
@@ -2453,6 +2474,11 @@ snapshots:
 
   '@unrs/resolver-binding-win32-x64-msvc@1.7.8':
     optional: true
+
+  '@vimeo/player@2.29.3':
+    dependencies:
+      native-promise-only: 0.8.1
+      weakmap-polyfill: 2.0.4
 
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
@@ -3504,6 +3530,8 @@ snapshots:
 
   napi-postinstall@0.2.4: {}
 
+  native-promise-only@0.8.1: {}
+
   natural-compare@1.4.0: {}
 
   next@15.2.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
@@ -4357,6 +4385,8 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  weakmap-polyfill@2.0.4: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:
