@@ -10,7 +10,7 @@ export default function Team() {
       title: 'Vorstandsvorsitzender',
       email: 'mike.friedrichsen@german-uds.de',
       image: '/mike_f.jpg',
-      videoUrl: 'https://player.vimeo.com/video/1092448322?badge=0&autopause=0&player_id=0&app_id=58479',
+      videoUrl: 'https://player.vimeo.com/video/1092448322?badge=0&autopause=0&app_id=58479',
       bio: 'Mike Friedrichsen war 25 Jahre Professor für Wirtschaftsinformatik und Digitale Medien an der Hochschule der Medien Stuttgart und ist Gründungsstifter der German UDS Foundation. Seit 2023 ist er Mitbegründer und Gründungspräsident der German University of Digital Science sowie Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
@@ -18,23 +18,23 @@ export default function Team() {
       title: 'Vorständin',
       email: 'syster.friedrichsen@foundation.german-uds.de',
       image: '/syster_f.jpg',
-      videoUrl: 'https://player.vimeo.com/video/1092448702?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Syster Friedrichsen ist geschäftsführende Gesellschafterin der ditcom GmbH und der FB CloudHouse GmbH. Nach ihrem Studium der Kommunikationswissenschaften und Geographie in Mainz und Berlin war Syster Friedrichsen als Projektleiterin tätig und hatte verschiedene Geschäftsführungspositionen in Unternehmen der Kommunikationsbranche inne.',
+      videoUrl: 'https://player.vimeo.com/video/1092448702?badge=0&autopause=0&app_id=58479',
+      bio: 'Syster Friedrichsen ist geschäftsführende Gesellschafterin der ditcom GmbH und der FB CloudHouse GmbH. Nach ihrem Studium der Kommunikationswissenschaften und Geographie in Mainz und Berlin war sie als Projektleiterin tätig und hatte verschiedene Geschäftsführungspositionen in Unternehmen der Kommunikationsbranche inne.',
     },
     {
       name: 'Wulf Wersig',
       title: 'Vorstand',
       email: 'wulf.wersig@foundation.german-uds.de',
       image: '/wulf_w.jpg',
-      videoUrl: 'https://player.vimeo.com/video/1092449059?badge=0&autopause=0&player_id=0&app_id=58479',
-      bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in der Landeshauptstadt Kiel – Trägerin des Deutschen Schulpreises. Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin setzte er die digitale Transformation aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
+      videoUrl: 'https://player.vimeo.com/video/1092449059?badge=0&autopause=0&app_id=58479',
+      bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in Kiel – Träger des Deutschen Schulpreises. Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin setzte er die digitale Transformation aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
       name: 'Prof. Dr. Christoph Meinel',
       title: 'Repräsentant',
       email: 'christoph.meinel@german-uds.de',
       image: '/ch_m.jpg',
-      videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&player_id=0&app_id=58479',
+      videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&app_id=58479',
       bio: 'Christoph Meinel war von 2004 bis 2023 Geschäftsführer und CEO des Hasso-Plattner-Instituts für Digital Engineering (HPI) an der Universität Potsdam. Er ist Professor emeritus (C4) der Informatik an der Universität Potsdam und leitete den Lehrstuhl für Internettechnologien und -systeme am HPI. 2023 wurde er Mitbegründer und Gründungspräsident der German University of Digital Science sowie Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
   ];
@@ -42,11 +42,11 @@ export default function Team() {
   const [flipped, setFlipped] = useState(Array(teamMembers.length).fill(false));
 
   const handleFlip = (idx: number, value: boolean) => {
-    setFlipped((prev) => prev.map((f, i) => (i === idx ? value : f)));
+    setFlipped(prev => prev.map((f, i) => (i === idx ? value : f)));
   };
 
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3]">
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -65,12 +65,16 @@ export default function Team() {
             {teamMembers.map((member, index) => (
               <div key={index} className="group perspective h-full">
                 <div
-                  className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${flipped[index] ? 'rotate-y-180' : ''}`}
+                  className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                    flipped[index] ? 'rotate-y-180' : ''
+                  }`}
                   style={{ minHeight: 480 }}
                 >
                   {/* Vorderseite */}
                   <motion.div
-                    className={`inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col justify-between transition-opacity duration-300 ${flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                    className={`inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 p-10 flex flex-col justify-between transition-opacity duration-300 ${
+                      flipped[index] ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2 }}
@@ -89,9 +93,7 @@ export default function Team() {
                       <div className="flex-grow flex flex-col">
                         <h2 className="text-2xl font-bold mb-2 text-[#f7931e]">{member.name}</h2>
                         <p className="text-gray-600 font-semibold mb-4">{member.title}</p>
-                        <p className="text-[#0a0f4a] mb-6 text-sm leading-relaxed">
-                          {member.bio}
-                        </p>
+                        <p className="text-[#0a0f4a] mb-6 text-sm leading-relaxed">{member.bio}</p>
                       </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-2 justify-center items-center mt-8">
@@ -105,7 +107,6 @@ export default function Team() {
                         <button
                           className="inline-block w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md text-center transition-all duration-300 hover:scale-105"
                           onClick={() => handleFlip(index, true)}
-                          aria-label={`Video-Intro für ${member.name} anzeigen`}
                         >
                           Kurzvorstellung
                         </button>
@@ -115,7 +116,9 @@ export default function Team() {
 
                   {/* Rückseite */}
                   <div
-                    className={`absolute inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} rotate-y-180`}
+                    className={`absolute inset-0 w-full h-full bg-[#e8f1fb] rounded-br-2xl border border-gray-300 p-10 flex flex-col items-center justify-center transition-opacity duration-300 ${
+                      flipped[index] ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    } rotate-y-180`}
                   >
                     {member.videoUrl ? (
                       <>
@@ -131,9 +134,8 @@ export default function Team() {
                         </div>
                         <div className="flex justify-center mt-8">
                           <button
-                            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md text-center transition-all duration-300 hover:scale-105"
+                            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md"
                             onClick={() => handleFlip(index, false)}
-                            aria-label={`Zurück zum Profil von ${member.name}`}
                           >
                             Zurück
                           </button>
@@ -159,7 +161,8 @@ export default function Team() {
         .rotate-y-180 {
           transform: rotateY(180deg);
         }
-        .flip-card-front, .flip-card-back {
+        .flip-card-front,
+        .flip-card-back {
           backface-visibility: hidden;
         }
         .flip-card-back {
