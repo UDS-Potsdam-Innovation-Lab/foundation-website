@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function Imprint() {
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-[#0a0f4a]">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

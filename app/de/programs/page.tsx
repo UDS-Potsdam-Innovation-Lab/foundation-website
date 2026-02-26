@@ -19,7 +19,7 @@ export default function Programs() {
       image: 'https://images.pexels.com/photos/3182755/pexels-photo-3182755.jpeg',
     },
     {
-      title: 'German-UDS.Academy',
+      title: 'Open German UDS',
       description: 'Förderung digitaler Plattformen, die Bildung für alle zugänglich machen.',
       image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg',
     },

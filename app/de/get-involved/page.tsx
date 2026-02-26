@@ -33,7 +33,7 @@ export default function Page() {
   ];
 
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -44,9 +44,11 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Engagieren Sie sich</h1>
+            <h1 className="text-4xl font-bold mb-6 text-[#000080]">
+              Finanzielle Unterstützung &amp; Beteiligung
+            </h1>
             <p className="text-lg text-[#0a0f4a]">
-              Begleiten Sie uns auf unserer Mission, die digitale Bildung zu transformieren und nachhaltige Wirkung zu erzielen.
+              Erfahren Sie, wie Sie die Stiftung finanziell unterstützen und an der Gestaltung der digitalen Bildung mitwirken können.
             </p>
           </motion.div>
 

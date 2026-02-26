@@ -19,24 +19,25 @@ export default function Programs() {
       image: 'https://images.pexels.com/photos/3182755/pexels-photo-3182755.jpeg',
     },
     {
-      title: 'German-UDS.Academy',
+      title: 'Open German UDS',
       description: 'Promoting digital platforms that make education accessible to everyone.',
       image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg',
     },
   ];
 
   return (
-    <main className="pt-24">
-      <section className="py-20 hero-gradient">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-6 gradient-text">Our Programs</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Our Programs</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover our innovative initiatives that are shaping the future of digital education
             </p>
           </motion.div>
@@ -47,8 +48,10 @@ export default function Programs() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="overflow-hidden rounded-xl card-blue-gradient text-body hover:shadow-glow transition-shadow duration-300"
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ delay: index * 0.08, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+                className="overflow-hidden rounded-3xl border-2 border-gray-100 bg-white hover:border-[#0066FF] shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative h-48">
                   <img
@@ -58,8 +61,8 @@ export default function Programs() {
                   />
                 </div>
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-4 gradient-text">{program.title}</h2>
-                  <p className="text-body">{program.description}</p>
+                  <h2 className="text-2xl font-bold mb-4 text-[#0066FF]">{program.title}</h2>
+                  <p className="text-gray-600">{program.description}</p>
                 </div>
               </motion.div>
             ))}

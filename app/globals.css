@@ -7,11 +7,20 @@
   --primary-dark: #1e3a8a;
   --secondary: #00E6FF;
   --accent: #ea580c;
+  --accent-light: #f97316;
   --background: #0f172a;
   --text-body: #fff;
   --text-heading: #e0f2fe;
   --text-highlight: #a5f3fc;
   --text-secondary: #94a3b8;
+  /* Page gradient: white to old blue (light blue, not gray) */
+  --page-gradient: linear-gradient(to bottom, #ffffff, #dbeafe);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --content-card-bg: #ffffff;
+  --content-card-border: rgba(30, 64, 175, 0.12);
+  --content-card-shadow: 0 4px 24px -4px rgba(30, 64, 175, 0.08), 0 8px 48px -8px rgba(0, 0, 0, 0.06);
+  --content-card-shadow-hover: 0 20px 40px -12px rgba(30, 64, 175, 0.15), 0 0 0 1px rgba(234, 88, 12, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,27 +51,56 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Gradient text for light backgrounds (e.g. content pages) */
+.gradient-text-content {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hero-gradient {
   background: linear-gradient(135deg, rgba(30,64,175,0.08) 0%, rgba(234,88,12,0.08) 100%);
 }
 
 .nav-blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modern glass panel (for navbar when scrolled, cards on light bg) */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
 }
 
 .btn-primary {
-  @apply bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md
-         transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0
-         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500
-         hover:shadow-lg hover:shadow-orange-600/30;
+  @apply text-white font-semibold px-6 py-3 rounded-xl
+         transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:translate-y-0
+         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  box-shadow: 0 4px 14px -2px rgba(234, 88, 12, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.5);
 }
 
 .btn-outline {
-  @apply border-2 border-orange-600 text-orange-600 hover:text-white hover:bg-orange-600
-         font-semibold px-6 py-3 rounded-md transition-all duration-300
-         transform hover:-translate-y-1 active:translate-y-0
+  @apply font-semibold px-6 py-3 rounded-xl transition-all duration-300 ease-out
+         transform hover:-translate-y-0.5 active:translate-y-0
          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
+  border: 2px solid #ea580c;
+  color: #ea580c;
+}
+
+.btn-outline:hover {
+  @apply text-white;
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  box-shadow: 0 4px 14px -2px rgba(234, 88, 12, 0.3);
 }
 
 .link-hover {
@@ -70,8 +108,8 @@ body {
 }
 
 .link-hover::after {
-  @apply content-[''] absolute w-0 h-0.5 bg-orange-600 left-0 -bottom-1
-         transition-all duration-300;
+  @apply content-[''] absolute w-0 h-0.5 left-0 -bottom-1 transition-all duration-300;
+  background: linear-gradient(90deg, #ea580c, #f97316);
 }
 
 .link-hover:hover::after {
@@ -85,6 +123,42 @@ body {
 
 .shadow-glow:hover {
   box-shadow: 0 0 30px rgba(234,88,12,0.5);
+}
+
+/* Reusable content card (light bg pages) – same content, better look */
+.content-card {
+  background: var(--content-card-bg);
+  border: 1px solid var(--content-card-border);
+  border-radius: 1rem;
+  box-shadow: var(--content-card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--content-card-shadow-hover);
+  border-color: rgba(234, 88, 12, 0.2);
+}
+
+.content-card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-card-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #ea580c, #f97316);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-card-accent:hover::before {
+  opacity: 1;
 }
 
 [class*="motion-safe:"] {
@@ -135,6 +209,29 @@ body {
   background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
 }
 
+/* Glass-style card variant for dark sections */
+.card-glass {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(37, 99, 235, 0.75) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.25);
+}
+
+.card-glass:hover {
+  border-color: rgba(234, 88, 12, 0.35);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(234, 88, 12, 0.1);
+}
+
+/* Section title underline accent */
+.section-title-accent {
+  display: inline-block;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ea580c, #f97316);
+  margin-top: 0.5rem;
+}
 
 /* Hide scrollbars globally */
 body {

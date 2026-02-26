@@ -3,16 +3,24 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from '../../../[locales]/useTranslation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+
+type NavItem = {
+  name: string;
+  href: string;
+  dropdownItems?: { name: string; href: string }[];
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const router = useRouter();
 
   const segments = pathname.split('/').filter(Boolean);
   const currentLocale = segments[0] === 'de' ? 'de' : 'en';
@@ -23,7 +31,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setShowNavbar(currentScrollY < 50);
+      setScrolled(currentScrollY > 16);
 
       const sections = document.querySelectorAll('section[id]');
       const scrollPosition = currentScrollY + 100;
@@ -39,70 +47,99 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: t.navbar.home, href: currentLocale === 'en' ? '/' : `/${currentLocale}` },
-    { name: t.navbar.about, href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
+  const basePath = currentLocale === 'en' ? '' : `/${currentLocale}`;
+
+  const navItems: NavItem[] = [
+    { name: t.navbar.home, href: basePath || '/' },
+    {
+      name: currentLocale === 'en' ? 'About Us' : 'Über uns',
+      href: `${basePath}/team`,
+      dropdownItems: [
+        {
+          name: currentLocale === 'en' ? 'About' : 'Über die Stiftung',
+          href: `${basePath}/team#team-about`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Meet the Team' : 'Unser Team',
+          href: `${basePath}/team#team-grid`,
+        },
+      ],
+    },
     {
       name: t.navbar.values,
-      href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values`,
+      href: `${basePath}/values`,
       dropdownItems: [
-        { name: t.navbar.guidingPrinciples, href: currentLocale === 'en' ? '/values#guiding-principles' : `/${currentLocale}/values#guiding-principles` },
-        { name: t.navbar.coreBeliefs, href: currentLocale === 'en' ? '/values#core-beliefs' : `/${currentLocale}/values#core-beliefs` },
+        {
+          name: currentLocale === 'en' ? 'Guiding Principles' : 'Leitprinzipien',
+          href: `${basePath}/values#core-beliefs`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Core Beliefs' : 'Kernüberzeugungen',
+          href: `${basePath}/values#guiding-principles`,
+        },
       ],
     },
     {
       name: t.navbar.whatWeDo,
-      href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do`,
+      href: `${basePath}/what-we-do`,
       dropdownItems: [
-        { name: t.navbar.purpose, href: currentLocale === 'en' ? '/what-we-do#purpose' : `/${currentLocale}/what-we-do#purpose` },
-        { name: t.navbar.foundationGoals, href: currentLocale === 'en' ? '/what-we-do#foundation-goals' : `/${currentLocale}/what-we-do#foundation-goals` },
-        { name: t.navbar.supportUs, href: currentLocale === 'en' ? '/what-we-do#support-us' : `/${currentLocale}/what-we-do#support-us` },
-        { name: t.navbar.getInvolved, href: currentLocale === 'en' ? '/what-we-do#get-involved' : `/${currentLocale}/what-we-do#get-involved` },
+        {
+          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
+          href: `${basePath}/what-we-do#purpose`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Voices of the Foundation' : 'Stimmen der Stiftung',
+          href: `${basePath}/what-we-do#voices`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Support Our Mission' : 'Unterstützen Sie unsere Mission',
+          href: `${basePath}/what-we-do#support-us`,
+        },
       ],
     },
-    {
-      name: t.navbar.ecosystem,
-      href: currentLocale === 'en' ? '/ecosystem' : `/${currentLocale}/ecosystem`,
-      dropdownItems: [
-        { name: t.navbar.udsOverview, href: currentLocale === 'en' ? '/ecosystem#german-uds-overview' : `/${currentLocale}/ecosystem#german-uds-overview` },
-        { name: t.navbar.shareholding, href: currentLocale === 'en' ? '/ecosystem#shareholding' : `/${currentLocale}/ecosystem#shareholding` },
-        { name: t.navbar.participation, href: currentLocale === 'en' ? '/ecosystem#participation' : `/${currentLocale}/ecosystem#participation` },
-      ],
-    },
-    { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
-    { name: t.navbar.contact, href: currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact` },
+    { name: t.navbar.ecosystem, href: `${basePath}/ecosystem` },
+    { name: t.navbar.contact, href: `${basePath}/contact` },
   ];
 
   const isActive = (href: string) => {
     if (currentLocale === 'en') {
       if (href === '/') return pathname === '' || pathname === '/';
       if (href.includes('#')) {
-        const [path, anchor] = href.split('#');
-        return pathname === path && activeSection === anchor;
+        const [path] = href.split('#');
+        return pathname === path;
       }
       return pathname.startsWith(href);
     } else {
       if (href === `/${currentLocale}`) return pathname === href;
       if (href.includes('#')) {
-        const [path, anchor] = href.split('#');
-        return pathname === path && activeSection === anchor;
+        const [path] = href.split('#');
+        return pathname === path;
       }
       return pathname.startsWith(href);
     }
   };
 
+  const isSectionActive = (href: string) => {
+    if (!href.includes('#')) return isActive(href);
+    const [, anchor] = href.split('#');
+    return activeSection === anchor;
+  };
+
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes('#')) {
       const [path, anchor] = href.split('#');
-      if (pathname === path) {
+      const isSamePage = pathname === path;
+      if (isSamePage) {
         e.preventDefault();
         const element = document.getElementById(anchor);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
           setIsOpen(false);
+          setOpenMobileDropdown(null);
         }
       }
     }
@@ -116,80 +153,150 @@ const Navbar = () => {
     window.location.href = newPath || '/';
   };
 
+  const navBarBg = scrolled ? 'glass-panel' : 'bg-white/80 backdrop-blur-md border-b border-white/20';
+  const linkBase = 'relative text-[#001B3F] px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg';
+  const linkHover = 'hover:text-orange-600 hover:bg-orange-50/80';
+  const linkActive = 'text-orange-600';
+
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 bg-transparent ${showNavbar ? 'top-0' : '-top-20'}`}
+      className={`fixed w-full top-0 z-[100] transition-all duration-500 ${scrolled ? 'shadow-card' : ''}`}
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="flex-shrink-0" aria-label="Home">
-            <Image
-              src="/UDS_foundation_logo_pos_rgb.png"
-              alt="German University of Digital Science Foundation"
-              width={180}
-              height={40}
-              className="h-10 w-auto"
-              priority
-            />
-          </Link>
+      <div className={`transition-all duration-300 ${navBarBg}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link
+              href={currentLocale === 'en' ? '/' : `/${currentLocale}`}
+              className="flex-shrink-0 transition-opacity hover:opacity-90"
+              aria-label="Home"
+            >
+              <Image
+                src="/UDS_foundation_logo_pos_rgb.png"
+                alt="German University of Digital Science Foundation"
+                width={180}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
+            </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4" role="menubar">
-              {navItems.map((item) => (
-                <div key={item.name} className="relative group" role="none">
-                  <Link
-                    href={item.href}
-                    className={`text-[#001B3F] hover:text-[#003366] px-3 pb-1 text-sm font-medium transition-colors ${
-                      isActive(item.href) ? 'border-b-2 border-orange-500' : ''
-                    }`}
-                    role="menuitem"
-                    onClick={(e) => handleAnchorClick(e, item.href)}
+            {/* Desktop Menu */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-center gap-1" role="menubar">
+                {navItems.map((item) => (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    role="none"
+                    onMouseEnter={() => item.dropdownItems && setOpenDropdown(item.name)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
-                    {item.name}
-                  </Link>
-                </div>
-              ))}
+                    {item.dropdownItems ? (
+                      <>
+                        <Link
+                          href={item.href}
+                          className={`${linkBase} ${linkHover} flex items-center gap-0.5 ${
+                            isActive(item.href) ? linkActive : ''
+                          }`}
+                          role="menuitem"
+                          onClick={(e) => handleAnchorClick(e, item.href)}
+                        >
+                          {item.name}
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              openDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </Link>
+                        <AnimatePresence>
+                          {openDropdown === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -8 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute left-0 top-full pt-1 min-w-[200px]"
+                            >
+                              <div className="rounded-xl bg-white/95 backdrop-blur-md shadow-card-hover border border-gray-100 py-2 overflow-hidden">
+                                {item.dropdownItems.map((sub) => (
+                                  <Link
+                                    key={sub.href}
+                                    href={sub.href}
+                                    className={`block px-4 py-2.5 text-sm transition-colors ${
+                                      isSectionActive(sub.href)
+                                        ? 'bg-orange-50 text-orange-600 font-medium'
+                                        : 'text-[#001B3F] hover:bg-orange-50/80 hover:text-orange-600'
+                                    }`}
+                                    onClick={(e) => handleAnchorClick(e, sub.href)}
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`${linkBase} ${linkHover} ${
+                          isActive(item.href) ? linkActive : ''
+                        }`}
+                        role="menuitem"
+                        onClick={(e) => handleAnchorClick(e, item.href)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
 
-              {/* Language Switcher */}
-              <div className="ml-12 pl-4 border-l border-gray-300 flex items-center space-x-1 text-sm font-medium">
-                <button
-                  onClick={() => switchLocale('en')}
-                  className={`transition-colors hover:text-[#003366] ${
-                    currentLocale === 'en' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
-                  }`}
-                >
-                  EN
-                </button>
-                <span className="text-gray-400">|</span>
-                <button
-                  onClick={() => switchLocale('de')}
-                  className={`transition-colors hover:text-[#003366] ${
-                    currentLocale === 'de' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
-                  }`}
-                >
-                  DE
-                </button>
+                {/* Language Switcher */}
+                <div className="ml-8 pl-6 border-l border-gray-200 flex items-center gap-2 text-sm font-medium">
+                  <button
+                    onClick={() => switchLocale('en')}
+                    className={`px-2.5 py-1.5 rounded-lg transition-colors ${
+                      currentLocale === 'en'
+                        ? 'bg-orange-100 text-orange-600 font-semibold'
+                        : 'text-gray-500 hover:text-[#001B3F] hover:bg-gray-100'
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => switchLocale('de')}
+                    className={`px-2.5 py-1.5 rounded-lg transition-colors ${
+                      currentLocale === 'de'
+                        ? 'bg-orange-100 text-orange-600 font-semibold'
+                        : 'text-gray-500 hover:text-[#001B3F] hover:bg-gray-100'
+                    }`}
+                  >
+                    DE
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Hamburger Toggle (mobile only) */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-[#001B3F] focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+            {/* Hamburger (mobile) */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-2 rounded-xl transition-colors ${
+                isOpen ? 'bg-orange-100 text-orange-600' : 'text-[#001B3F] hover:bg-gray-100'
+              }`}
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -200,42 +307,91 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white px-4 py-4 space-y-3 shadow-lg"
+            transition={{ duration: 0.25 }}
+            className="md:hidden glass-panel border-t border-white/30 shadow-lg overflow-hidden"
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block text-[#001B3F] text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex space-x-4 pt-2 border-t border-gray-200">
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  switchLocale('en');
-                }}
-                className={`transition-colors hover:text-[#003366] ${
-                  currentLocale === 'en' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  switchLocale('de');
-                }}
-                className={`transition-colors hover:text-[#003366] ${
-                  currentLocale === 'de' ? 'text-[#001B3F] font-bold underline' : 'text-gray-500'
-                }`}
-              >
-                DE
-              </button>
+            <div className="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
+              {navItems.map((item) =>
+                item.dropdownItems ? (
+                  <div key={item.name}>
+                    <button
+                      onClick={() =>
+                        setOpenMobileDropdown(openMobileDropdown === item.name ? null : item.name)
+                      }
+                      className="flex items-center justify-between w-full py-3 text-left text-[#001B3F] font-medium rounded-lg hover:bg-orange-50/80 transition-colors"
+                    >
+                      {item.name}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          openMobileDropdown === item.name ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {openMobileDropdown === item.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="pl-4 space-y-1 overflow-hidden"
+                        >
+                          {item.dropdownItems.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              className="block py-2.5 text-sm text-[#0a0f4a] hover:text-orange-600"
+                              onClick={(e) => {
+                                handleAnchorClick(e, sub.href);
+                                setIsOpen(false);
+                                setOpenMobileDropdown(null);
+                              }}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-3 text-[#001B3F] font-medium rounded-lg hover:bg-orange-50/80 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+              <div className="flex gap-2 pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    switchLocale('en');
+                  }}
+                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    currentLocale === 'en'
+                      ? 'bg-orange-100 text-orange-600'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    switchLocale('de');
+                  }}
+                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    currentLocale === 'de'
+                      ? 'bg-orange-100 text-orange-600'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  DE
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

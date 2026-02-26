@@ -75,17 +75,18 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
       {/* Über uns Abschnitt */}
       <section className="scroll-mt-32 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-4 text-[#000080]">Über uns</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Über uns</h1>
             <p className="text-lg text-[#0a0f4a] max-w-4xl mx-auto leading-relaxed">
               Die German UDS Foundation unterstützt die German University of Digital Science durch die Förderung innovativer Bildungs- und Forschungsprojekte im Bereich der digitalen Wissenschaften. Unsere Mission ist es, den digitalen Wandel voranzutreiben, digitale Kompetenzen in allen Bereichen der Gesellschaft zu verankern und eine inklusive, zukunftsorientierte digitale Welt mitzugestalten. Die Stiftung ist offiziell anerkannt durch die Senatsverwaltung für Justiz und Verbraucherschutz.
             </p>
@@ -116,7 +117,7 @@ export default function Page() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.15 }}
-                  className="flex-1 min-h-[180px] bg-white rounded-2xl border border-gray-200 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 overflow-hidden flex flex-col"
+                  className="flex-1 min-h-[180px] bg-white rounded-3xl border-2 border-gray-100 hover:border-[#0066FF] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
                 >
                   {/* Bild oben */}
                   <div className="relative w-full h-24 overflow-hidden">
@@ -133,7 +134,7 @@ export default function Page() {
 
                   {/* Text */}
                   <div className="p-4 flex flex-col justify-center">
-                    <h3 className="text-[#f7931e] font-semibold text-lg mb-1">{statement.title}</h3>
+                    <h3 className="text-[#0066FF] font-semibold text-lg mb-1">{statement.title}</h3>
                     <p className="text-[#0a0f4a] text-sm leading-snug">{statement.description}</p>
                   </div>
                 </motion.div>
@@ -164,7 +165,7 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="w-full flex flex-col rounded-br-2xl border border-gray-300 transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 overflow-hidden"
+                className="w-full flex flex-col rounded-3xl border-2 border-gray-100 bg-white hover:border-[#0066FF] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <div className="relative aspect-video">
                   {activeVideos[index] ? (
@@ -190,8 +191,8 @@ export default function Page() {
                     </div>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded-br-2xl">
-                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
+                <div className="bg-white p-5">
+                  <h3 className="text-[#0066FF] font-bold text-base mb-2">{video.title}</h3>
                   <p className="text-[#0a0f4a] text-sm">{video.description}</p>
                 </div>
               </motion.div>

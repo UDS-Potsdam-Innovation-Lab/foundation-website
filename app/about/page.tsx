@@ -75,18 +75,20 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
 
       {/* About Section */}
       <section className="scroll-mt-32 min-h-screen py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-4 text-[#000080]">About Us</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">About Us</h1>
+            <span className="section-title-accent mx-auto mb-6 block" aria-hidden />
             <p className="text-lg text-[#0a0f4a] text-center max-w-4xl mx-auto leading-relaxed">
               The German UDS Foundation supports the German University of Digital Science by funding innovative education and research in the field of digital science. Our mission is to advance digital transformation, promote the integration of digital competencies across all sectors of society, and contribute to shaping an inclusive, future-oriented digital world. The foundation operates with official recognition, acknowledged by the Senatsverwaltung für Justiz und Verbraucherschutz.
             </p>
@@ -97,14 +99,16 @@ export default function Page() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full h-64 sm:h-80 lg:h-full rounded-xl overflow-hidden shadow-xl lg:col-span-3"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full h-64 sm:h-80 lg:h-full rounded-2xl overflow-hidden shadow-card lg:col-span-3"
             >
               <Image
                 src="/why_foundation.png"
                 alt="Why Foundation"
                 fill
                 className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 priority
               />
             </motion.div>
@@ -116,25 +120,27 @@ export default function Page() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.15 }}
-                  className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-md hover:scale-[1.02] hover:shadow-xl hover:ring-2 hover:ring-orange-300 transition duration-300 overflow-hidden flex flex-col"
+                  viewport={{ once: true, margin: '-20px' }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="flex-1 bg-white rounded-3xl border-2 border-gray-100 hover:border-[#0066FF] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
                 >
-                  <div className="relative w-full h-24 overflow-hidden">
+                  <div className="relative w-full h-28 overflow-hidden rounded-t-2xl">
                     <div
                       className="absolute inset-0"
                       style={{ transform: statement.transform }}
                     >
                       <Image
                         src="/about_us_abstract.png"
-                        alt={statement.title}
+                        alt=""
                         fill
                         className="object-cover"
                         style={{ objectPosition: statement.objectPosition }}
+                        sizes="(max-width: 1024px) 100vw, 33vw"
                       />
                     </div>
                   </div>
-                  <div className="p-4 flex flex-col justify-center">
-                    <h3 className="text-[#f7931e] font-semibold text-lg mb-1">{statement.title}</h3>
+                  <div className="p-5 flex flex-col justify-center">
+                    <h3 className="text-[#0066FF] font-semibold text-lg mb-1.5">{statement.title}</h3>
                     <p className="text-[#0a0f4a] text-sm leading-snug">{statement.description}</p>
                   </div>
                 </motion.div>
@@ -148,12 +154,14 @@ export default function Page() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-[#000080] mb-4">Voices of the Foundation</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Voices of the Foundation</h2>
+            <span className="section-title-accent mx-auto mb-4 block" aria-hidden />
             <p className="text-lg text-[#0a0f4a] max-w-3xl mx-auto">
               Hear why our members of the executive board believe in the mission of the German UDS Foundation
             </p>
@@ -165,36 +173,40 @@ export default function Page() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="w-full flex flex-col rounded-br-2xl border border-gray-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 transition duration-300 overflow-hidden"
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="w-full flex flex-col bg-white rounded-3xl border-2 border-gray-100 hover:border-[#0066FF] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
-                <div className="relative aspect-video">
+                <div className="relative aspect-video rounded-t-2xl overflow-hidden">
                   {activeVideos[index] ? (
                     <iframe
                       src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`}
-                      className="absolute inset-0 w-full h-full rounded-t-br-2xl"
+                      className="absolute inset-0 w-full h-full"
                       allow="autoplay; fullscreen"
                       allowFullScreen
-                    ></iframe>
+                      title={video.title}
+                    />
                   ) : (
-                    <div
+                    <button
+                      type="button"
                       onClick={() => handlePlay(index)}
-                      className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer"
+                      className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group"
                       style={{
                         backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                       }}
+                      aria-label={`Play video: ${video.title}`}
                     >
-                      <div className="bg-black bg-opacity-50 w-10 h-10 flex items-center justify-center rounded-full text-white text-2xl absolute bottom-2 right-2">
+                      <span className="w-14 h-14 rounded-full bg-orange-500/90 group-hover:bg-orange-500 flex items-center justify-center text-white text-2xl shadow-lg transition-transform group-hover:scale-110">
                         ▶
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                   )}
                 </div>
-                <div className="bg-white p-4">
-                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{video.title}</h3>
-                  <p className="text-[#0a0f4a] text-sm">{video.description}</p>
+                <div className="bg-white p-5">
+                  <h3 className="text-[#0066FF] font-bold text-base mb-2">{video.title}</h3>
+                  <p className="text-[#0a0f4a] text-sm leading-snug">{video.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -210,11 +222,12 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-2 rounded-md bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-700 transition duration-300">
-              <a href="/values" className="text-white text-sm font-medium">
-                Learn More
-              </a>
-            </div>
+            <a
+              href="/values"
+              className="inline-block px-8 py-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Learn More
+            </a>
           </motion.div>
         </div>
       </section>

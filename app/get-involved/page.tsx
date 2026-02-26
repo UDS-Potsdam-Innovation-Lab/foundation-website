@@ -33,43 +33,49 @@ export default function Page() {
   ];
 
   return (
-    <main className="pt-24 bg-gradient-to-b from-[#dbeafe] via-[#a3c9f1] to-[#5a8ac3] scroll-smooth">
+    <main className="pt-24 bg-gradient-to-b from-white to-blue-100 scroll-smooth min-h-screen">
       <section className="scroll-mt-32 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6 text-[#000080]">Get Involved</h1>
-            <p className="text-lg text-[#0a0f4a]">
-              Join us in our mission to transform digital education and create lasting impact.
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Financial Support &amp; Participation
+            </h1>
+            <p className="text-lg text-gray-600">
+              Explore how you can support the Foundation financially and participate in shaping the future of digital education.
             </p>
           </motion.div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-y-14 gap-x-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
             {supportWays.map((way, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="w-full h-[456px] rounded-br-2xl overflow-hidden border border-gray-300 bg-white transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-orange-500 flex flex-col"
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ delay: index * 0.08, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+                className="w-full bg-white rounded-3xl border-2 border-gray-100 hover:border-[#0066FF] shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 flex flex-col"
               >
-                <div className="relative w-full h-[300px]">
+                <div className="relative w-full aspect-[16/10] min-h-[220px]">
                   <Image
                     src={way.image}
                     alt={way.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
                 <div className="p-6 flex flex-col justify-between flex-grow text-left">
-                  <h3 className="text-[#f7931e] font-bold text-base mb-2">{way.title}</h3>
-                  <p className="text-[#0a0f4a] text-sm mb-2">{way.description}</p>
+                  <h3 className="text-[#0066FF] font-bold text-base mb-2">{way.title}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{way.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -78,14 +84,15 @@ export default function Page() {
 
         {/* Tax Benefits */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full bg-[#d7e7f8] bg-opacity-30 px-6 py-10 text-center"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full bg-blue-50 px-6 py-10 text-center"
         >
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-[#000080]">Tax Benefits</h2>
-            <p className="text-[#0a0f4a] text-base leading-relaxed max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">Tax Benefits</h2>
+            <p className="text-gray-600 text-base leading-relaxed max-w-4xl mx-auto">
               Your support is tax-deductible. As a non-profit organization, we provide all necessary documentation for your tax return.
             </p>
           </div>
