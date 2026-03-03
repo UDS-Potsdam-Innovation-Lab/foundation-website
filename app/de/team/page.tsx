@@ -3,9 +3,32 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building2, Globe, GraduationCap, BookOpen, X } from 'lucide-react';
+
+const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
+const PURPOSES = [
+  { title: 'Unterstützung der German UDS', description: 'Förderung und Finanzierung der German University of Digital Science durch strategische Initiativen und Partnerschaften', image: '/support-german-uds.jpg', objectPosition: 'center top' },
+  { title: 'Globale Zusammenarbeit', description: 'Förderung internationaler Partnerschaften und Kooperationen zur Weiterentwicklung der digitalen Bildung weltweit', image: '/support-german-uds.jpg', objectPosition: 'left center' },
+  { title: 'Campus für Virtuelle Bildung (COVE)', description: 'Entwicklung virtueller Lernumgebungen und innovativer digitaler Bildungsplattformen', image: '/support-german-uds.jpg', objectPosition: 'right center' },
+  { title: 'open German UDS', description: 'Bereitstellung zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattform der German UDS', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
+];
+const VOICE_VIDEOS = [
+  { title: 'Digitale Resilienz', description: 'Anpassungsfähigkeit und Stärke durch digitale Befähigung aufbauen', videoId: '1092449114' },
+  { title: 'Lebenslanges Lernen', description: 'Bildung endet nie – sie entwickelt sich mit dir weiter', videoId: '1092448821' },
+  { title: 'Digitale Zukunft', description: 'Die technologische Welt von morgen gestalten und mit Vision denken', videoId: '1092448406' },
+  { title: 'Stärkung der Universität', description: 'Wie die Stiftung täglich den Fortschritt der German UDS vorantreibt', videoId: '1094752301' },
+];
 
 export default function Team() {
+  const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(VOICE_VIDEOS.length).fill(false));
+
+  const handlePlay = (index: number) => {
+    setActiveVideos((prev) => {
+      const updated = [...prev];
+      updated[index] = true;
+      return updated;
+    });
+  };
   const teamMembers = [
     {
       name: 'Prof. Dr. Mike Friedrichsen',
@@ -44,8 +67,15 @@ export default function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const [carouselOpen, setCarouselOpen] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (carouselOpen) {
+      document.getElementById('team-featured')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [carouselOpen]);
 
   useEffect(() => {
     if (!showVideo || !iframeRef.current) return;
@@ -126,9 +156,66 @@ export default function Team() {
             </div>
           </motion.div>
 
-          {/* Featured carousel */}
-          <div id="team-featured" className="relative mb-20">
-            <div className="max-w-4xl mx-auto relative h-[500px] flex items-center justify-center">
+          {/* Unser Team header */}
+          <motion.div
+            id="team-grid"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="text-left mb-4"
+          >
+            <motion.h2
+              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Unser Team
+            </motion.h2>
+          </motion.div>
+
+          {/* Grid of all team members */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {teamMembers.map((member, index) => (
+              <motion.button
+                key={index}
+                type="button"
+                className="group text-left cursor-pointer"
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                whileHover={{ y: -6 }}
+                onClick={() => {
+                  goTo(index, index > currentIndex ? 1 : -1);
+                  setCarouselOpen(true);
+                }}
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="aspect-[3/4] relative bg-gray-100">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h3 className="font-bold text-gray-900">{member.name}</h3>
+                  <p className="text-[#0066FF] text-sm font-medium">{member.title}</p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Featured carousel – shown only when a profile is clicked */}
+          {carouselOpen && (
+          <div id="team-featured" className="relative mt-12 mb-20">
+            <div className="max-w-4xl mx-auto relative min-h-[420px] md:h-[500px] flex items-center justify-center">
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -140,7 +227,15 @@ export default function Team() {
                   transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
                   className="absolute inset-0 w-full"
                 >
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-[480px] w-full flex flex-col">
+                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 min-h-[400px] md:h-[480px] w-full flex flex-col relative">
+                    <button
+                      type="button"
+                      onClick={() => setCarouselOpen(false)}
+                      className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+                      aria-label="Profil schließen"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
                     {showVideo && teamMembers[currentIndex].videoUrl ? (
                       <div className="relative p-6 h-full flex flex-col">
                         <div className="relative w-full flex-1 min-h-0 rounded-xl overflow-hidden bg-black">
@@ -165,9 +260,9 @@ export default function Team() {
                         </div>
                       </div>
                     ) : (
-                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-0">
-                        <div className="relative bg-gray-100 flex items-center justify-center p-6 md:p-8 shrink-0">
-                          <div className="relative w-[220px] h-[280px] sm:w-[260px] sm:h-[320px] md:w-[280px] md:h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-inner border border-gray-200/80">
+                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-0 flex flex-col md:flex-row">
+                        <div className="relative bg-gray-100 flex items-center justify-center p-4 md:p-8 shrink-0 order-2 md:order-1">
+                          <div className="relative w-[140px] h-[180px] sm:w-[180px] sm:h-[220px] md:w-[280px] md:h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-inner border border-gray-200/80">
                             <Image
                               src={teamMembers[currentIndex].image}
                               alt={teamMembers[currentIndex].name}
@@ -178,32 +273,34 @@ export default function Team() {
                             />
                           </div>
                         </div>
-                        <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-start min-h-0 overflow-y-auto">
-                          <motion.h2
-                            className="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.15 }}
-                          >
-                            {teamMembers[currentIndex].name}
-                          </motion.h2>
-                          <motion.p
-                            className="text-lg text-[#0066FF] font-semibold mb-4"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                          >
-                            {teamMembers[currentIndex].title}
-                          </motion.p>
-                          <motion.p
-                            className="text-gray-600 leading-relaxed text-sm mb-6"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.25 }}
-                          >
-                            {teamMembers[currentIndex].bio}
-                          </motion.p>
-                          <div className="flex flex-wrap gap-3">
+                        <div className="p-4 sm:p-8 md:p-10 flex flex-col justify-between min-h-0 flex-1 order-1 md:order-2">
+                          <div className="min-h-0 flex-1 overflow-y-auto">
+                            <motion.h2
+                              className="text-xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.15 }}
+                            >
+                              {teamMembers[currentIndex].name}
+                            </motion.h2>
+                            <motion.p
+                              className="text-base md:text-lg text-[#0066FF] font-semibold mb-2 md:mb-4"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.2 }}
+                            >
+                              {teamMembers[currentIndex].title}
+                            </motion.p>
+                            <motion.p
+                              className="text-gray-600 leading-relaxed text-sm mb-4 md:mb-6 max-h-[120px] md:max-h-none overflow-y-auto md:overflow-visible"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.25 }}
+                            >
+                              {teamMembers[currentIndex].bio}
+                            </motion.p>
+                          </div>
+                          <div className="flex flex-wrap gap-2 md:gap-3 pt-3 flex-shrink-0 border-t border-gray-100 md:border-0 md:pt-0">
                             <a
                               href={`mailto:${teamMembers[currentIndex].email}`}
                               className="inline-flex items-center px-5 py-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-xl font-medium transition-colors"
@@ -259,64 +356,70 @@ export default function Team() {
               </div>
             </div>
           </div>
+          )}
 
-          {/* Unser Team header */}
-          <motion.div
-            id="team-grid"
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-left mb-4 mt-10"
-          >
-            <motion.h2
-              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Unser Team
-            </motion.h2>
-          </motion.div>
+          {/* Our Purpose - Unsere Schwerpunkte */}
+          <section id="purpose" className="scroll-mt-24 pt-10 sm:pt-16">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-10">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">Unsere Schwerpunkte</h2>
+              <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              {PURPOSES.map((purpose, index) => {
+                const Icon = PURPOSE_ICONS[index];
+                return (
+                  <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.5 }} whileHover={{ y: -6 }} className="group relative">
+                    <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                      <div className="flex flex-col min-h-[200px] sm:min-h-[220px] md:h-[280px]">
+                        <div className="relative h-24 sm:h-28 md:h-[55%] w-full overflow-hidden shrink-0">
+                          <img src={purpose.image} alt={purpose.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: purpose.objectPosition }} />
+                          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0066FF]" />
+                          </div>
+                        </div>
+                        <div className="flex-1 min-h-0 w-full p-4 sm:p-5 flex flex-col justify-start overflow-y-auto">
+                          <h3 className="text-[#0066FF] text-sm sm:text-base font-semibold mb-1.5 sm:mb-2">{purpose.title}</h3>
+                          <p className="text-gray-600 text-xs sm:text-sm leading-snug">{purpose.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </section>
 
-          {/* Grid of all team members */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.button
-                key={index}
-                type="button"
-                className="group text-left cursor-pointer"
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{ y: -6 }}
-                onClick={() => {
-                  goTo(index, index > currentIndex ? 1 : -1);
-                  document
-                    .getElementById('team-featured')
-                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow border border-gray-100">
-                  <div className="aspect-[3/4] relative bg-gray-100">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
+          {/* Voices of the Foundation - Stimmen der Stiftung */}
+          <section id="voices" className="scroll-mt-24 pt-10 sm:pt-16">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">Stimmen der Stiftung</h2>
+              <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">Hören Sie, warum unsere Vorstandsmitglieder an die Mission der German UDS Foundation glauben</p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+              {VOICE_VIDEOS.map((video, index) => (
+                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ delay: index * 0.1, duration: 0.5 }} whileHover={{ y: -6 }} className="group relative">
+                  <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                    <div className="relative aspect-video overflow-hidden">
+                      {activeVideos[index] ? (
+                        <iframe src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`} className="absolute inset-0 w-full h-full" allow="autoplay; fullscreen" allowFullScreen title={video.title} />
+                      ) : (
+                        <button type="button" onClick={() => handlePlay(index)} className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group/play" style={{ backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-label={`Video abspielen: ${video.title}`}>
+                          <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
+                          <span className="relative w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
+                            <span className="text-2xl ml-1">▶</span>
+                          </span>
+                        </button>
+                      )}
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="text-[#0066FF] font-bold text-sm sm:text-base mb-1.5 sm:mb-2">{video.title}</h3>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{video.description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="mt-4">
-                  <h3 className="font-bold text-gray-900">{member.name}</h3>
-                  <p className="text-[#0066FF] text-sm font-medium">{member.title}</p>
-                </div>
-              </motion.button>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </main>

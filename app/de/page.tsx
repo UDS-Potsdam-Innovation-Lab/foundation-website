@@ -13,6 +13,7 @@ import {
   MessageSquare,
   ChevronRight,
   Globe2,
+  GraduationCap,
 } from 'lucide-react';
 
 export default function Page() {
@@ -47,9 +48,9 @@ export default function Page() {
     },
     {
       icon: Lightbulb,
-      title: 'Was wir tun',
-      desc: 'Wie wir Bildung und Forschung unterstützen.',
-      href: '/de/what-we-do',
+      title: 'Förderung',
+      desc: 'Unterstützen Sie uns, Stipendien und Projekte.',
+      href: '/de/funding',
       accent: 'blue',
       large: false,
     },
@@ -96,7 +97,7 @@ export default function Page() {
       </Head>
 
       <main className="scroll-smooth">
-        {/* Hero: full-screen dark theme with background image */}
+        {/* Hero: full-screen dark theme with background image, text on the left */}
         <section className="relative overflow-hidden min-h-screen flex items-center bg-[#1a1f2e]">
           <div className="absolute inset-0 z-0">
             <Image
@@ -186,7 +187,7 @@ export default function Page() {
         {/* Quick links – Discover More */}
         <section
           id="discover-section"
-          className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+          className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
         >
           {/* Subtle gradient background */}
           <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-blue-50/20 pointer-events-none" />
@@ -195,21 +196,52 @@ export default function Page() {
 
           <div className="relative max-w-7xl mx-auto">
             <motion.div
-              className="text-left mb-14"
+              className="text-left mb-8 sm:mb-10"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Mehr entdecken
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl">
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl">
                 Erkunden Sie unsere Programme, lernen Sie unser Team kennen und erfahren Sie, wie Sie Teil unserer Mission werden können
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+            {/* Scholarships – below intro text */}
+            <motion.a
+              href="/de/funding#scholarships"
+              className="group block mb-10 sm:mb-14"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-blue-50 to-sky-50 p-5 sm:p-6 md:p-8 group-hover:from-blue-100 group-hover:to-sky-100 group-hover:border-blue-300 shadow-md hover:shadow-xl transition-all duration-400">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-l-2xl" />
+                <div className="relative flex flex-col md:flex-row md:items-start gap-6">
+                  <div className="w-14 h-14 rounded-xl bg-white/80 shadow-sm flex items-center justify-center shrink-0 ring-1 ring-black/5 group-hover:scale-110 transition-transform duration-300 text-blue-600">
+                    <GraduationCap className="w-7 h-7" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">
+                      Stipendien
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed mb-4">
+                      Die Stiftung vergibt 10 Stipendien, um talentierte Studierende bei der digitalen Bildung an der German University of Digital Science zu unterstützen. Die Förderung deckt nur Studiengebühren; Lebenshaltungskosten sind nicht enthalten. Erfahren Sie mehr über Förderberechtigung, Bewerbungsfristen und wie Sie sich bewerben können.
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-[#0066FF] font-semibold text-sm group-hover:gap-3 transition-all">
+                      Bewerben oder mehr erfahren
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
               {quickLinks.map((item, index) => {
                 const Icon = item.icon;
                 const style = accentStyles[item.accent];

@@ -4,7 +4,7 @@ const en = {
     about: "About Us",
     values: "Values",
     whatWeDo: "What We Do",
-    ecosystem: "Ecosystem",
+    ecosystem: "German UDS Ecosystem",
     team: "Team",
     contact: "Contact",
   },

@@ -4,7 +4,7 @@ const de = {
     about: "Über uns",               // ✅ Corrected from "About"
     values: "Ziele",
     whatWeDo: "Was wir tun",
-    ecosystem: "Ökosystem",
+    ecosystem: "German UDS Ökosystem",
     team: "Team",
     contact: "Kontakt",
   },

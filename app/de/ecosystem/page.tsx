@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -10,17 +9,11 @@ import {
   FileCheck,
   Lightbulb,
   ArrowRight,
-  Wallet,
-  Award,
-  TrendingUp,
-  HandCoins,
 } from 'lucide-react';
 
 const ENTITY_ICONS = [GraduationCap, Building2, FileCheck, Lightbulb];
-const FINANCIAL_ICONS = [HandCoins, Award, TrendingUp, Wallet];
 
 export default function Page() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const entities = [
     {
       title: 'German UDS',
@@ -38,7 +31,7 @@ export default function Page() {
       image: '/german-uds-ggmbh.jpg',
     },
     {
-      title: 'German UDS Innovation',
+      title: 'German UDS Innovation GmbH',
       description: 'Treibt Innovation und strategische Initiativen voran, fördert Forschung, Entwicklung und Partnerschaften im digitalen Ökosystem.',
       image: '/german-uds-foundation.jpg',
     },
@@ -62,37 +55,6 @@ export default function Page() {
       percentage: 11,
       color: 'bg-slate-400',
       description: 'Akademische und unternehmerische Partner tragen mit Expertise und Ressourcen zur Stärkung des Ökosystems bei.',
-    },
-  ];
-
-  const financialOptions = [
-    {
-      title: 'An die Stiftung spenden',
-      description: 'Unterstützen Sie digitale Bildung durch direkte Beiträge',
-      detail: 'Direkte Spenden an die German UDS Foundation sind steuerlich absetzbar und fließen in die Finanzierung digitaler Bildungsinitiativen, Forschungsprojekte und Infrastruktur. Sie können einmalig spenden oder wiederkehrende Beiträge einrichten. Alle Spenden unterstützen unsere Mission, hochwertige digitale Bildung weltweit zugänglich zu machen.',
-      image: '/financial-support-and-participation.jpg',
-      style: 'object-[0%_0%]',
-    },
-    {
-      title: 'Stipendien finanzieren',
-      description: 'Ermöglichen Sie Studierenden den Zugang zu Bildung durch Stipendien',
-      detail: 'Stipendien ermöglichen talentierten Studierenden aus verschiedenen Hintergründen den Zugang zur digitalen Bildung unabhängig von finanziellen Barrieren. Ihr Beitrag kann Voll- oder Teilstipendien unterstützen, die Studiengebühren und Lebenshaltungskosten abdecken. Stipendien werden nach Leistung und Bedarf vergeben.',
-      image: '/financial-support-and-participation.jpg',
-      style: 'object-[25%_25%]',
-    },
-    {
-      title: 'Anteile an der gGmbH erwerben',
-      description: 'Werden Sie Teil unserer Reise durch strategische Beteiligung',
-      detail: 'Die German UDS gGmbH bietet die Möglichkeit, Anteile zu erwerben und direkt am Wachstum und Erfolg unserer digitalen Bildungsplattform teilzuhaben. Anteilseigner tragen zur Governance bei und profitieren von der Entwicklung der Organisation. Dies ist eine strategische, langfristige Investition in die Zukunft der Bildung.',
-      image: '/financial-support-and-participation.jpg',
-      style: 'object-[50%_50%]',
-    },
-    {
-      title: 'Programme sponsern',
-      description: 'Unterstützen Sie gezielt Forschungs- oder Bildungsprogramme',
-      detail: 'Programm-Sponsoring ermöglicht es Ihnen, spezifische Initiativen zu unterstützen, die Ihren Interessen entsprechen – sei es KI in der Bildung, virtuelle Lernplattformen oder Forschung in digitaler Pädagogik. Sponsoren erhalten Sichtbarkeit, Wirkungsberichte und die Möglichkeit, mit Programmteilnehmern und Ergebnissen in Kontakt zu treten.',
-      image: '/financial-support-and-participation.jpg',
-      style: 'object-[75%_75%]',
     },
   ];
 
@@ -143,7 +105,7 @@ export default function Page() {
       </section>
 
       {/* Entities - vertical timeline with connectors */}
-      <section className="scroll-mt-24 py-20 bg-white">
+      <section className="scroll-mt-24 py-10 sm:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -176,17 +138,17 @@ export default function Page() {
                 >
                   {/* Timeline line */}
                   {!isLast && (
-                    <div className="absolute left-[19px] sm:left-[23px] top-24 bottom-0 w-px bg-gradient-to-b from-[#0066FF]/40 via-orange-500/30 to-transparent" />
+                    <div className="absolute left-[17px] sm:left-[23px] top-20 sm:top-24 bottom-0 w-px bg-gradient-to-b from-[#0066FF]/40 via-orange-500/30 to-transparent" />
                   )}
                   {/* Dot - alternate blue and orange */}
-                  <div className={`relative z-10 flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg ${index % 2 === 0 ? 'bg-[#0066FF]' : 'bg-orange-500'}`}>
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  <div className={`relative z-10 flex-shrink-0 w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg ${index % 2 === 0 ? 'bg-[#0066FF]' : 'bg-orange-500'}`}>
+                    <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                   </div>
                   {/* Card */}
-                  <div className="flex-1 pb-12">
+                  <div className="flex-1 pb-8 sm:pb-12 min-w-0">
                     <div className={`group rounded-2xl overflow-hidden border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl transition-all duration-300 ${index % 2 === 0 ? 'hover:border-[#0066FF]/20' : 'hover:border-orange-500/30'}`}>
                       <div className="flex flex-col sm:flex-row">
-                        <div className="relative w-full sm:w-48 h-40 sm:h-auto sm:min-h-[180px] shrink-0">
+                        <div className="relative w-full sm:w-48 h-32 sm:h-auto sm:min-h-[180px] shrink-0">
                           <Image
                             src={entity.image}
                             alt={entity.title}
@@ -195,9 +157,9 @@ export default function Page() {
                             sizes="(max-width: 640px) 100vw, 192px"
                           />
                         </div>
-                        <div className="p-6 flex flex-col justify-center">
-                          <h3 className={`font-bold text-lg mb-2 ${index % 2 === 0 ? 'text-[#0066FF]' : 'text-orange-600'}`}>{entity.title}</h3>
-                          <p className="text-gray-600 text-sm leading-relaxed">{entity.description}</p>
+                        <div className="p-4 sm:p-6 flex flex-col justify-center">
+                          <h3 className={`font-bold text-base sm:text-lg mb-1.5 sm:mb-2 ${index % 2 === 0 ? 'text-[#0066FF]' : 'text-orange-600'}`}>{entity.title}</h3>
+                          <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{entity.description}</p>
                         </div>
                       </div>
                     </div>
@@ -293,7 +255,7 @@ export default function Page() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {shares.map((share, index) => (
               <motion.div
                 key={index}
@@ -317,95 +279,27 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Financial - bento grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-              Finanzielle Unterstützung & Beteiligung
-              <span className="block w-16 h-1 rounded-full bg-orange-500 mx-auto mt-3" />
-            </h2>
+      {/* Financial Support & Participation - redesigned box */}
+      <section className="py-10 sm:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Finanzielle Unterstützung & Beteiligung</h2>
+            <span className="block w-16 h-1 rounded-full bg-orange-500 mx-auto mt-3" />
             <p className="text-gray-600 mt-4">Gestalten Sie mit uns die Zukunft der digitalen Bildung</p>
           </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {financialOptions.map((option, index) => {
-              const Icon = FINANCIAL_ICONS[index];
-              const isHovered = hoveredCard === index;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  whileHover={{ y: -4 }}
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => setHoveredCard(hoveredCard === index ? null : index)}
-                  className="group relative rounded-2xl overflow-hidden border border-gray-100 bg-white hover:shadow-xl hover:border-orange-500/30 transition-all duration-300 cursor-pointer flex flex-col"
-                >
-                  <div className="relative h-40 w-full shrink-0 overflow-hidden">
-                    <Image
-                      src={option.image}
-                      alt={option.title}
-                      fill
-                      className={`object-cover group-hover:scale-105 transition-transform duration-500 ${option.style || ''}`}
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center shrink-0 group-hover:bg-orange-100 transition-colors">
-                        <Icon className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <h3 className="font-bold text-base text-[#0066FF]">{option.title}</h3>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed flex-1">{option.description}</p>
-                  </div>
-
-                  {/* Hover popover */}
-                  <AnimatePresence>
-                    {isHovered && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute inset-0 bg-white p-6 flex flex-col overflow-y-auto z-10"
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center shrink-0">
-                            <Icon className="w-5 h-5 text-orange-600" />
-                          </div>
-                          <h3 className="font-bold text-base text-orange-600">{option.title}</h3>
-                        </div>
-                        <p className="text-gray-600 text-sm leading-relaxed flex-1">{option.detail}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center"
-          >
-            <Link
-              href="/de/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Kontakt aufnehmen
-              <ArrowRight className="w-4 h-4" />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <Link href="/de/funding" className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
+              <div className="relative p-8 md:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Fördern oder Förderung beantragen</h3>
+                  <p className="text-gray-600 max-w-xl">Unterstützen Sie die Stiftung durch Spenden, Stipendien oder Projektförderung. Oder bewerben Sie sich um eines unserer 10 Stipendien für ein Studium an der German University of Digital Science. Stipendien decken nur Studiengebühren; Lebenshaltungskosten sind nicht enthalten.</p>
+                </div>
+                <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orange-500 group-hover:bg-orange-600 text-white font-semibold shadow-md transition-all shrink-0">
+                  Fördermöglichkeiten erkunden
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
             </Link>
           </motion.div>
         </div>

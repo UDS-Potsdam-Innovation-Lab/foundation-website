@@ -65,12 +65,19 @@ export default function Contact() {
                 <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[#0066FF]">Spendeninformationen</h2>
                 <div className="space-y-2 text-sm sm:text-base">
                   <p>
+                    <strong>German UDS Foundation:</strong>
+                  </p>
+                  <p>
                     <strong>IBAN:</strong><br />
-                    DE92 1009 0900 1744 3596 00
+                    DE45 1605 0000 1001 0024 97
                   </p>
                   <p>
                     <strong>BIC:</strong><br />
-                    GENODEF1P01
+                    WELADED1PMB
+                  </p>
+                  <p>
+                    <strong>Bank:</strong><br />
+                    Mittelbrandenburgische Sparkasse
                   </p>
                 </div>
               </motion.div>

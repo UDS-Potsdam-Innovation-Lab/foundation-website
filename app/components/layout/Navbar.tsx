@@ -64,6 +64,14 @@ const Navbar = () => {
           href: `${basePath}/team#team-about`,
         },
         {
+          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
+          href: `${basePath}/team#purpose`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Voices of the Foundation' : 'Stimmen der Stiftung',
+          href: `${basePath}/team#voices`,
+        },
+        {
           name: currentLocale === 'en' ? 'Meet the Team' : 'Unser Team',
           href: `${basePath}/team#team-grid`,
         },
@@ -84,20 +92,20 @@ const Navbar = () => {
       ],
     },
     {
-      name: t.navbar.whatWeDo,
-      href: `${basePath}/what-we-do`,
+      name: currentLocale === 'en' ? 'Funding' : 'Förderung',
+      href: `${basePath}/funding`,
       dropdownItems: [
         {
-          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
-          href: `${basePath}/what-we-do#purpose`,
+          name: currentLocale === 'en' ? 'Support Us' : 'Unterstützen Sie uns',
+          href: `${basePath}/funding#support-us`,
         },
         {
-          name: currentLocale === 'en' ? 'Voices of the Foundation' : 'Stimmen der Stiftung',
-          href: `${basePath}/what-we-do#voices`,
+          name: currentLocale === 'en' ? 'Scholarships' : 'Stipendien',
+          href: `${basePath}/funding#scholarships`,
         },
         {
-          name: currentLocale === 'en' ? 'Support Our Mission' : 'Unterstützen Sie unsere Mission',
-          href: `${basePath}/what-we-do#support-us`,
+          name: currentLocale === 'en' ? 'Projects' : 'Projekte',
+          href: `${basePath}/funding#projects`,
         },
       ],
     },
@@ -177,7 +185,7 @@ const Navbar = () => {
                 alt="German University of Digital Science Foundation"
                 width={180}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 sm:h-10 w-auto"
                 priority
               />
             </Link>

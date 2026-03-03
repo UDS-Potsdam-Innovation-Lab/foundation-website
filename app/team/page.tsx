@@ -3,9 +3,32 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building2, Globe, GraduationCap, BookOpen, X } from 'lucide-react';
+
+const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
+const PURPOSES = [
+  { title: 'Support German UDS', description: 'Promoting and financing the German University of Digital Science through strategic initiatives and partnerships', image: '/support-german-uds.jpg', objectPosition: 'center top' },
+  { title: 'Global Cooperation', description: 'Fostering international partnerships and collaboration to advance digital education worldwide', image: '/support-german-uds.jpg', objectPosition: 'left center' },
+  { title: 'Campus of Virtual Education (COVE)', description: 'Pioneering virtual learning environments and innovative digital education platforms', image: '/support-german-uds.jpg', objectPosition: 'right center' },
+  { title: 'open German UDS', description: 'Providing accessible, high-quality digital education through our online learning platform', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
+];
+const VOICE_VIDEOS = [
+  { title: 'Digital Resilience', description: 'Building adaptability and strength through digital empowerment', videoId: '1092449114' },
+  { title: 'Lifelong Learning', description: 'Education never stops — it evolves with you', videoId: '1092448821' },
+  { title: 'Digital Future', description: 'Envisioning and shaping the technological world of tomorrow', videoId: '1092448406' },
+  { title: 'Empowering the University', description: 'How the Foundation fuels UDS progress every day', videoId: '1094752301' },
+];
 
 export default function Team() {
+  const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(VOICE_VIDEOS.length).fill(false));
+
+  const handlePlay = (index: number) => {
+    setActiveVideos((prev) => {
+      const updated = [...prev];
+      updated[index] = true;
+      return updated;
+    });
+  };
   const teamMembers = [
     {
       name: 'Prof. Dr. Mike Friedrichsen',
@@ -46,8 +69,15 @@ export default function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const [carouselOpen, setCarouselOpen] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (carouselOpen) {
+      document.getElementById('team-featured')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [carouselOpen]);
 
   useEffect(() => {
     if (!showVideo || !iframeRef.current) return;
@@ -162,9 +192,7 @@ export default function Team() {
                 whileHover={{ y: -6 }}
                 onClick={() => {
                   goTo(index, index > currentIndex ? 1 : -1);
-                  document
-                    .getElementById('team-featured')
-                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  setCarouselOpen(true);
                 }}
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow border border-gray-100">
@@ -186,9 +214,10 @@ export default function Team() {
             ))}
           </div>
 
-          {/* Featured carousel (below profiles) */}
+          {/* Featured carousel – shown only when a profile is clicked */}
+          {carouselOpen && (
           <div id="team-featured" className="relative mt-12">
-            <div className="max-w-4xl mx-auto relative h-[500px] flex items-center justify-center">
+            <div className="max-w-4xl mx-auto relative min-h-[420px] md:h-[500px] flex items-center justify-center">
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -200,7 +229,15 @@ export default function Team() {
                   transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
                   className="absolute inset-0 w-full"
                 >
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-[480px] w-full flex flex-col">
+                  <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 min-h-[400px] md:h-[480px] w-full flex flex-col relative">
+                    <button
+                      type="button"
+                      onClick={() => setCarouselOpen(false)}
+                      className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+                      aria-label="Close profile"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
                     {showVideo && teamMembers[currentIndex].videoUrl ? (
                       <div className="relative p-6 h-full flex flex-col">
                         <div className="relative w-full flex-1 min-h-0 rounded-xl overflow-hidden bg-black">
@@ -225,9 +262,9 @@ export default function Team() {
                         </div>
                       </div>
                     ) : (
-                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-0">
-                        <div className="relative bg-gray-100 flex items-center justify-center p-6 md:p-8 shrink-0">
-                          <div className="relative w-[220px] h-[280px] sm:w-[260px] sm:h-[320px] md:w-[280px] md:h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-inner border border-gray-200/80">
+                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-0 flex flex-col md:flex-row">
+                        <div className="relative bg-gray-100 flex items-center justify-center p-4 md:p-8 shrink-0 order-2 md:order-1">
+                          <div className="relative w-[140px] h-[180px] sm:w-[180px] sm:h-[220px] md:w-[280px] md:h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-inner border border-gray-200/80">
                             <Image
                               src={teamMembers[currentIndex].image}
                               alt={teamMembers[currentIndex].name}
@@ -238,32 +275,34 @@ export default function Team() {
                             />
                           </div>
                         </div>
-                        <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-start min-h-0 overflow-y-auto">
-                          <motion.h2
-                            className="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.15 }}
-                          >
-                            {teamMembers[currentIndex].name}
-                          </motion.h2>
-                          <motion.p
-                            className="text-lg text-[#0066FF] font-semibold mb-4"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                          >
-                            {teamMembers[currentIndex].title}
-                          </motion.p>
-                          <motion.p
-                            className="text-gray-600 leading-relaxed text-sm mb-6"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.25 }}
-                          >
-                            {teamMembers[currentIndex].bio}
-                          </motion.p>
-                          <div className="flex flex-wrap gap-3">
+                        <div className="p-4 sm:p-8 md:p-10 flex flex-col justify-between min-h-0 flex-1 order-1 md:order-2">
+                          <div className="min-h-0 flex-1 overflow-y-auto">
+                            <motion.h2
+                              className="text-xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.15 }}
+                            >
+                              {teamMembers[currentIndex].name}
+                            </motion.h2>
+                            <motion.p
+                              className="text-base md:text-lg text-[#0066FF] font-semibold mb-2 md:mb-4"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.2 }}
+                            >
+                              {teamMembers[currentIndex].title}
+                            </motion.p>
+                            <motion.p
+                              className="text-gray-600 leading-relaxed text-sm mb-4 md:mb-6 max-h-[120px] md:max-h-none overflow-y-auto md:overflow-visible"
+                              initial={{ opacity: 0, y: 12 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.25 }}
+                            >
+                              {teamMembers[currentIndex].bio}
+                            </motion.p>
+                          </div>
+                          <div className="flex flex-wrap gap-2 md:gap-3 pt-3 flex-shrink-0 border-t border-gray-100 md:border-0 md:pt-0">
                             <a
                               href={`mailto:${teamMembers[currentIndex].email}`}
                               className="inline-flex items-center px-5 py-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-xl font-medium transition-colors"
@@ -318,6 +357,118 @@ export default function Team() {
                 ))}
               </div>
             </div>
+          </div>
+          )}
+        </div>
+      </section>
+
+      {/* Our Purpose */}
+      <section id="purpose" className="scroll-mt-24 py-10 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Our Purpose</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Discover how we&apos;re transforming digital education and shaping the future</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {PURPOSES.map((purpose, index) => {
+              const Icon = PURPOSE_ICONS[index];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08, duration: 0.5 }}
+                  whileHover={{ y: -6 }}
+                  className="group relative"
+                >
+                  <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                    <div className="flex flex-col min-h-[200px] sm:min-h-[220px] md:h-[280px]">
+                      <div className="relative h-24 sm:h-28 md:h-[55%] w-full overflow-hidden shrink-0">
+                        <img src={purpose.image} alt={purpose.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: purpose.objectPosition }} />
+                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0066FF]" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-h-0 w-full p-4 sm:p-5 flex flex-col justify-start overflow-y-auto">
+                        <h3 className="text-[#0066FF] text-sm sm:text-base font-semibold mb-1.5 sm:mb-2">{purpose.title}</h3>
+                        <p className="text-gray-600 text-xs sm:text-sm leading-snug">{purpose.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Voices of the Foundation */}
+      <section id="voices" className="scroll-mt-24 py-10 sm:py-16 bg-gray-50/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">Voices of the Foundation</h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">Hear why our members of the executive board believe in the mission of the German UDS Foundation</p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+            {VOICE_VIDEOS.map((video, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -6 }}
+                className="group relative"
+              >
+                <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                  <div className="relative aspect-video overflow-hidden">
+                    {activeVideos[index] ? (
+                      <iframe
+                        src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`}
+                        className="absolute inset-0 w-full h-full"
+                        allow="autoplay; fullscreen"
+                        allowFullScreen
+                        title={video.title}
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handlePlay(index)}
+                        className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group/play"
+                        style={{
+                          backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                        aria-label={`Play video: ${video.title}`}
+                      >
+                        <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
+                        <span className="relative w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
+                          <span className="text-2xl ml-1">▶</span>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                  <div className="p-4 sm:p-5">
+                    <h3 className="text-[#0066FF] font-bold text-sm sm:text-base mb-1.5 sm:mb-2">{video.title}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{video.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

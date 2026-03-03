@@ -18,7 +18,7 @@ const Footer = () => {
         { name: t.navbar.home, href: currentLocale === 'en' ? '/' : `/${currentLocale}` },
         { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
         { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
-        { name: t.navbar.whatWeDo, href: currentLocale === 'en' ? '/what-we-do' : `/${currentLocale}/what-we-do` },
+        { name: currentLocale === 'en' ? 'Funding' : 'Förderung', href: currentLocale === 'en' ? '/funding' : `/${currentLocale}/funding` },
         { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
       ],
     },
@@ -32,10 +32,6 @@ const Footer = () => {
         {
           name: currentLocale === 'de' ? 'Steuervorteile Übersicht' : 'Tax Benefits Overview',
           href: '/tax-benefits.pdf',
-        },
-        {
-          name: currentLocale === 'de' ? 'Broschüre' : 'Brochure',
-          href: '/GUDS_Brochure_Final.pdf',
         },
       ],
     },
@@ -53,8 +49,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#1f2937] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
           <div>
             <img
               src="/UDS_foundation_logo_neg-on-DarkBlue_rgb.png"
