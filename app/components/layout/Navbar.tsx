@@ -78,11 +78,11 @@ const Navbar = () => {
       href: `${basePath}/values`,
       dropdownItems: [
         {
-          name: currentLocale === 'en' ? 'Guiding Principles' : 'Werte & Mission',
+          name: currentLocale === 'en' ? 'Guiding Principles' : 'Werte',
           href: `${basePath}/values#core-beliefs`,
         },
         {
-          name: currentLocale === 'en' ? 'Core Beliefs' : 'Kernüberzeugungen',
+          name: currentLocale === 'en' ? 'Core Beliefs' : 'Mission',
           href: `${basePath}/values#guiding-principles`,
         },
       ],
