@@ -60,7 +60,7 @@ const Navbar = () => {
       href: `${basePath}/team`,
       dropdownItems: [
         {
-          name: currentLocale === 'en' ? 'About' : 'Über die Stiftung',
+          name: currentLocale === 'en' ? 'About Us' : 'Über uns',
           href: `${basePath}/team#team-about`,
         },
         {
