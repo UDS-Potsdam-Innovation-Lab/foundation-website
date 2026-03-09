@@ -16,7 +16,7 @@ const Footer = () => {
       title: currentLocale === 'de' ? 'Schnellzugriff' : 'Quick Links',
       links: [
         { name: t.navbar.home, href: currentLocale === 'en' ? '/' : `/${currentLocale}` },
-        { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/about' : `/${currentLocale}/about` },
+        { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
         { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
         { name: currentLocale === 'en' ? 'Funding' : 'Förderung', href: currentLocale === 'en' ? '/funding' : `/${currentLocale}/funding` },
         { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+    { name: 'About Us', href: '/team' },
     { name: 'Programs', href: '/programs' },
     { name: 'Get Involved', href: '/get-involved' },
     { name: 'Team', href: '/team' },

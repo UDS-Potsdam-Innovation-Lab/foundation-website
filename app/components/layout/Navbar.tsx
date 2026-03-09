@@ -64,10 +64,6 @@ const Navbar = () => {
           href: `${basePath}/team#team-about`,
         },
         {
-          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
-          href: `${basePath}/team#purpose`,
-        },
-        {
           name: currentLocale === 'en' ? 'Voices of the Foundation' : 'Stimmen der Stiftung',
           href: `${basePath}/team#voices`,
         },
@@ -82,7 +78,7 @@ const Navbar = () => {
       href: `${basePath}/values`,
       dropdownItems: [
         {
-          name: currentLocale === 'en' ? 'Guiding Principles' : 'Leitprinzipien',
+          name: currentLocale === 'en' ? 'Guiding Principles' : 'Werte & Mission',
           href: `${basePath}/values#core-beliefs`,
         },
         {
@@ -95,6 +91,10 @@ const Navbar = () => {
       name: currentLocale === 'en' ? 'Funding' : 'Förderung',
       href: `${basePath}/funding`,
       dropdownItems: [
+        {
+          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
+          href: `${basePath}/funding#purpose`,
+        },
         {
           name: currentLocale === 'en' ? 'Support Us' : 'Unterstützen Sie uns',
           href: `${basePath}/funding#support-us`,

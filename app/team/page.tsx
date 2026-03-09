@@ -3,20 +3,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Building2, Globe, GraduationCap, BookOpen, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
-const PURPOSES = [
-  { title: 'Support German UDS', description: 'Promoting and financing the German University of Digital Science through strategic initiatives and partnerships', image: '/support-german-uds.jpg', objectPosition: 'center top' },
-  { title: 'Global Cooperation', description: 'Fostering international partnerships and collaboration to advance digital education worldwide', image: '/support-german-uds.jpg', objectPosition: 'left center' },
-  { title: 'Campus of Virtual Education (COVE)', description: 'Pioneering virtual learning environments and innovative digital education platforms', image: '/support-german-uds.jpg', objectPosition: 'right center' },
-  { title: 'open German UDS', description: 'Providing accessible, high-quality digital education through our online learning platform', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
-];
 const VOICE_VIDEOS = [
-  { title: 'Digital Resilience', description: 'Building adaptability and strength through digital empowerment', videoId: '1092449114' },
-  { title: 'Lifelong Learning', description: 'Education never stops — it evolves with you', videoId: '1092448821' },
   { title: 'Digital Future', description: 'Envisioning and shaping the technological world of tomorrow', videoId: '1092448406' },
-  { title: 'Empowering the University', description: 'How the Foundation fuels UDS progress every day', videoId: '1094752301' },
+  { title: 'Lifelong Learning', description: 'Education never stops — it evolves with you', videoId: '1092448821' },
+  { title: 'Digital Resilience', description: 'Building adaptability and strength through digital empowerment', videoId: '1092449114' },
+  { title: 'Empowering the University', description: 'How the Foundation fuels German UDS progress every day', videoId: '1094752301' },
 ];
 
 export default function Team() {
@@ -148,11 +141,9 @@ export default function Team() {
                 </h1>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   The German UDS Foundation supports the German University of Digital Science by funding
-                  innovative education and research in the field of digital science. Our mission is to
-                  advance digital transformation, promote the integration of digital competencies across
-                  all sectors of society, and contribute to shaping an inclusive, future-oriented digital
-                  world. The foundation operates with official recognition, acknowledged by the
-                  Senatsverwaltung für Justiz und Verbraucherschutz.
+                  innovative education and research in the field of digital science. The foundation
+                  operates with official recognition, acknowledged by the Senatsverwaltung für Justiz
+                  und Verbraucherschutz.
                 </p>
               </motion.div>
             </div>
@@ -362,53 +353,6 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Our Purpose */}
-      <section id="purpose" className="scroll-mt-24 py-10 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Our Purpose</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Discover how we&apos;re transforming digital education and shaping the future</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            {PURPOSES.map((purpose, index) => {
-              const Icon = PURPOSE_ICONS[index];
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.5 }}
-                  whileHover={{ y: -6 }}
-                  className="group relative"
-                >
-                  <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
-                    <div className="flex flex-col min-h-[200px] sm:min-h-[220px] md:h-[280px]">
-                      <div className="relative h-24 sm:h-28 md:h-[55%] w-full overflow-hidden shrink-0">
-                        <img src={purpose.image} alt={purpose.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: purpose.objectPosition }} />
-                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0066FF]" />
-                        </div>
-                      </div>
-                      <div className="flex-1 min-h-0 w-full p-4 sm:p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 className="text-[#0066FF] text-sm sm:text-base font-semibold mb-1.5 sm:mb-2">{purpose.title}</h3>
-                        <p className="text-gray-600 text-xs sm:text-sm leading-snug">{purpose.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Voices of the Foundation */}
       <section id="voices" className="scroll-mt-24 py-10 sm:py-16 bg-gray-50/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -447,7 +391,7 @@ export default function Team() {
                       <button
                         type="button"
                         onClick={() => handlePlay(index)}
-                        className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group/play"
+                        className="absolute inset-0 w-full h-full flex items-end justify-start cursor-pointer group/play p-4"
                         style={{
                           backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`,
                           backgroundSize: 'cover',
@@ -456,7 +400,7 @@ export default function Team() {
                         aria-label={`Play video: ${video.title}`}
                       >
                         <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
-                        <span className="relative w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
+                        <span className="relative z-10 w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
                           <span className="text-2xl ml-1">▶</span>
                         </span>
                       </button>

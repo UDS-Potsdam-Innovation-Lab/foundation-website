@@ -3,19 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Building2, Globe, GraduationCap, BookOpen, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
-const PURPOSES = [
-  { title: 'Unterstützung der German UDS', description: 'Förderung und Finanzierung der German University of Digital Science durch strategische Initiativen und Partnerschaften', image: '/support-german-uds.jpg', objectPosition: 'center top' },
-  { title: 'Globale Zusammenarbeit', description: 'Förderung internationaler Partnerschaften und Kooperationen zur Weiterentwicklung der digitalen Bildung weltweit', image: '/support-german-uds.jpg', objectPosition: 'left center' },
-  { title: 'Campus für Virtuelle Bildung (COVE)', description: 'Entwicklung virtueller Lernumgebungen und innovativer digitaler Bildungsplattformen', image: '/support-german-uds.jpg', objectPosition: 'right center' },
-  { title: 'open German UDS', description: 'Bereitstellung zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattform der German UDS', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
-];
 const VOICE_VIDEOS = [
-  { title: 'Digitale Resilienz', description: 'Anpassungsfähigkeit und Stärke durch digitale Befähigung aufbauen', videoId: '1092449114' },
-  { title: 'Lebenslanges Lernen', description: 'Bildung endet nie – sie entwickelt sich mit dir weiter', videoId: '1092448821' },
   { title: 'Digitale Zukunft', description: 'Die technologische Welt von morgen gestalten und mit Vision denken', videoId: '1092448406' },
+  { title: 'Lebenslanges Lernen', description: 'Bildung endet nie – sie entwickelt sich mit dir weiter', videoId: '1092448821' },
+  { title: 'Digitale Resilienz', description: 'Anpassungsfähigkeit und Stärke durch digitale Befähigung aufbauen', videoId: '1092449114' },
   { title: 'Stärkung der Universität', description: 'Wie die Stiftung täglich den Fortschritt der German UDS vorantreibt', videoId: '1094752301' },
 ];
 
@@ -55,12 +48,11 @@ export default function Team() {
       bio: 'Wulf Wersig war bis 2016 Schulleiter und Geschäftsführer des Regionalen Berufsbildungszentrums Wirtschaft in Kiel – Träger des Deutschen Schulpreises. Nach seinem Studium der Volkswirtschaftslehre und Wirtschaftspädagogik in Kiel und Berlin setzte er die digitale Transformation aktiv in seinem beruflichen Umfeld um. Von 2017 bis 2023 war er Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
     },
     {
-      name: 'Prof. Dr. Christoph Meinel',
-      title: 'Repräsentant',
+      name: 'Marie Greune-Martin',
+      title: 'Assistentin der Geschäftsführung der Stiftung',
       email: 'marie.greunemartin@german-uds.de',
-      image: '/ch_m.jpg',
-      videoUrl: 'https://player.vimeo.com/video/1094752169?badge=0&autopause=0&app_id=58479',
-      bio: 'Christoph Meinel war von 2004 bis 2023 Geschäftsführer und CEO des Hasso-Plattner-Instituts für Digital Engineering (HPI) an der Universität Potsdam. Er ist Professor emeritus (C4) der Informatik an der Universität Potsdam und leitete den Lehrstuhl für Internettechnologien und -systeme am HPI. 2023 wurde er Mitbegründer und Gründungspräsident der German University of Digital Science sowie Geschäftsführer der Trägergesellschaft German UDS gGmbH.',
+      image: '/Marie.png',
+      bio: 'Marie Greune-Martin ist Assistentin der Geschäftsführung an der German University of Digital Sciences und arbeitet dort seit Juni 2025. Sie hat einen Masterabschluss in Psychologie, studierte in Erfurt und Jena und absolvierte eine Zusatzqualifikation in Praktischer Personalwirtschaft. Vor ihrer Tätigkeit bei der German UDS arbeitete sie im Bildungssektor und unterstützte Schulen sowie die Entwicklung von Schülerinnen und Schülern.',
     },
   ];
 
@@ -147,10 +139,8 @@ export default function Team() {
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   Die German UDS Foundation unterstützt die German University of Digital Science durch die
                   Förderung innovativer Bildungs- und Forschungsprojekte im Bereich der digitalen
-                  Wissenschaften. Unsere Mission ist es, den digitalen Wandel voranzutreiben, digitale
-                  Kompetenzen in allen Bereichen der Gesellschaft zu verankern und eine inklusive,
-                  zukunftsorientierte digitale Welt mitzugestalten. Die Stiftung ist offiziell anerkannt
-                  durch die Senatsverwaltung für Justiz und Verbraucherschutz.
+                  Wissenschaften. Die Stiftung ist offiziell anerkannt durch die Senatsverwaltung für
+                  Justiz und Verbraucherschutz.
                 </p>
               </motion.div>
             </div>
@@ -358,37 +348,6 @@ export default function Team() {
           </div>
           )}
 
-          {/* Our Purpose - Unsere Schwerpunkte */}
-          <section id="purpose" className="scroll-mt-24 pt-10 sm:pt-16">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-10">
-              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">Unsere Schwerpunkte</h2>
-              <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten</p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {PURPOSES.map((purpose, index) => {
-                const Icon = PURPOSE_ICONS[index];
-                return (
-                  <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.5 }} whileHover={{ y: -6 }} className="group relative">
-                    <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
-                      <div className="flex flex-col min-h-[200px] sm:min-h-[220px] md:h-[280px]">
-                        <div className="relative h-24 sm:h-28 md:h-[55%] w-full overflow-hidden shrink-0">
-                          <img src={purpose.image} alt={purpose.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: purpose.objectPosition }} />
-                          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0066FF]" />
-                          </div>
-                        </div>
-                        <div className="flex-1 min-h-0 w-full p-4 sm:p-5 flex flex-col justify-start overflow-y-auto">
-                          <h3 className="text-[#0066FF] text-sm sm:text-base font-semibold mb-1.5 sm:mb-2">{purpose.title}</h3>
-                          <p className="text-gray-600 text-xs sm:text-sm leading-snug">{purpose.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </section>
-
           {/* Voices of the Foundation - Stimmen der Stiftung */}
           <section id="voices" className="scroll-mt-24 pt-10 sm:pt-16">
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
@@ -403,9 +362,9 @@ export default function Team() {
                       {activeVideos[index] ? (
                         <iframe src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`} className="absolute inset-0 w-full h-full" allow="autoplay; fullscreen" allowFullScreen title={video.title} />
                       ) : (
-                        <button type="button" onClick={() => handlePlay(index)} className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group/play" style={{ backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-label={`Video abspielen: ${video.title}`}>
+                        <button type="button" onClick={() => handlePlay(index)} className="absolute inset-0 w-full h-full flex items-end justify-start cursor-pointer group/play p-4" style={{ backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-label={`Video abspielen: ${video.title}`}>
                           <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
-                          <span className="relative w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
+                          <span className="relative z-10 w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
                             <span className="text-2xl ml-1">▶</span>
                           </span>
                         </button>

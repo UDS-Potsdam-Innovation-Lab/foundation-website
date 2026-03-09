@@ -148,7 +148,7 @@ export default function Page() {
                   transition={{ duration: 0.6, delay: 0.65 }}
                 >
                   <motion.a
-                    href="/de/about"
+                    href="/de/team"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all shadow-xl hover:shadow-orange-500/40 group font-medium"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}

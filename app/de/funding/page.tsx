@@ -14,9 +14,20 @@ import {
   ArrowRight,
   GraduationCap,
   Lightbulb,
+  Building2,
+  Globe,
+  BookOpen,
 } from "lucide-react";
 
 const SUPPORT_ICONS = [HeartHandshake, Landmark, FolderKanban, Briefcase, FlaskConical, Server];
+
+const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
+const PURPOSES = [
+  { title: 'Unterstützung der German UDS', description: 'Förderung und Finanzierung der German University of Digital Science durch strategische Initiativen und Partnerschaften', image: '/support-german-uds.jpg', objectPosition: 'center top' },
+  { title: 'Globale Zusammenarbeit', description: 'Förderung internationaler Partnerschaften und Kooperationen zur Weiterentwicklung der digitalen Bildung weltweit', image: '/support-german-uds.jpg', objectPosition: 'left center' },
+  { title: 'Campus für Virtuelle Bildung (COVE)', description: 'Entwicklung virtueller Lernumgebungen und innovativer digitaler Bildungsplattformen', image: '/support-german-uds.jpg', objectPosition: 'right center' },
+  { title: 'open German UDS', description: 'Bereitstellung zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattform der German UDS', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
+];
 
 export default function FundingPage() {
   const supportMethods = [
@@ -41,6 +52,39 @@ export default function FundingPage() {
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">Förderung</h1>
             <p className="text-base sm:text-xl text-gray-600">Unterstützen Sie unsere Mission, bewerben Sie sich für Stipendien oder fördern Sie Projekte</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Our Purpose - Unsere Schwerpunkte (top of page) */}
+      <section id="purpose" className="relative scroll-mt-24 py-16 sm:py-20 overflow-hidden bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Unsere Schwerpunkte</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Unser Zweck konzentriert sich vor allem auf die German UDS: Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {PURPOSES.map((purpose, index) => {
+              const Icon = PURPOSE_ICONS[index];
+              return (
+                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.5 }} whileHover={{ y: -6 }} className="group relative">
+                  <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                    <div className="flex flex-col min-h-[200px] sm:min-h-[220px] md:h-[280px]">
+                      <div className="relative h-24 sm:h-28 md:h-[55%] w-full overflow-hidden shrink-0">
+                        <img src={purpose.image} alt={purpose.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: purpose.objectPosition }} />
+                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0066FF]" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-h-0 w-full p-4 sm:p-5 flex flex-col justify-start overflow-y-auto">
+                        <h3 className="text-[#0066FF] text-sm sm:text-base font-semibold mb-1.5 sm:mb-2">{purpose.title}</h3>
+                        <p className="text-gray-600 text-xs sm:text-sm leading-snug">{purpose.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

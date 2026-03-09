@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Target, Users, Lightbulb, GraduationCap, Globe, Sparkles, Quote } from "lucide-react";
+import { ArrowRight, Target, Users, Lightbulb, GraduationCap, Globe, Sparkles, Quote, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -42,19 +42,19 @@ export default function Values() {
       icon: Sparkles,
     },
     {
-      title: "Digitale Bildung",
+      title: "Digitale Bildung etablieren",
       description: "Zugang zu hochwertiger Bildung über fortschrittliche digitale Plattformen ermöglichen",
       image: "/beliefs3.png",
       icon: Lightbulb,
     },
     {
-      title: "Globale Bildung",
+      title: "Globale Bildung ermöglichen",
       description: "Geografische Barrieren überwinden, um eine weltweite Lerngemeinschaft zu schaffen",
       image: "/beliefs4.png",
       icon: Globe,
     },
     {
-      title: "Harmonie zwischen KI und Mensch",
+      title: "Harmonie zwischen KI und Mensch fördern",
       description: "Ein ausgewogenes Zusammenspiel von künstlicher Intelligenz und Bildung fördern",
       image: "/beliefs5.png",
       icon: Users,
@@ -127,7 +127,7 @@ export default function Values() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Werte & Vision
+              Werte & Mission
             </h1>
             <p className="text-xl text-gray-600">
               Die Prinzipien und Überzeugungen, die alles leiten, was wir tun
@@ -156,7 +156,7 @@ export default function Values() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Ziele</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Werte</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Unser Stiftungszweck inspiriert uns, die digitale Zukunft zu gestalten, zu fördern und zu stärken
             </p>
@@ -266,14 +266,46 @@ export default function Values() {
               <Quote className="w-14 h-14 text-white/90 mx-auto mb-6" />
             </motion.div>
             <blockquote className="text-2xl sm:text-3xl font-medium text-white leading-relaxed mb-8 drop-shadow-sm">
-              &ldquo;Unsere Werte sind nicht nur Worte—sie sind die Grundlage von allem, was wir tun.&rdquo;
+              &ldquo;Unsere Mission ist es, den digitalen Wandel voranzutreiben, digitale Kompetenzen in allen Bereichen der Gesellschaft zu verankern und eine inklusive, zukunftsorientierte digitale Welt mitzugestalten.&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-white/40" />
-              <p className="text-white/95 text-sm font-semibold tracking-wide">German UDS Foundation</p>
+              <p className="text-white/95 text-sm font-semibold tracking-wide">Mission der German UDS Foundation</p>
               <div className="h-px w-12 bg-white/40" />
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Stiftungssatzung - PDF download */}
+      <section id="statutes" className="relative scroll-mt-24 py-16 overflow-hidden bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.a
+            href="/stiftungssatzung.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
+          >
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
+            <div className="relative p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Stiftungssatzung der German University of Digital Science Foundation</h3>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
+                PDF herunterladen
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </motion.a>
         </div>
       </section>
 

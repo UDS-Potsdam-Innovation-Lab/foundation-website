@@ -2,7 +2,7 @@ const de = {
   navbar: {
     home: "Startseite",
     about: "Über uns",               // ✅ Corrected from "About"
-    values: "Ziele",
+    values: "Werte",
     whatWeDo: "Was wir tun",
     ecosystem: "German UDS Ökosystem",
     team: "Team",
