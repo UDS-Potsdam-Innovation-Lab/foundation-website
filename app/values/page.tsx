@@ -218,7 +218,11 @@ export default function Values() {
                     <div className="relative w-full aspect-[4/3] min-h-[220px]">
                       <Image
                         src={principle.image}
-                        alt={principle.title}
+                        alt={
+                          typeof principle.title === "string"
+                            ? principle.title
+                            : principle.description
+                        }
                         fill
                         className={`object-cover ${principle.objectPosition || ""}`}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
