@@ -64,26 +64,50 @@ export default function Values() {
 
   const guidingPrinciples = [
     {
-      title: "Shape the Digital Future",
+      title: (
+        <>
+          Shape
+          <br />
+          the Digital Future
+        </>
+      ),
       description: "Leading innovation in digital education and research",
       image: "/principle1.jpg",
       icon: Target,
     },
     {
-      title: "Promote Young Talent",
+      title: (
+        <>
+          Promote
+          <br />
+          Young Talent
+        </>
+      ),
       description: "Nurturing the next generation of digital innovators",
       image: "/principle3.jpg",
       objectPosition: "object-[30%]",
       icon: Users,
     },
     {
-      title: "Establish Digital Science",
+      title: (
+        <>
+          Establish
+          <br />
+          Digital Science
+        </>
+      ),
       description: "Creating new standards in digital academic excellence",
       image: "/principle2.jpg",
       icon: GraduationCap,
     },
     {
-      title: "Support Education",
+      title: (
+        <>
+          Support
+          <br />
+          Digital Education
+        </>
+      ),
       description: "Developing essential competencies for the digital age",
       image: "/principle4.jpg",
       icon: Lightbulb,
@@ -206,14 +230,14 @@ export default function Values() {
                         <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
                           <Icon className="w-5 h-5 text-[#0066FF]" />
                         </div>
-                        <div className="relative inline-block min-w-0">
+                        <div className="relative block w-full">
                           <h3 className="text-[#0066FF] font-bold text-base relative z-10">
                             {principle.title}
                           </h3>
                           <motion.span
-                            className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#0066FF] to-blue-400 rounded-full"
+                            className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0066FF] to-blue-400 rounded-full"
                             initial={false}
-                            animate={{ width: "100%" }}
+                            animate={{ opacity: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.05 }}
                           />
                         </div>
@@ -280,50 +304,20 @@ export default function Values() {
               <Quote className="w-14 h-14 text-white/90 mx-auto mb-6" />
             </motion.div>
             <blockquote className="text-2xl sm:text-3xl font-medium text-white leading-relaxed mb-8 drop-shadow-sm">
-              &ldquo;Our mission is to advance digital transformation, promote the integration of digital competencies across all sectors of society, and contribute to shaping an inclusive, future-oriented digital world.&rdquo;
+              &ldquo;Collaborative work and learning processes become the foundation of continuous digital transformation and part of a new equity of opportunity in the digital world.&rdquo;
+              <br />
+              &ldquo;Transforming digital education and shaping the future of lifelong learning advances educational equity and expands opportunity.&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-white/40" />
-              <p className="text-white/95 text-sm font-semibold tracking-wide">Mission of the German UDS Foundation</p>
+              <p className="text-white/95 text-sm font-semibold tracking-wide">Statement from the German UDS Foundation</p>
               <div className="h-px w-12 bg-white/40" />
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Statutes - PDF download */}
-      <section id="statutes" className="relative scroll-mt-24 py-16 overflow-hidden bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.a
-            href="/statutes-foundation.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4, scale: 1.01 }}
-            className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
-          >
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
-            <div className="relative p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FileText className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Statutes of the German University of Digital Science Foundation</h3>
-                </div>
-              </div>
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
-                Download PDF
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </div>
-          </motion.a>
-        </div>
-      </section>
-
-      {/* Core Beliefs Section */}
+      {/* Mission Section */}
       <section id="guiding-principles" className="relative scroll-mt-32 py-20 overflow-hidden">
         <motion.div
           className="pointer-events-none absolute top-10 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-60"
@@ -344,7 +338,7 @@ export default function Values() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">Core Beliefs</h2>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">Mission</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our foundation is built on fundamental beliefs that drive our mission to transform digital
               education and shape the future of learning
@@ -414,6 +408,38 @@ export default function Values() {
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Statutes - PDF download */}
+      <section id="statutes" className="relative scroll-mt-24 py-16 overflow-hidden bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.a
+            href="/statutes-foundation.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
+          >
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
+            <div className="relative p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Statutes of the German University of Digital Science Foundation</h3>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
+                Download PDF
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </motion.a>
         </div>
       </section>
     </main>

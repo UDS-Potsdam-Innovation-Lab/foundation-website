@@ -74,7 +74,7 @@ const Navbar = () => {
       ],
     },
     {
-      name: t.navbar.values,
+      name: currentLocale === 'de' ? 'Leitgedanken' : t.navbar.values,
       href: `${basePath}/values`,
       dropdownItems: [
         {
@@ -82,13 +82,13 @@ const Navbar = () => {
           href: `${basePath}/values#core-beliefs`,
         },
         {
-          name: currentLocale === 'en' ? 'Core Beliefs' : 'Mission',
+          name: currentLocale === 'en' ? 'Mission' : 'Mission',
           href: `${basePath}/values#guiding-principles`,
         },
       ],
     },
     {
-      name: currentLocale === 'en' ? 'Funding' : 'Förderung',
+      name: currentLocale === 'en' ? 'Funding' : 'Spenden & Fördern',
       href: `${basePath}/funding`,
       dropdownItems: [
         {

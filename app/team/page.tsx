@@ -52,10 +52,10 @@ export default function Team() {
     },
     {
       name: 'Marie Greune-Martin',
-      title: 'Management Assistant to the Foundation',
+      title: 'Assistentin des Vorstands',
       email: 'marie.greunemartin@german-uds.de',
       image: '/Marie.png',
-      bio: 'Marie Greune-Martin is a Management Assistant at the German University of Digital Sciences, where she has worked since June 2025. She holds a Master\'s degree in Psychology, studied in Erfurt and Jena, and completed an additional qualification in Practical Human Resources Management. Before joining German UDS, she worked in the educational sector, supporting schools and student development.',
+      bio: 'Marie Greune-Martin is Assistentin des Vorstands at the German University of Digital Sciences, where she has worked since June 2025. She holds a Master\'s degree in Psychology, studied in Erfurt and Jena, and completed an additional qualification in Practical Human Resources Management. Before joining German UDS, she worked in the educational sector, supporting schools and student development.',
     },
   ];
 

@@ -23,16 +23,16 @@ const SUPPORT_ICONS = [HeartHandshake, Landmark, FolderKanban, Briefcase, FlaskC
 
 const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
 const PURPOSES = [
-  { title: 'Unterstützung der German UDS', description: 'Förderung und Finanzierung der German University of Digital Science durch strategische Initiativen und Partnerschaften', image: '/support-german-uds.jpg', objectPosition: 'center top' },
+  { title: 'Unterstützung der German UDS', description: 'Förderung und Finanzierung der German University of Digital Science sowie deren strategischen Initiativen und Partnerschaften', image: '/support-german-uds.jpg', objectPosition: 'center top' },
   { title: 'Globale Zusammenarbeit', description: 'Förderung internationaler Partnerschaften und Kooperationen zur Weiterentwicklung der digitalen Bildung weltweit', image: '/support-german-uds.jpg', objectPosition: 'left center' },
   { title: 'Campus für Virtuelle Bildung (COVE)', description: 'Entwicklung virtueller Lernumgebungen und innovativer digitaler Bildungsplattformen', image: '/support-german-uds.jpg', objectPosition: 'right center' },
-  { title: 'open German UDS', description: 'Bereitstellung zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattform der German UDS', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
+  { title: 'open German UDS', description: 'Bereitstellung leicht zugänglicher und hochwertiger digitaler Bildung über die Online-Lernplattform der German UDS', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
 ];
 
 export default function FundingPage() {
   const supportMethods = [
     { title: "Spenden", description: "Unterstützen Sie unsere Initiativen mit flexiblen Spendenoptionen", image: "/support/1.png" },
-    { title: "Stiftungen", description: "Hinterlassen Sie ein Vermächtnis durch nachhaltige Finanzierung", image: "/support/2.png" },
+    { title: "Stiften", description: "Hinterlassen Sie ein Vermächtnis durch nachhaltige Finanzierung", image: "/support/2.png" },
     { title: "Projektförderung", description: "Unterstützen Sie Projekte, die Ihren Interessen entsprechen", image: "/support/3.png" },
     { title: "Unternehmenspartnerschaften", description: "Arbeiten Sie mit uns zusammen, um Innovationen voranzutreiben", image: "/support/4.png" },
     { title: "Forschungsförderung", description: "Finanzieren Sie bahnbrechende Forschung und Bildung", image: "/support/5.png" },
@@ -49,8 +49,12 @@ export default function FundingPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">Förderung</h1>
-            <p className="text-base sm:text-xl text-gray-600">Unterstützen Sie unsere Mission, bewerben Sie sich für Stipendien oder fördern Sie Projekte</p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">Spenden & Fördern</h1>
+            <p className="text-base sm:text-xl text-gray-600">
+              - Werden Sie Teil unserer Mission -
+              <br />
+              Bewerben Sie sich für Stipendien oder fördern Sie Projekte
+            </p>
           </motion.div>
         </div>
       </section>
@@ -60,7 +64,7 @@ export default function FundingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Unsere Schwerpunkte</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Unser Zweck konzentriert sich vor allem auf die German UDS: Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Erfahren Sie, wie wir die digitale Bildung transformieren und die Zukunft gestalten</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {PURPOSES.map((purpose, index) => {
@@ -147,8 +151,22 @@ export default function FundingPage() {
 
       <section id="scholarships" className="relative scroll-mt-24 py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <div className="w-full max-w-3xl mx-auto bg-blue-50/90 border border-blue-100 rounded-3xl px-6 py-5 sm:px-10 sm:py-7 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
+                Fördermöglichkeiten
+              </h2>
+            </div>
+          </motion.div>
+
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Stipendien</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">Stipendien</h3>
             <p className="mt-2 text-lg text-gray-600">Wir vergeben 10 Stipendien für die Einschreibung an der German University of Digital Science</p>
           </motion.div>
 

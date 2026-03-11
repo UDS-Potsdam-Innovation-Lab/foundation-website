@@ -24,7 +24,7 @@ const SUPPORT_ICONS = [HeartHandshake, Landmark, FolderKanban, Briefcase, FlaskC
 
 const PURPOSE_ICONS = [Building2, Globe, GraduationCap, BookOpen];
 const PURPOSES = [
-  { title: 'Support German UDS', description: 'Promoting and financing the German University of Digital Science through strategic initiatives and partnerships', image: '/support-german-uds.jpg', objectPosition: 'center top' },
+{ title: 'Support German UDS', description: 'Promoting and financing the German University of Digital Science and its strategic initiatives and partnerships', image: '/support-german-uds.jpg', objectPosition: 'center top' },
   { title: 'Global Cooperation', description: 'Fostering international partnerships and collaboration to advance digital education worldwide', image: '/support-german-uds.jpg', objectPosition: 'left center' },
   { title: 'Campus of Virtual Education (COVE)', description: 'Pioneering virtual learning environments and innovative digital education platforms', image: '/support-german-uds.jpg', objectPosition: 'right center' },
   { title: 'open German UDS', description: 'Providing accessible, high-quality digital education through our online learning platform', image: '/support-german-uds.jpg', objectPosition: 'center bottom' },
@@ -89,7 +89,9 @@ export default function FundingPage() {
               Funding
             </h1>
             <p className="text-base sm:text-xl text-gray-600">
-              Support our mission, apply for scholarships, or fund projects
+              - Be part of our mission -
+              <br />
+              Apply for scholarships or fund projects
             </p>
           </motion.div>
         </div>
@@ -106,7 +108,7 @@ export default function FundingPage() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Our Purpose</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Our purpose is mainly focused on the German UDS: discover how we&apos;re transforming digital education and shaping the future</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Discover how we&apos;re transforming digital education and shaping the future</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {PURPOSES.map((purpose, index) => {
@@ -248,9 +250,19 @@ export default function FundingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-6"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Support for Your Digital Education</h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Scholarships</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">Scholarships</h3>
             <p className="mt-2 text-lg text-gray-600">
               We offer 10 scholarships for enrollment at the German University of Digital Science
             </p>
