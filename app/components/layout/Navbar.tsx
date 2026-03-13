@@ -99,7 +99,7 @@ const Navbar = () => {
           href: `${basePath}/support#purpose`,
         },
         {
-          name: currentLocale === 'en' ? 'Get Involved' : 'Unterstützen Sie uns',
+          name: currentLocale === 'en' ? 'Ways to Support Us' : 'Unterstützen Sie uns',
           href: `${basePath}/support#support-us`,
         },
         {

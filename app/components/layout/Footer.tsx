@@ -19,7 +19,7 @@ const Footer = () => {
         { name: currentLocale === 'de' ? t.navbar.about : 'About Us', href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
         { name: t.navbar.values, href: currentLocale === 'en' ? '/values' : `/${currentLocale}/values` },
         { name: t.navbar.ecosystem, href: currentLocale === 'en' ? '/ecosystem' : `/${currentLocale}/ecosystem` },
-        { name: currentLocale === 'en' ? 'Funding' : 'Spenden & Fördern', href: currentLocale === 'en' ? '/funding' : `/${currentLocale}/funding` },
+        { name: currentLocale === 'en' ? 'Funding' : 'Förderprogramme', href: currentLocale === 'en' ? '/funding' : `/${currentLocale}/funding` },
         { name: t.navbar.team, href: currentLocale === 'en' ? '/team' : `/${currentLocale}/team` },
       ],
     },

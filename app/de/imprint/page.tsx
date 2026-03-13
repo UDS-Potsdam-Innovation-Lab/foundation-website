@@ -63,7 +63,6 @@ export default function Impressum() {
           <p><strong>Vorstand:</strong></p>
           <ul className="list-disc ml-5 mb-2">
             <li>Prof. Dr. Mike Friedrichsen (Vorsitzender)</li>
-            <li>Wulf Wersig</li>
             <li>Syster Friedrichsen</li>
           </ul>
           <p><strong>Registergericht:</strong></p>

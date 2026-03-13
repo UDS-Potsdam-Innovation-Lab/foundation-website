@@ -40,7 +40,7 @@ export default function FundingPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">Fördern</h1>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">Fördermöglichkeiten</h1>
             <p className="text-base sm:text-xl text-gray-600">
               - Werden Sie Teil unserer Mission -
               <br />
@@ -52,20 +52,6 @@ export default function FundingPage() {
 
       <section id="scholarships" className="relative scroll-mt-24 py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
-            <div className="w-full max-w-3xl mx-auto bg-blue-50/90 border border-blue-100 rounded-3xl px-6 py-5 sm:px-10 sm:py-7 shadow-sm">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
-                Fördermöglichkeiten
-              </h2>
-            </div>
-          </motion.div>
-
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">Stipendien</h3>
             <p className="mt-2 text-lg text-gray-600">Wir vergeben 10 Stipendien für die Einschreibung an der German University of Digital Science</p>
