@@ -219,7 +219,7 @@ export default function Page() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-blue-50 to-sky-50 p-5 sm:p-6 md:p-8 group-hover:from-blue-100 group-hover:to-sky-100 group-hover:border-blue-300 shadow-md hover:shadow-xl transition-all duration-400">
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-blue-50 to-sky-50 p-5 sm:p-6 md:p-8 group-hover:from-blue-100 group-hover:to-sky-100 group-hover:border-blue-300 shadow-md hover:shadow-xl transition-all duration-300">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-l-2xl" />
                 <div className="relative flex flex-col md:flex-row md:items-start gap-6">
                   <div className="w-14 h-14 rounded-xl bg-white/80 shadow-sm flex items-center justify-center shrink-0 ring-1 ring-black/5 group-hover:scale-110 transition-transform duration-300 text-blue-600">
@@ -258,7 +258,7 @@ export default function Page() {
                     whileHover={{ y: -6, scale: 1.01 }}
                   >
                     <div
-                      className={`relative h-full p-6 rounded-2xl border-2 border-gray-100 bg-gradient-to-br ${style.bg} ${style.hover} ${style.border} shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden`}
+                      className={`relative h-full p-6 rounded-2xl border-2 border-gray-100 bg-gradient-to-br ${style.bg} ${style.hover} ${style.border} shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden`}
                     >
                       {/* Accent bar on hover */}
                       <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${style.barGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-l-2xl`} />
