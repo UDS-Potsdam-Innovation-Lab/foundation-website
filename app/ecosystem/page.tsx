@@ -278,49 +278,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      {/* Financial Support & Participation - redesigned box */}
-      <section className="py-10 sm:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-              Financial Support & Participation
-              <span className="block w-16 h-1 rounded-full bg-orange-500 mx-auto mt-3" />
-            </h2>
-            <p className="text-gray-600 mt-4">Join us in shaping the future of digital education</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <Link
-              href="/funding"
-              className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
-            >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
-              <div className="relative p-8 md:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Fund or apply for funding</h3>
-                  <p className="text-gray-600 max-w-xl">
-                    Support the Foundation through donations, scholarships, or project funding. Or apply for one of our 10 scholarships to study at the German University of Digital Science. Scholarships cover tuition only; living expenses are not included.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orange-500 group-hover:bg-orange-600 text-white font-semibold shadow-md transition-all shrink-0">
-                  Explore funding options
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }

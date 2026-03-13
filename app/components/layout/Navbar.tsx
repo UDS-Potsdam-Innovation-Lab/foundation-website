@@ -91,7 +91,7 @@ const Navbar = () => {
       ],
     },
     {
-      name: currentLocale === 'en' ? 'Support Us' : 'Unterstützer',
+      name: currentLocale === 'en' ? 'Get Involved' : 'Engagement',
       href: `${basePath}/support`,
       dropdownItems: [
         {
@@ -99,7 +99,7 @@ const Navbar = () => {
           href: `${basePath}/support#purpose`,
         },
         {
-          name: currentLocale === 'en' ? 'Support Us' : 'Unterstützen Sie uns',
+          name: currentLocale === 'en' ? 'Get Involved' : 'Unterstützen Sie uns',
           href: `${basePath}/support#support-us`,
         },
         {
@@ -109,20 +109,28 @@ const Navbar = () => {
       ],
     },
     {
-      name: currentLocale === 'en' ? 'Funding' : 'Stipendien',
+      name: currentLocale === 'en' ? 'Funding' : 'Förderprogramme',
       href: `${basePath}/funding`,
       dropdownItems: [
-        {
-          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
-          href: `${basePath}/funding#purpose`,
-        },
         {
           name: currentLocale === 'en' ? 'Scholarships' : 'Stipendien',
           href: `${basePath}/funding#scholarships`,
         },
         {
-          name: currentLocale === 'en' ? 'Projects' : 'Projekte',
-          href: `${basePath}/funding#projects`,
+          name: currentLocale === 'en' ? 'Fellowships' : 'Fellowships',
+          href: `${basePath}/funding#fellowships`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Grants' : 'Grants',
+          href: `${basePath}/funding#grants`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Programs' : 'Programme',
+          href: `${basePath}/funding#programs`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Community' : 'Community',
+          href: `${basePath}/funding#community`,
         },
       ],
     },
