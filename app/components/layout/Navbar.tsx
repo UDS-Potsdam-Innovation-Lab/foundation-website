@@ -54,7 +54,6 @@ const Navbar = () => {
   const basePath = currentLocale === 'en' ? '' : `/${currentLocale}`;
 
   const navItems: NavItem[] = [
-    { name: t.navbar.home, href: basePath || '/' },
     {
       name: currentLocale === 'en' ? 'About Us' : 'Über uns',
       href: `${basePath}/team`,
@@ -64,12 +63,16 @@ const Navbar = () => {
           href: `${basePath}/team#team-about`,
         },
         {
+          name: currentLocale === 'en' ? 'Meet the Team' : 'Unser Team',
+          href: `${basePath}/team#team-grid`,
+        },
+        {
           name: currentLocale === 'en' ? 'Voices of the Foundation' : 'Stimmen der Stiftung',
           href: `${basePath}/team#voices`,
         },
         {
-          name: currentLocale === 'en' ? 'Meet the Team' : 'Unser Team',
-          href: `${basePath}/team#team-grid`,
+          name: currentLocale === 'en' ? 'Statutes' : 'Stiftungssatzung',
+          href: `${basePath}/team#statutes`,
         },
       ],
     },
@@ -88,16 +91,30 @@ const Navbar = () => {
       ],
     },
     {
-      name: currentLocale === 'en' ? 'Funding' : 'Spenden & Fördern',
+      name: currentLocale === 'en' ? 'Support Us' : 'Unterstützer',
+      href: `${basePath}/support`,
+      dropdownItems: [
+        {
+          name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
+          href: `${basePath}/support#purpose`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Support Us' : 'Unterstützen Sie uns',
+          href: `${basePath}/support#support-us`,
+        },
+        {
+          name: currentLocale === 'en' ? 'Tax Benefits' : 'Steuervorteile',
+          href: `${basePath}/support#tax-benefits`,
+        },
+      ],
+    },
+    {
+      name: currentLocale === 'en' ? 'Funding' : 'Stipendien',
       href: `${basePath}/funding`,
       dropdownItems: [
         {
           name: currentLocale === 'en' ? 'Our Purpose' : 'Unsere Schwerpunkte',
           href: `${basePath}/funding#purpose`,
-        },
-        {
-          name: currentLocale === 'en' ? 'Support Us' : 'Unterstützen Sie uns',
-          href: `${basePath}/funding#support-us`,
         },
         {
           name: currentLocale === 'en' ? 'Scholarships' : 'Stipendien',

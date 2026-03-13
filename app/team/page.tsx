@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, FileText, ArrowRight } from 'lucide-react';
 
 const VOICE_VIDEOS = [
   { title: 'Digital Future', description: 'Envisioning and shaping the technological world of tomorrow', videoId: '1092448406' },
@@ -414,6 +414,40 @@ export default function Team() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Statutes - PDF download (bottom of page, no header) */}
+      <section id="statutes" className="relative scroll-mt-24 py-12 overflow-hidden bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.a
+            href="/statutes-foundation.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
+          >
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
+            <div className="relative p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    Statutes of the German University of Digital Science Foundation
+                  </h3>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
+                Download PDF
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </motion.a>
         </div>
       </section>
     </main>

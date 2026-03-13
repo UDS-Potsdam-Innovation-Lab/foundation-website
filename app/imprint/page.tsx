@@ -63,7 +63,6 @@ export default function Imprint() {
           <p><strong>Board of Directors:</strong></p>
           <ul className="list-disc ml-5 mb-2">
             <li>Prof. Dr. Mike Friedrichsen (Chairman)</li>
-            <li>Wulf Wersig</li>
             <li>Syster Friedrichsen</li>
           </ul>
           <p><strong>Registration Court:</strong></p>

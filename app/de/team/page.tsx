@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, FileText, ArrowRight } from 'lucide-react';
 
 const VOICE_VIDEOS = [
   { title: 'Digitale Zukunft', description: 'Die technologische Welt von morgen gestalten und mit Vision denken', videoId: '1092448406' },
@@ -49,7 +49,7 @@ export default function Team() {
     },
     {
       name: 'Marie Greune-Martin',
-      title: 'Assistentin der Geschäftsführung der Stiftung',
+      title: 'Assistentin des Vorstands',
       email: 'marie.greunemartin@german-uds.de',
       image: '/Marie.png',
       bio: 'Marie Greune-Martin ist Assistentin der Geschäftsführung an der German University of Digital Sciences und arbeitet dort seit Juni 2025. Sie hat einen Masterabschluss in Psychologie, studierte in Erfurt und Jena und absolvierte eine Zusatzqualifikation in Praktischer Personalwirtschaft. Vor ihrer Tätigkeit bei der German UDS arbeitete sie im Bildungssektor und unterstützte Schulen sowie die Entwicklung von Schülerinnen und Schülern.',
@@ -204,7 +204,7 @@ export default function Team() {
 
           {/* Featured carousel – shown only when a profile is clicked */}
           {carouselOpen && (
-          <div id="team-featured" className="relative mt-12 mb-20">
+          <div id="team-featured" className="relative mt-12">
             <div className="max-w-4xl mx-auto relative min-h-[420px] md:h-[500px] flex items-center justify-center">
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
@@ -349,34 +349,109 @@ export default function Team() {
           )}
 
           {/* Voices of the Foundation - Stimmen der Stiftung */}
-          <section id="voices" className="scroll-mt-24 pt-10 sm:pt-16">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">Stimmen der Stiftung</h2>
-              <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">Hören Sie, warum unsere Vorstandsmitglieder an die Mission der German UDS Foundation glauben</p>
-            </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-              {VOICE_VIDEOS.map((video, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ delay: index * 0.1, duration: 0.5 }} whileHover={{ y: -6 }} className="group relative">
-                  <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
-                    <div className="relative aspect-video overflow-hidden">
-                      {activeVideos[index] ? (
-                        <iframe src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`} className="absolute inset-0 w-full h-full" allow="autoplay; fullscreen" allowFullScreen title={video.title} />
-                      ) : (
-                        <button type="button" onClick={() => handlePlay(index)} className="absolute inset-0 w-full h-full flex items-end justify-start cursor-pointer group/play p-4" style={{ backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-label={`Video abspielen: ${video.title}`}>
-                          <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
-                          <span className="relative z-10 w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
-                            <span className="text-2xl ml-1">▶</span>
-                          </span>
-                        </button>
-                      )}
+          <section id="voices" className="scroll-mt-24 py-10 sm:py-16 bg-gray-50/50">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-8 sm:mb-12"
+              >
+                <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2">
+                  Stimmen der Stiftung
+                </h2>
+                <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">
+                  Hören Sie, warum unsere Vorstandsmitglieder an die Mission der German UDS Foundation
+                  glauben
+                </p>
+              </motion.div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                {VOICE_VIDEOS.map((video, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    whileHover={{ y: -6 }}
+                    className="group relative"
+                  >
+                    <div className="relative rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl hover:border-[#0066FF]/30 transition-all duration-300">
+                      <div className="relative aspect-video overflow-hidden">
+                        {activeVideos[index] ? (
+                          <iframe
+                            src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`}
+                            className="absolute inset-0 w-full h-full"
+                            allow="autoplay; fullscreen"
+                            allowFullScreen
+                            title={video.title}
+                          />
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => handlePlay(index)}
+                            className="absolute inset-0 w-full h-full flex items-end justify-start cursor-pointer group/play p-4"
+                            style={{
+                              backgroundImage: `url(https://vumbnail.com/${video.videoId}.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                            aria-label={`Video abspielen: ${video.title}`}
+                          >
+                            <div className="absolute inset-0 bg-black/20 group-hover/play:bg-black/30 transition-colors" />
+                            <span className="relative z-10 w-16 h-16 rounded-full bg-[#0066FF]/90 group-hover/play:bg-[#0066FF] flex items-center justify-center text-white shadow-lg transition-transform group-hover/play:scale-110">
+                              <span className="text-2xl ml-1">▶</span>
+                            </span>
+                          </button>
+                        )}
+                      </div>
+                      <div className="p-4 sm:p-5">
+                        <h3 className="text-[#0066FF] font-bold text-sm sm:text-base mb-1.5 sm:mb-2">
+                          {video.title}
+                        </h3>
+                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                          {video.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="p-4 sm:p-5">
-                      <h3 className="text-[#0066FF] font-bold text-sm sm:text-base mb-1.5 sm:mb-2">{video.title}</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{video.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Stiftungssatzung - PDF download (Seitenende, ohne Überschrift) */}
+          <section id="statutes" className="relative scroll-mt-24 py-8 overflow-hidden bg-gray-50/50">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.a
+                href="/stiftungssatzung.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4, scale: 1.01 }}
+                className="group block relative overflow-hidden rounded-2xl border-2 border-[#0066FF]/20 bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-lg hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-orange-500" />
+                <div className="relative p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <FileText className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        Stiftungssatzung der German University of Digital Science Foundation
+                      </h3>
                     </div>
                   </div>
-                </motion.div>
-              ))}
+                  <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
+                    PDF herunterladen
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+              </motion.a>
             </div>
           </section>
         </div>
