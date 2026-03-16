@@ -55,6 +55,10 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     {
+      name: currentLocale === 'en' ? 'Home' : t.navbar.home,
+      href: currentLocale === 'en' ? '/' : `/${currentLocale}`,
+    },
+    {
       name: currentLocale === 'en' ? 'About Us' : 'Über uns',
       href: `${basePath}/team`,
       dropdownItems: [
