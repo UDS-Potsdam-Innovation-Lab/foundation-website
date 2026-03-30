@@ -421,7 +421,7 @@ export default function Team() {
       <section id="statutes" className="relative scroll-mt-24 py-12 overflow-hidden bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.a
-            href="/statutes-foundation.pdf"
+            href="/stiftungssatzung.pdf"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -440,6 +440,9 @@ export default function Team() {
                   <h3 className="text-xl font-bold text-gray-900">
                     Statutes of the German University of Digital Science Foundation
                   </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Document in German (Stiftungssatzung)
+                  </p>
                 </div>
               </div>
               <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
