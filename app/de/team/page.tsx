@@ -12,6 +12,10 @@ const VOICE_VIDEOS = [
   { title: 'Stärkung der Universität', description: 'Wie die Stiftung täglich den Fortschritt der German UDS vorantreibt', videoId: '1094752301' },
 ];
 
+/** Public file: Satzung German University of Digital Science Foundation June 2025.pdf */
+const STATUTES_PDF_HREF =
+  '/Satzung%20German%20University%20of%20Digital%20Science%20Foundation%20June%202025.pdf';
+
 export default function Team() {
   const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(VOICE_VIDEOS.length).fill(false));
 
@@ -425,7 +429,7 @@ export default function Team() {
           <section id="statutes" className="relative scroll-mt-24 py-8 overflow-hidden bg-gray-50/50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.a
-                href="/stiftungssatzung.pdf"
+                href={STATUTES_PDF_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}

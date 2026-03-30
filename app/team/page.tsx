@@ -12,6 +12,10 @@ const VOICE_VIDEOS = [
   { title: 'Empowering the University', description: 'How the Foundation fuels German UDS progress every day', videoId: '1094752301' },
 ];
 
+/** Public file: Satzung German University of Digital Science Foundation June 2025 en.pdf */
+const STATUTES_PDF_HREF =
+  '/Satzung%20German%20University%20of%20Digital%20Science%20Foundation%20June%202025%20en.pdf';
+
 export default function Team() {
   const [activeVideos, setActiveVideos] = useState<boolean[]>(Array(VOICE_VIDEOS.length).fill(false));
 
@@ -421,7 +425,7 @@ export default function Team() {
       <section id="statutes" className="relative scroll-mt-24 py-12 overflow-hidden bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.a
-            href="/stiftungssatzung.pdf"
+            href={STATUTES_PDF_HREF}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -440,9 +444,6 @@ export default function Team() {
                   <h3 className="text-xl font-bold text-gray-900">
                     Statutes of the German University of Digital Science Foundation
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Document in German (Stiftungssatzung)
-                  </p>
                 </div>
               </div>
               <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0066FF] group-hover:bg-[#0052CC] text-white font-semibold shadow-md transition-all shrink-0">
