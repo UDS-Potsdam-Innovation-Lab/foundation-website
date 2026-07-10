@@ -61,6 +61,20 @@ export default function Team() {
       image: '/Marie.png',
       bio: 'Marie Greune-Martin is Assistentin des Vorstands at the German University of Digital Sciences, where she has worked since June 2025. She holds a Master\'s degree in Psychology, studied in Erfurt and Jena, and completed an additional qualification in Practical Human Resources Management. Before joining German UDS, she worked in the educational sector, supporting schools and student development.',
     },
+    {
+      name: 'Prof. Dr. Udo Mildenberger',
+      title: 'Member of the Foundation',
+      email: 'mildenb@hdm-stuttgart.de',
+      image: '/Udo%20Mildenberger.jpg',
+      bio: 'Since 2008, Udo Mildenberger has been Professor of Business Administration, specializing in Accounting and Controlling, in the Business Informatics and Digital Media program at Stuttgart Media University. In addition, he has been teaching in virtual degree programs at various universities and colleges in Germany and abroad since 1999. From 2010 to 2023, as Dean of the Faculty of Information and Communication at Stuttgart Media University, he helped develop and advance digital teaching models.',
+    },
+    {
+      name: 'Sabine Baumann',
+      title: 'Member of the Foundation',
+      email: 'sabaumann@sabaconsulting.de',
+      image: '/Sabine%20Baumann.jpg',
+      bio: 'Sabine Baumann brings more than 30 years of experience in corporate finance. As managing partner of SABA Sabine Baumann Unternehmensberatung and SABA Consulting & Brokerage GmbH, she advises companies on corporate finance, M&A, restructuring, and interim CFO mandates across the DACH region. She is a member of the German UDS Foundation.',
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -179,7 +193,7 @@ export default function Team() {
               <motion.button
                 key={index}
                 type="button"
-                className="group text-left cursor-pointer"
+                className={`group text-left cursor-pointer${index === 4 ? ' lg:col-start-2' : ''}`}
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -196,7 +210,7 @@ export default function Team() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>

@@ -58,6 +58,20 @@ export default function Team() {
       image: '/Marie.png',
       bio: 'Marie Greune-Martin ist Assistentin der Geschäftsführung an der German University of Digital Sciences und arbeitet dort seit Juni 2025. Sie hat einen Masterabschluss in Psychologie, studierte in Erfurt und Jena und absolvierte eine Zusatzqualifikation in Praktischer Personalwirtschaft. Vor ihrer Tätigkeit bei der German UDS arbeitete sie im Bildungssektor und unterstützte Schulen sowie die Entwicklung von Schülerinnen und Schülern.',
     },
+    {
+      name: 'Prof. Dr. Udo Mildenberger',
+      title: 'Mitglied der Stiftung',
+      email: 'mildenb@hdm-stuttgart.de',
+      image: '/Udo%20Mildenberger.jpg',
+      bio: 'Udo Mildenberger ist seit 2008 Professor für Betriebswirtschaftslehre insbesondere Rechnungswesen und Controlling im Studiengang Wirtschaftsinformatik und Digitale Medien der Hochschule der Medien Stuttgart. Darüber hinaus ist er seit 1999 als Dozent in virtuellen Studiengängen an unterschiedlichen Universitäten und Hochschulen im In- und Ausland tätig. In der Zeit von 2010 bis 2023 hat er Digitale Lehrmodelle als Dekan der Fakultät für Information und Kommunikation der Hochschule der Medien mitentwickelt und vorangetrieben.',
+    },
+    {
+      name: 'Sabine Baumann',
+      title: 'Mitglied der Stiftung',
+      email: 'sabaumann@sabaconsulting.de',
+      image: '/Sabine%20Baumann.jpg',
+      bio: 'Sabine Baumann verfügt über mehr als 30 Jahre Erfahrung im Finanzwesen. Als geschäftsführende Gesellschafterin der SABA Sabine Baumann Unternehmensberatung und der SABA Consulting & Brokerage GmbH berät sie Unternehmen in den Bereichen Corporate Finance, M&A, Restrukturierung und Interim-CFO-Mandate im DACH-Raum. Sie ist Mitglied der German UDS Foundation.',
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -176,7 +190,7 @@ export default function Team() {
               <motion.button
                 key={index}
                 type="button"
-                className="group text-left cursor-pointer"
+                className={`group text-left cursor-pointer${index === 4 ? ' lg:col-start-2' : ''}`}
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -193,7 +207,7 @@ export default function Team() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
