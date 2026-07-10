@@ -137,7 +137,7 @@ export default function Team() {
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <motion.div
             id="team-about"
-            initial={{ opacity: 0, y: 32 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-120px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -148,7 +148,7 @@ export default function Team() {
 
             <div className="relative">
               <motion.div
-                initial={{ opacity: 0, x: -24 }}
+                initial={false}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-120px' }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -170,7 +170,7 @@ export default function Team() {
           {/* Meet The Team header */}
           <motion.div
             id="team-grid"
-            initial={{ opacity: 0, x: -24 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -178,7 +178,7 @@ export default function Team() {
           >
             <motion.h2
               className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
-              initial={{ opacity: 0, x: -20 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -194,7 +194,7 @@ export default function Team() {
                 key={index}
                 type="button"
                 className={`group text-left cursor-pointer${index === 4 ? ' lg:col-start-2' : ''}`}
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={false}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
@@ -375,7 +375,7 @@ export default function Team() {
       <section id="voices" className="scroll-mt-24 py-10 sm:py-16 bg-gray-50/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -388,7 +388,7 @@ export default function Team() {
             {VOICE_VIDEOS.map((video, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -442,7 +442,7 @@ export default function Team() {
             href={STATUTES_PDF_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -4, scale: 1.01 }}
