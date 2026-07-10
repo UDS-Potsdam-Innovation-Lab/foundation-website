@@ -197,7 +197,7 @@ export default function Page() {
           <div className="relative max-w-7xl mx-auto">
             <motion.div
               className="text-left mb-8 sm:mb-10"
-              initial={{ opacity: 0, x: -24 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
@@ -214,7 +214,7 @@ export default function Page() {
             <motion.a
               href="/de/funding#scholarships"
               className="group block mb-10 sm:mb-14"
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
@@ -251,7 +251,7 @@ export default function Page() {
                     key={item.href}
                     href={item.href}
                     className={`group relative cursor-pointer block ${isLarge ? 'lg:col-span-2' : ''}`}
-                    initial={{ opacity: 0, y: 28 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-30px' }}
                     transition={{ delay: index * 0.06, duration: 0.5, ease: 'easeOut' }}

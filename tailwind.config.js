@@ -1,12 +1,10 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'media',
   theme: {
     extend: {
       colors: {
@@ -21,10 +19,11 @@ const config: Config = {
         sans: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(234, 88, 12, 0.5)',
+        glow: '0 0 20px rgba(234, 88, 12, 0.5)',
         'glow-lg': '0 0 40px rgba(234, 88, 12, 0.4)',
-        'card': '0 4px 24px -4px rgba(30, 64, 175, 0.08), 0 8px 48px -8px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 20px 40px -12px rgba(30, 64, 175, 0.15), 0 0 0 1px rgba(234, 88, 12, 0.08)',
+        card: '0 4px 24px -4px rgba(30, 64, 175, 0.08), 0 8px 48px -8px rgba(0, 0, 0, 0.06)',
+        'card-hover':
+          '0 20px 40px -12px rgba(30, 64, 175, 0.15), 0 0 0 1px rgba(234, 88, 12, 0.08)',
       },
       keyframes: {
         breathing: {
@@ -35,7 +34,7 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        'shimmer': {
+        shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
@@ -43,10 +42,9 @@ const config: Config = {
       animation: {
         breathing: 'breathing 3s ease-in-out infinite',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
-        'shimmer': 'shimmer 2s ease-in-out infinite',
+        shimmer: 'shimmer 2s ease-in-out infinite',
       },
     },
   },
   plugins: [],
 };
-export default config;
