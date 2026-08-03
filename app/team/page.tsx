@@ -47,7 +47,7 @@ export default function Team() {
     },
     {
       name: 'Wulf Wersig',
-      title: 'Chairman of the Board of Trustees',
+      title: 'Chair of the Foundation Board',
       email: 'wulf.wersig@foundation.german-uds.de',
       image: '/wulf_w.jpg',
       videoUrl:
@@ -56,21 +56,21 @@ export default function Team() {
     },
     {
       name: 'Marie Greune-Martin',
-      title: 'Assistentin des Vorstands',
+      title: 'Executive Assistant',
       email: 'marie.greunemartin@german-uds.de',
       image: '/Marie.png',
       bio: 'Marie Greune-Martin is Assistentin des Vorstands at the German University of Digital Sciences, where she has worked since June 2025. She holds a Master\'s degree in Psychology, studied in Erfurt and Jena, and completed an additional qualification in Practical Human Resources Management. Before joining German UDS, she worked in the educational sector, supporting schools and student development.',
     },
     {
       name: 'Prof. Dr. Udo Mildenberger',
-      title: 'Member of the Foundation',
+      title: 'Member of the Foundation Board',
       email: 'mildenb@hdm-stuttgart.de',
       image: '/Udo%20Mildenberger.jpg',
       bio: 'Since 2008, Udo Mildenberger has been Professor of Business Administration, specializing in Accounting and Controlling, in the Business Informatics and Digital Media program at Stuttgart Media University. In addition, he has been teaching in virtual degree programs at various universities and colleges in Germany and abroad since 1999. From 2010 to 2023, as Dean of the Faculty of Information and Communication at Stuttgart Media University, he helped develop and advance digital teaching models.',
     },
     {
       name: 'Sabine Baumann',
-      title: 'Member of the Foundation',
+      title: 'Member of the Foundation Board',
       email: 'sabaumann@sabaconsulting.de',
       image: '/Sabine%20Baumann.jpg',
       bio: 'Sabine Baumann brings more than 30 years of experience in corporate finance. As managing partner of SABA Sabine Baumann Unternehmensberatung and SABA Consulting & Brokerage GmbH, she advises companies on corporate finance, M&A, restructuring, and interim CFO mandates across the DACH region. She is a member of the German UDS Foundation.',
