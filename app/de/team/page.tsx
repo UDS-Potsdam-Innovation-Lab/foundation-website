@@ -60,14 +60,14 @@ export default function Team() {
     },
     {
       name: 'Prof. Dr. Udo Mildenberger',
-      title: 'Kuratorium',
+      title: 'Stiftungsrat',
       email: 'mildenb@hdm-stuttgart.de',
       image: '/Udo%20Mildenberger.jpg',
       bio: 'Udo Mildenberger ist seit 2008 Professor für Betriebswirtschaftslehre insbesondere Rechnungswesen und Controlling im Studiengang Wirtschaftsinformatik und Digitale Medien der Hochschule der Medien Stuttgart. Darüber hinaus ist er seit 1999 als Dozent in virtuellen Studiengängen an unterschiedlichen Universitäten und Hochschulen im In- und Ausland tätig. In der Zeit von 2010 bis 2023 hat er Digitale Lehrmodelle als Dekan der Fakultät für Information und Kommunikation der Hochschule der Medien mitentwickelt und vorangetrieben.',
     },
     {
       name: 'Sabine Baumann',
-      title: 'Kuratorium',
+      title: 'Stiftungsrat',
       email: 'sabaumann@sabaconsulting.de',
       image: '/Sabine%20Baumann.jpg',
       bio: 'Sabine Baumann verfügt über mehr als 30 Jahre Erfahrung im Finanzwesen. Als geschäftsführende Gesellschafterin der SABA Sabine Baumann Unternehmensberatung und der SABA Consulting & Brokerage GmbH berät sie Unternehmen in den Bereichen Corporate Finance, M&A, Restrukturierung und Interim-CFO-Mandate im DACH-Raum. Sie ist Mitglied der German UDS Foundation.',

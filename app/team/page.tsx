@@ -47,7 +47,7 @@ export default function Team() {
     },
     {
       name: 'Wulf Wersig',
-      title: 'Chair of the Foundation Board',
+      title: 'Chairman of the Board of Trustees',
       email: 'wulf.wersig@foundation.german-uds.de',
       image: '/wulf_w.jpg',
       videoUrl:
