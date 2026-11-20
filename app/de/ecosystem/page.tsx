@@ -6,12 +6,10 @@ import Link from 'next/link';
 import {
   GraduationCap,
   Building2,
-  FileCheck,
-  Lightbulb,
   ArrowRight,
 } from 'lucide-react';
 
-const ENTITY_ICONS = [GraduationCap, Building2, FileCheck, Lightbulb];
+const ENTITY_ICONS = [GraduationCap, Building2];
 
 export default function Page() {
   const entities = [
@@ -23,16 +21,6 @@ export default function Page() {
     {
       title: 'German UDS Stiftung',
       description: 'Treibt Finanzierung und Strategie für digitale Bildung voran, bietet gezielte finanzielle Unterstützung und strategische Ausrichtung für die Zukunft.',
-      image: '/german-uds-foundation.jpg',
-    },
-    {
-      title: 'German UDS gGmbH',
-      description: 'Verantwortlich für den operativen Betrieb und Bildungsprogramme mit Fokus auf effiziente Durchführung und organisatorisches Management.',
-      image: '/german-uds-ggmbh.jpg',
-    },
-    {
-      title: 'German UDS Innovation GmbH',
-      description: 'Treibt Innovation und strategische Initiativen voran, fördert Forschung, Entwicklung und Partnerschaften im digitalen Ökosystem.',
       image: '/german-uds-foundation.jpg',
     },
   ];
